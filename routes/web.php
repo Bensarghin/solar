@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\backoffice\AdminController;
+use App\Http\Controllers\backoffice\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::prefix('admin')->group(function(){
+
+	Route::get('/',[DashboardController::class,'index']);
+	Route::get('/accueil',[DashboardController::class,'index'])->name('admin.home');
+	Route::get('/login',[AdminController::class,'index'])->name('admin.login');
+	Route::post('/login',[AdminController::class,'login'])->name('admin.login');
 });
+
+Route::group(
+[
+	'prefix' => LaravelLocalization::setLocale(),
+	'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+], function(){ 
+
+	Route::get('/', function () { return view('welcome');});
+	Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+	
+
+
+
+	Auth::routes();
+});
+
