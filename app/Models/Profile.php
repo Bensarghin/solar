@@ -8,4 +8,28 @@ use Illuminate\Database\Eloquent\Model;
 class Profile extends Model
 {
     use HasFactory;
+    /**
+         * Get the user that owns the Profile
+         *
+         * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+         */
+        public function contact() 
+        {
+            return $this->hasOne(Profile::class, 'contact_id');
+        }
+
+        public function etudiant() 
+        {
+            return $this->belongsTo(Etudiant::class, 'etudiant_id');
+        }
+
+        public function user() 
+        {
+            return $this->hasOne(User::class, 'user_id');
+        }
+
+        public function scolaire() 
+        {
+            return $this->hasOne(Scolaire::class, 'scolaire_id');
+        }
 }

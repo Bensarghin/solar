@@ -15,6 +15,11 @@ class CreateScolairesTable extends Migration
     {
         Schema::create('scolaires', function (Blueprint $table) {
             $table->id();
+            $table->string('bac_niveau');
+            $table->string('pack');
+            $table->string('code_massar')->nullable();
+            $table->string('filier');
+            $table->string('region');
             $table->timestamps();
         });
     }
