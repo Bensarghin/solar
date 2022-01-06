@@ -2,77 +2,126 @@
 
 @section('content')
 @section('content-title','Etudiant')
-<div class="row">
-    <div class="col-lg-3 col-md-6 col-12 col-sm-6">
-        <div class="blogThumb">
-            <div class="thumb-center"><img class="img-responsive" alt="user"
-                    src="../assets/img/course/course1.jpg"></div>
-            <div class="course-box">
-                <h4>PHP Development Course</h4>
-                <div class="text-muted"><span class="m-r-10">April 23</span>
-                    <a class="course-likes m-l-10" href="#"><i class="fa fa-heart-o"></i> 654</a>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="tabbable-line">
+                <ul class="nav customtab nav-tabs" role="tablist">
+                    <li class="nav-item"><a href="#tab1" class="nav-link active"
+                            data-bs-toggle="tab">List
+                            View</a></li>
+                    <li class="nav-item"><a href="#tab2" class="nav-link" data-bs-toggle="tab">Grid
+                            View</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active fontawesome-demo" id="tab1">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card card-box">
+                                    <div class="card-head">
+                                        <header>All Students List</header>
+                                        <div class="tools">
+                                            <a class="fa fa-repeat btn-color box-refresh"
+                                                href="javascript:;"></a>
+                                            <a class="t-collapse btn-color fa fa-chevron-down"
+                                                href="javascript:;"></a>
+                                            <a class="t-close btn-color fa fa-times"
+                                                href="javascript:;"></a>
+                                        </div>
+                                    </div>
+                                    <div class="card-body ">
+                                        <div class="row">
+                                            <div class="col-md-6 col-sm-6 col-6">
+                                                <div class="btn-group">
+                                                    <a href="add_professor.html" id="addRow"
+                                                        class="btn btn-info">
+                                                        Add New <i class="fa fa-plus"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="table-scrollable">
+                                            <table
+                                                class="table table-striped table-hover table-checkable order-column valign-middle"
+                                                id="example4">
+                                                <thead>
+                                                    <tr>
+                                                        <th></th>
+                                                        <th> CIN </th>
+                                                        <th> Nom Prenom </th>
+                                                        <th> Date, Lieu nais </th>
+                                                        <th> Gender </th>
+                                                        <th>Inscription</th>
+                                                        <th> Action </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach($profiles as $profile)
+                                                    <tr class="odd gradeX">
+                                                        <td class="patient-img">
+                                                            <img src="{{asset('assets/img/std/std1.jpg')}}"
+                                                                alt="">
+                                                        </td>
+                                                        <td class="left">{{$profile->etudiant->cin}}</td>
+                                                        <td>{{$profile->etudiant->nom}} {{$profile->etudiant->prenom}}</td>
+                                                        <td class="left">{{$profile->etudiant->date_nais}}, {{$profile->etudiant->lieu_nais}}</td>
+                                                        <td>{{$profile->etudiant->gender}}</td>
+                                                        <td>{{'12 déc 2021'}}</td>
+                                                        <td>
+                                                            <a href="{{route('etudiant.profile',['id'=>$profile->id])}}"
+                                                                class="btn btn-dark btn-xs">
+                                                                <i class="fa fa-user"></i>
+                                                            </a>
+                                                            <a href="edit_professor.html"
+                                                                class="btn btn-primary btn-xs">
+                                                                <i class="fa fa-pencil"></i>
+                                                            </a>
+                                                            <button class="btn btn-danger btn-xs">
+                                                                <i class="fa fa-trash-o "></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tab2">
+                        <div class="row">
+                            @foreach($profiles as $profile)
+                            <div class="col-md-4">
+                                <div class="card card-box">
+                                    <div class="card-body no-padding ">
+                                        <div class="doctor-profile">
+                                            <img src="{{asset('assets/img/std/std1.jpg')}}" class="doctor-pic"
+                                                alt="">
+                                            <div class="profile-usertitle">
+                                                <div class="doctor-name">{{$profile->etudiant->nom}} {{$profile->etudiant->prenom}}</div>
+                                                <div class="name-center"> Mathematics </div>
+                                            </div>
+                                            <p>{{$profile->contact->adresse}}, <br />{{$profile->contact->ville_resident}}
+                                            </p>
+                                            <div>
+                                                <p><i class="fa fa-phone"></i><a
+                                                        href="tel:(123)456-7890"> {{$profile->contact->tele}}</a></p>
+                                            </div>
+                                            <div class="profile-userbuttons">
+                                                <a href="professor_profile.html"
+                                                    class="btn btn-circle deepPink-bgcolor btn-sm">Read
+                                                    More</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
                 </div>
-                <p><span><i class="ti-alarm-clock"></i> Duration: 6 Months</span></p>
-                <p><span><i class="ti-user"></i> Professor: Jane Doe</span></p>
-                <p><span><i class="fa fa-graduation-cap"></i> Students: 200+</span></p>
-                <button type="button"
-                    class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 btn-info">Read
-                    More</button>
             </div>
         </div>
     </div>
-    <div class="col-lg-3 col-md-6 col-12 col-sm-6 ">
-        <div class="blogThumb">
-            <div class="thumb-center"><img class="img-responsive" alt="user"
-                    src="../assets/img/course/course2.jpg"></div>
-            <div class="course-box">
-                <h4>PHP Development Course</h4>
-                <div class="text-muted"><span class="m-r-10">April 23</span>
-                    <a class="course-likes m-l-10" href="#"><i class="fa fa-heart-o"></i> 654</a>
-                </div>
-                <p><span><i class="ti-alarm-clock"></i> Duration: 6 Months</span></p>
-                <p><span><i class="ti-user"></i> Professor: Jane Doe</span></p>
-                <p><span><i class="fa fa-graduation-cap"></i> Students: 200+</span></p>
-                <button type="button"
-                    class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 btn-info">Read
-                    More</button>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6 col-12 col-sm-6">
-        <div class="blogThumb">
-            <div class="thumb-center"><img class="img-responsive" alt="user"
-                    src="../assets/img/course/course3.jpg"></div>
-            <div class="course-box">
-                <h4>PHP Development Course</h4>
-                <div class="text-muted"><span class="m-r-10">April 23</span>
-                    <a class="course-likes m-l-10" href="#"><i class="fa fa-heart-o"></i> 654</a>
-                </div>
-                <p><span><i class="ti-alarm-clock"></i> Duration: 6 Months</span></p>
-                <p><span><i class="ti-user"></i> Professor: Jane Doe</span></p>
-                <p><span><i class="fa fa-graduation-cap"></i> Students: 200+</span></p>
-                <button type="button"
-                    class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 btn-info">Read
-                    More</button>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6 col-12 col-sm-6">
-        <div class="blogThumb">
-            <div class="thumb-center"><img class="img-responsive" alt="user"
-                    src="../assets/img/course/course4.jpg"></div>
-            <div class="course-box">
-                <h4>PHP Development Course</h4>
-                <div class="text-muted"><span class="m-r-10">April 23</span>
-                    <a class="course-likes m-l-10" href="#"><i class="fa fa-heart-o"></i> 654</a>
-                </div>
-                <p><span><i class="ti-alarm-clock"></i> Duration: 6 Months</span></p>
-                <p><span><i class="ti-user"></i> Professor: Jane Doe</span></p>
-                <p><span><i class="fa fa-graduation-cap"></i> Students: 200+</span></p>
-                <button type="button"
-                    class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 btn-info">Read
-                    More</button>
-            </div>
-        </div>
-    </div>
-</div>
+@endsection

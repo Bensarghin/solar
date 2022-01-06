@@ -11,7 +11,7 @@
                 <li class="sidebar-user-panel">
                     <div class="user-panel">
                         <div class="pull-left image">
-                            <img src="../assets/img/dp.jpg" class="img-circle user-img-circle"
+                            <img src="{{asset('assets/img/dp.jpg')}}" class="img-circle user-img-circle"
                                 alt="User Image" />
                         </div>
                         <div class="pull-left info">
@@ -22,14 +22,14 @@
                     </div>
                 </li>
                 <li class="nav-item start open">
-                    <a href="#" class="nav-link">
+                    <a href="{{route('admin.home')}}" class="nav-link">
                         <i class="material-icons">dashboard</i>
                         <span class="title">Dashboard</span>
                         <span class="selected"></span>
                     </a>
                 </li>
                 <li class="nav-item start open">
-                    <a class="nav-link" href="">
+                    <a class="nav-link" href="{{route('etudiants')}}">
                         <i class="material-icons">group</i>
                         <span class="title">Etudiants</span>
                         <span class="selected"></span>

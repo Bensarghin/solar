@@ -16,10 +16,6 @@ class User extends Authenticatable
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function profile()
-    {
-        return $this->belongsTo(Profile::class, 'user_id');
-    }
 
     /**
      * The attributes that are mass assignable.

@@ -11,6 +11,7 @@ class Contact extends Model
 
     public function profile()
     {
-        return $this->belongsTo(Profile::class, 'contact_id');
+        return $this->hasOne(Profile::class,'contact_id');
     }
+
 }

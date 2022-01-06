@@ -13,19 +13,14 @@ class Profile extends Model
          *
          * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
          */
-        public function contact() 
+        public function contact()
         {
-            return $this->hasOne(Profile::class, 'contact_id');
+            return $this->belongsTo(Contact::class);
         }
 
-        public function etudiant() 
+        public function etudiant()
         {
-            return $this->belongsTo(Etudiant::class, 'etudiant_id');
-        }
-
-        public function user() 
-        {
-            return $this->hasOne(User::class, 'user_id');
+            return $this->belongsTo(Etudiant::class,'etudiant_id');
         }
 
         public function scolaire() 

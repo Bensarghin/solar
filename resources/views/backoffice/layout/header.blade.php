@@ -32,24 +32,24 @@
                 <!-- start language menu -->
                 <li class="dropdown language-switch">
                     <a class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"> <img
-                            src="../assets/img/flags/gb.png" class="position-left" alt=""> English <span
+                            src="{{asset('assets/img/flags/gb.png')}}" class="position-left" alt=""> English <span
                             class="fa fa-angle-down"></span>
                     </a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a class="deutsch"><img src="../assets/img/flags/de.png" alt=""> Deutsch</a>
+                            <a class="deutsch"><img src="{{asset('assets/img/flags/de.png')}}" alt=""> Deutsch</a>
                         </li>
                         <li>
-                            <a class="ukrainian"><img src="../assets/img/flags/ua.png" alt=""> Українська</a>
+                            <a class="ukrainian"><img src="{{asset('assets/img/flags/ua.png')}}" alt=""> Українська</a>
                         </li>
                         <li>
-                            <a class="english"><img src="../assets/img/flags/gb.png" alt=""> English</a>
+                            <a class="english"><img src="{{asset('assets/img/flags/gb.png')}}" alt=""> English</a>
                         </li>
                         <li>
-                            <a class="espana"><img src="../assets/img/flags/es.png" alt=""> España</a>
+                            <a class="espana"><img src="{{asset('assets/img/flags/es.png')}}" alt=""> España</a>
                         </li>
                         <li>
-                            <a class="russian"><img src="../assets/img/flags/ru.png" alt=""> Русский</a>
+                            <a class="russian"><img src="{{asset('assets/img/flags/ru.png')}}" alt=""> Русский</a>
                         </li>
                     </ul>
                 </li>
@@ -145,7 +145,7 @@
                                 <li>
                                     <a href="#">
                                         <span class="photo">
-                                            <img src="../assets/img/prof/prof2.jpg" class="img-circle" alt="">
+                                            <img src="{{asset('assets/img/prof/prof2.jpg')}}" class="img-circle" alt="">
                                         </span>
                                         <span class="subject">
                                             <span class="from"> Sarah Smith </span>
@@ -157,7 +157,7 @@
                                 <li>
                                     <a href="#">
                                         <span class="photo">
-                                            <img src="../assets/img/prof/prof3.jpg" class="img-circle" alt="">
+                                            <img src="{{asset('assets/img/prof/prof3.jpg')}}" class="img-circle" alt="">
                                         </span>
                                         <span class="subject">
                                             <span class="from"> John Deo </span>
@@ -170,7 +170,7 @@
                                 <li>
                                     <a href="#">
                                         <span class="photo">
-                                            <img src="../assets/img/prof/prof1.jpg" class="img-circle" alt="">
+                                            <img src="{{asset('assets/img/prof/prof1.jpg')}}" class="img-circle" alt="">
                                         </span>
                                         <span class="subject">
                                             <span class="from"> Rajesh </span>
@@ -182,7 +182,7 @@
                                 <li>
                                     <a href="#">
                                         <span class="photo">
-                                            <img src="../assets/img/prof/prof8.jpg" class="img-circle" alt="">
+                                            <img src="{{asset('assets/img/prof/prof8.jpg')}}" class="img-circle" alt="">
                                         </span>
                                         <span class="subject">
                                             <span class="from"> Lina Smith </span>
@@ -194,7 +194,7 @@
                                 <li>
                                     <a href="#">
                                         <span class="photo">
-                                            <img src="../assets/img/prof/prof5.jpg" class="img-circle" alt="">
+                                            <img src="{{asset('assets/img/prof/prof5.jpg')}}" class="img-circle" alt="">
                                         </span>
                                         <span class="subject">
                                             <span class="from"> Jacob Ryan </span>
@@ -215,7 +215,7 @@
                 <li class="dropdown dropdown-user">
                     <a class="dropdown-toggle" data-bs-toggle="dropdown" data-hover="dropdown"
                         data-close-others="true">
-                        <img alt="" class="img-circle " src="../assets/img/dp.jpg" />
+                        <img alt="" class="img-circle " src="{{asset('assets/img/dp.jpg')}}" />
                         <span class="username username-hide-on-mobile"> Kiran </span>
                         <i class="fa fa-angle-down"></i>
                     </a>
