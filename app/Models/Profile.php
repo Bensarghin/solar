@@ -25,6 +25,6 @@ class Profile extends Model
 
         public function scolaire() 
         {
-            return $this->hasOne(Scolaire::class, 'scolaire_id');
+            return $this->belongsTo(Scolaire::class, 'scolaire_id');
         }
 }

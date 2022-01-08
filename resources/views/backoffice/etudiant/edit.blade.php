@@ -1,13 +1,13 @@
 @extends('backoffice.layout.master')
 
 @section('content')
-@section('content-title','Etudiant Profile')
+@section('content-title','Modifier Etudiant')
 
-<div class="row">
+{{-- <div class="row">
     <div class="col-sm-12">
         <div class="card-box">
             <div class="card-head">
-                <header>Basic Information</header>
+                <header>Etudiant</header>
                 <button id="panel-button"
                     class="mdl-button mdl-js-button mdl-button--icon pull-right"
                     data-upgraded=",MaterialButton">
@@ -24,44 +24,61 @@
                 </ul>
             </div>
             <div class="card-body row">
-                <div class="col-lg-6 p-t-20">
+                <div class="col-lg-12 p-t-20">
                     <div
                         class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                        <input class="mdl-textfield__input" type="text" value="Payal"
-                            id="txtFirstName">
-                        <label class="mdl-textfield__label">First Name</label>
+                        <input class="mdl-textfield__input" type="text" value="{{$profile->etudiant->cin}}"
+                            id="txtFirstName" name="cin+
+                            2jjjkkk
+                            ">
+                        <label class="mdl-textfield__label">CIN</label>
                     </div>
                 </div>
                 <div class="col-lg-6 p-t-20">
                     <div
                         class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                        <input class="mdl-textfield__input" type="text" value="Mahera"
-                            id="txtLasttName">
-                        <label class="mdl-textfield__label">Last Name</label>
+                        <input class="mdl-textfield__input" type="text" value="{{$profile->etudiant->nom}}"
+                            id="txtFirstName" name="nom">
+                        <label class="mdl-textfield__label">Nom</label>
                     </div>
                 </div>
                 <div class="col-lg-6 p-t-20">
                     <div
                         class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                        <input class="mdl-textfield__input" type="text" value="23" id="txtRollNo">
-                        <label class="mdl-textfield__label">Roll No</label>
+                        <input class="mdl-textfield__input" type="text" value="{{$profile->etudiant->prenom}}"
+                            id="txtLasttName" name="prenom">
+                        <label class="mdl-textfield__label">Prénom</label>
                     </div>
                 </div>
                 <div class="col-lg-6 p-t-20">
                     <div
                         class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                        <input class="mdl-textfield__input" type="email" value="student@example.com"
-                            id="txtemail">
-                        <label class="mdl-textfield__label">Email</label>
-                        <span class="mdl-textfield__error">Enter Valid Email Address!</span>
+                        <input class="mdl-textfield__input" type="text" value="{{$profile->etudiant->nom_ar}}" id="txtRollNo" name="nom_ar">
+                        <label class="mdl-textfield__label">Nom arab</label>
                     </div>
                 </div>
                 <div class="col-lg-6 p-t-20">
                     <div
                         class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                        <input class="mdl-textfield__input" type="text" value="2017-03-12"
-                            id="date">
-                        <label class="mdl-textfield__label">Registration Date</label>
+                        <input class="mdl-textfield__input" type="text"
+                            id="txtemail" value="{{$profile->etudiant->prenom_ar}}">
+                        <label class="mdl-textfield__label">Prenom arab</label>
+                    </div>
+                </div>
+                <div class="col-lg-6 p-t-20">
+                    <div
+                        class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                        <input class="mdl-textfield__input" type="date" value="{{$profile->etudiant->date_nais}}"
+                            id="date" name="date_nais">
+                        <label class="mdl-textfield__label">Date Nais</label>
+                    </div>
+                </div>
+                <div class="col-lg-6 p-t-20">
+                    <div
+                        class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                        <input class="mdl-textfield__input" type="text" value="{{$profile->etudiant->lieu_nais}}"
+                            id="date" name="lieu_nais">
+                        <label class="mdl-textfield__label">Lieu Nais</label>
                     </div>
                 </div>
                 <div class="col-lg-6 p-t-20">
@@ -159,6 +176,248 @@
                         class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 m-r-20 btn-pink">Submit</button>
                     <button type="button"
                         class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 btn-default">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> --}}
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card-box">
+            <div class="card-head">
+                <header>Rejoindre à : {{$profile->created_at->format('d M Y')}}</header>
+            </div>
+            <div class="card-body ">
+                <div class="mdl-tabs mdl-js-tabs">
+                    <div class="mdl-tabs__tab-bar tab-left-side">
+                        <a href="#tab4-panel"
+                            class="mdl-tabs__tab tabs_three is-active">Etudiant</a>
+                        <a href="#tab5-panel" class="mdl-tabs__tab tabs_three">Contact</a>
+                        <a href="#tab6-panel" class="mdl-tabs__tab tabs_three">Info Scolaire</a>
+                    </div>
+                    <div class="mdl-tabs__panel is-active p-t-20" id="tab4-panel">
+                        <div class="table-responsive">
+                            <form action="">
+                                <div class="card-box">
+                                    <div class="card-head">
+                                        <header>Etudiant</header>
+                                    </div>
+                                    <div class="card-body row">
+                                        <div class="col-lg-12 p-t-20">
+                                            <label class="text-muted">CIN</label>
+                                            <div
+                                                class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                                <input class="mdl-textfield__input" type="text" value="{{$profile->etudiant->cin}}"
+                                                    id="txtFirstName" name="cin+
+                                                    2jjjkkk
+                                                    ">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 p-t-20">
+                                            <label class="text-muted">Nom</label>
+                                            <div
+                                                class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                                <input class="mdl-textfield__input" type="text" value="{{$profile->etudiant->nom}}"
+                                                    id="txtFirstName" name="nom">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 p-t-20">
+                                            <label class="text-muted">Prénom</label>
+                                            <div
+                                                class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                                <input class="mdl-textfield__input" type="text" value="{{$profile->etudiant->prenom}}"
+                                                    id="txtLasttName" name="prenom">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 p-t-20">
+                                            <label class="text-muted">Nom arab</label>
+                                            <div
+                                                class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                                <input class="mdl-textfield__input" type="text" value="{{$profile->etudiant->nom_ar}}" id="txtRollNo" name="nom_ar">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 p-t-20">
+                                            <label class="text-muted">Prenom arab</label>
+                                            <div
+                                                class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                                <input class="mdl-textfield__input" type="text"
+                                                    id="txtemail" value="{{$profile->etudiant->prenom_ar}}">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 p-t-20">
+                                            <label class="text-muted">Date Nais</label>
+                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                                <input class="mdl-textfield__input" type="date" value="{{$profile->etudiant->date_nais}}"
+                                                    id="date" name="date_nais">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 p-t-20">
+                                            <label class="text-muted">Lieu Nais</label>
+                                            <div
+                                                class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                                <input class="mdl-textfield__input" type="text" value="{{$profile->etudiant->lieu_nais}}"
+                                                    id="date" name="lieu_nais">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 p-t-20">
+                                            <div
+                                            class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                                
+                                                <label class="text-muted">Gender</label>
+                                                <div class="mdl-textfield__input">
+                                                    <input type="radio" name="gender" value="M" {{$profile->etudiant->gender=="M"?'checked':''}} id="m">
+                                                    <label for="m">Masculin</label>
+                                                    <input  type="radio" name="gender" value="F" {{$profile->etudiant->gender=="F"?'checked':''}} id="f">
+                                                    <label for="f">Feminin</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 p-t-20 text-center">
+                                            <button type="submit"
+                                                class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 m-r-20 btn-pink">Enregistrer</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="mdl-tabs__panel p-t-20" id="tab5-panel">
+                        <div class="table-responsive">
+                            <form action="">
+                                <div class="card-box">
+                                    <div class="card-head">
+                                        <header>Contact</header>
+                                    </div>
+                                    <div class="card-body row">
+                                        <div class="col-lg-6 p-t-20">
+                                            <label class="text-muted">Télephone</label>
+                                            <div
+                                                class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                                <input class="mdl-textfield__input" type="text" value="{{$profile->contact->tele}}"
+                                                    id="txtFirstName" name="cin+
+                                                    2jjjkkk
+                                                    ">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 p-t-20">
+                                            <label class="text-muted">Whatsapp</label>
+                                            <div
+                                                class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                                <input class="mdl-textfield__input" type="text" value="{{$profile->contact->whatsapp}}"
+                                                    id="txtFirstName" name="whatsapp">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 p-t-20">
+                                            <label class="text-muted">Télephone Fixe</label>
+                                            <div
+                                                class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                                <input class="mdl-textfield__input" type="text" value="{{$profile->contact->tele_fixe}}"
+                                                    id="txtLasttName" name="tele_fixe">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 p-t-20">
+                                            <label class="text-muted">Télephone Parent</label>
+                                            <div
+                                                class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                                <input class="mdl-textfield__input" type="text" value="{{$profile->contact->tele_parent}}" id="txtRollNo" name="tele_parent">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 p-t-20">
+                                            <label class="text-muted">Email</label>
+                                            <div
+                                                class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                                <input class="mdl-textfield__input" type="text"
+                                                    id="txtemail" value="{{$profile->contact->email}}" name="email">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 p-t-20">
+                                            <label class="text-muted">Adresse</label>
+                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                                <input class="mdl-textfield__input" type="text" value="{{$profile->contact->adresse}}"
+                                                    id="date" name="adresse">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 p-t-20">
+                                            <label class="text-muted">Ville résident</label>
+                                            <div
+                                                class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                                <input class="mdl-textfield__input" type="text" value="{{$profile->contact->ville_resident}}"
+                                                    id="date" name="ville_resident">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 p-t-20">
+                                            <label class="text-muted">Code postal</label>
+                                            <div
+                                                class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                                <input class="mdl-textfield__input" type="text" value="{{$profile->contact->code_postal}}"
+                                                    id="number" name="code_postal">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 p-t-20 text-center">
+                                            <button type="submit"
+                                                class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 m-r-20 btn-pink">Enregistrer</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="mdl-tabs__panel p-t-20" id="tab6-panel">
+                        <div class="table-responsive">
+                            <form action="">
+                                <div class="card-box">
+                                    <div class="card-head">
+                                        <header>Info Scolaire</header>
+                                    </div>
+                                    <div class="card-body row">
+                                        <div class="col-lg-6 p-t-20">
+                                            <label class="text-muted">Pack</label>
+                                            <div
+                                                class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                                <input class="mdl-textfield__input" type="text" value="{{$profile->scolaire->pack}}"
+                                                    id="txtFirstName" name="pack">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 p-t-20">
+                                            <label class="text-muted">Bac année</label>
+                                            <div
+                                                class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                                <input class="mdl-textfield__input" type="text" value="{{$profile->scolaire->bac_niveau}}"
+                                                    id="txtFirstName" name="bac_niveau">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 p-t-20">
+                                            <label class="text-muted">Code massar</label>
+                                            <div
+                                                class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                                <input class="mdl-textfield__input" type="text" value="{{$profile->scolaire->code_massar}}"
+                                                    id="txtLasttName" name="code_massar">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 p-t-20">
+                                            <label class="text-muted">Filièr</label>
+                                            <div
+                                                class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                                <input class="mdl-textfield__input" type="text" value="{{$profile->scolaire->filier}}" id="txtRollNo" name="filier">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 p-t-20">
+                                            <label class="text-muted">Région</label>
+                                            <div
+                                                class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                                <input class="mdl-textfield__input" type="text"
+                                                    id="txtemail" value="{{$profile->scolaire->region}}">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 p-t-20 text-center">
+                                            <button type="submit"
+                                                class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 m-r-20 btn-pink">Enregistrer</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

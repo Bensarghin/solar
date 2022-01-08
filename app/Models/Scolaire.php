@@ -16,6 +16,6 @@ class Scolaire extends Model
      */
     public function profile()
     {
-        return $this->belongsTo(Profile::class,'scolaire_id');
+        return $this->hasOne(Profile::class,'scolaire_id');
     }
 }

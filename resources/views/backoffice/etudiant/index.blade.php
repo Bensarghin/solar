@@ -71,7 +71,7 @@
                                                                 class="btn btn-dark btn-xs">
                                                                 <i class="fa fa-user"></i>
                                                             </a>
-                                                            <a href="edit_professor.html"
+                                                            <a href="{{route('etudiant.edit',['id'=>$profile->id])}}"
                                                                 class="btn btn-primary btn-xs">
                                                                 <i class="fa fa-pencil"></i>
                                                             </a>

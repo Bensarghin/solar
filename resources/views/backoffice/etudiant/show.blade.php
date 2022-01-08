@@ -113,31 +113,35 @@
                                 </div>
                             </div>
                             <div class="tab-pane" id="tab2">
-                                <div id="biography">
+                                <div id="biography"> 
                                     <div class="row">
-                                        <div class="col-md-3 col-6 b-r"> <strong>jhgfjhf</strong>
+                                        <div class="col-md-3 col-6 b-r"> <strong>Pack</strong>
                                             <br>
-                                            <p class="text-muted">{{$profile->contact->tele}}</p>
-                                        </div>
-                                        <div class="col-md-3 col-6 b-r"> <strong>whatsapp</strong>
-                                            <br>
-                                            <p class="text-muted">{{$profile->contact->whatsapp}}</p>
-                                        </div>
-                                        <div class="col-md-3 col-6"> <strong>fixe</strong>
-                                            <br>
-                                            <p class="text-muted">{{$profile->contact->whatsapp}}</p>
-                                        </div>
-                                        <div class="col-md-3 col-6 b-r"> <strong>Email</strong>
-                                            <br>
-                                            <p class="text-muted"><a href="https://radixtouch.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="94e0f1e7e0d4f1ecf5f9e4f8f1baf7fbf9">[{{$profile->contact->email}}]</a></p>
+                                            <p class="text-muted">{{$profile->scolaire->pack}}</p>
                                         </div>
                                     </div>
                                     <hr>
-                                    <h4 class="font-bold">Résident</h4>
-                                                                            <p>{{$profile->contact->adresse}}, 
-                                            <br> {{$profile->contact->ville_resident}}</p>
-                                    <br>
-                                    <br>
+                                    <div class="row">
+                                        <div class="col-md-3 col-6 b-r"> <strong>bac niveau</strong>
+                                            <br>
+                                            <p class="text-muted">{{$profile->scolaire->bac_niveau}}</p>
+                                        </div>
+                                        <div class="col-md-3 col-6 b-r"> <strong>filier</strong>
+                                            <br>
+                                            <p class="text-muted">{{$profile->scolaire->filier}}</p>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-md-3 col-6"> <strong>code massar</strong>
+                                            <br>
+                                            <p class="text-muted">{{$profile->scolaire->code_massar}}</p>
+                                        </div>
+                                        <div class="col-md-3 col-6"> <strong>Region</strong>
+                                            <br>
+                                            <p class="text-muted">{{$profile->scolaire->region}}</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
