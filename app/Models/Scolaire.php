@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Scolaire extends Model
 {
     use HasFactory;
-
+    protected $fillable = ['pack','bac_niveau','code_massar','filier','region'];
     /**
      * Get the profile that owns the Scolaire
      *

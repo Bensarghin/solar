@@ -27,11 +27,25 @@ Route::prefix('admin')->group(function(){
 
 	Route::get('/',[DashboardController::class,'index']);
 	Route::get('/accueil',[DashboardController::class,'index'])->name('admin.home');
+	
 	// etudiant manage routes
-	Route::prefix('etudiant')->group(function(){
+	Route::prefix('etudiant')->group(function() {
 	Route::get('/',[EtudiantsController::class,'index'])->name('etudiants');
 	Route::get('/profile/{id}',[EtudiantsController::class,'show'])->name('etudiant.profile');
 	Route::get('/edit/{id}',[EtudiantsController::class,'edit'])->name('etudiant.edit');
+	Route::post('/update/{id}',[EtudiantsController::class,'update'])->name('etudiant.update');
+	Route::get('/create',[EtudiantsController::class,'create'])->name('etudiant.add');
+	Route::post('/store',[EtudiantsController::class,'store'])->name('etudiant.store');
+	
+	// contact update
+	Route::prefix('contact')->group(function() {
+		Route::post('/update/{id}',[EtudiantsController::class,'contact'])->name('contact.update');
+	});
+	// scolaire update
+	Route::prefix('scolaire')->group(function() {
+		Route::post('/update/{id}',[EtudiantsController::class,'scolaire'])->name('scolaire.update');
+	});
+
 	Auth::routes();
 	});
 });

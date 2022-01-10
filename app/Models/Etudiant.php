@@ -9,6 +9,8 @@ class Etudiant extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['cin','nom','prenom','prenom_ar','nom_ar','date_nais','lieu_nais','gender'];
+
     /**
      * Get the profile associated with the Etudiant
      *

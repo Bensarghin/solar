@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Profile extends Model
 {
     use HasFactory;
+    public $timestamp = true;
+    protected $fillable = ['contact_id','etudiant_id','scolaire_id',];
     /**
          * Get the user that owns the Profile
          *

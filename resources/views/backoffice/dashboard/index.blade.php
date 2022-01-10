@@ -75,7 +75,7 @@
                     </ul>
                 </div>
                 <div class="card-body ">
-                    <a href="add_professor.html" id="addRow"
+                    <a href="{{route('etudiant.add')}}" id="addRow"
                     class="btn btn-info">
                     Ajouter etudiant <i class="fa fa-plus"></i>
                     </a>
