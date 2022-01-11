@@ -36,14 +36,6 @@
                     </a>
                 </li>
                 <li class="nav-item  start open">
-                    <a href="#" class="nav-link">
-                        <i class="material-icons">map</i>
-                        <span class="title">Region</span>
-                        <span class="selected"></span>
-                        
-                    </a>
-                </li>
-                <li class="nav-item  start open">
                     <a href="javascript:;" class="nav-link">
                         <i class="material-icons">school</i>
                         <span class="title">Filiers</span>

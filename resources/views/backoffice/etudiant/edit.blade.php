@@ -25,7 +25,6 @@
                     </div>
                     <form action="{{route('etudiant.update',['id' => $profile->etudiant->id ])}}" method="POST" class="mdl-tabs__panel is-active p-t-20" id="tab4-panel">
                         <div class="table-responsive">
-                            <form action="">
                                 <div class="card-box">
                                     <div class="card-head">
                                         <header>Etudiant</header>
@@ -105,12 +104,11 @@
                                         </div>
                                     </div>
                                 </div>
-                            </form>
                         </div>
                     </form>
                     <form action="{{route('contact.update',['id' => $profile->contact->id ])}}" method="POST" class="mdl-tabs__panel p-t-20" id="tab5-panel">
+                        @csrf
                         <div class="table-responsive">
-                            <form action="">
                                 <div class="card-box">
                                     <div class="card-head">
                                         <header>Contact</header>
@@ -186,12 +184,11 @@
                                         </div>
                                     </div>
                                 </div>
-                            </form>
                         </div>
                     </form>
                     <form action="{{route('scolaire.update',['id' => $profile->scolaire->id ])}}" method="POST" class="mdl-tabs__panel p-t-20" id="tab6-panel">
+                        @csrf
                         <div class="table-responsive">
-                            <form action="">
                                 <div class="card-box">
                                     <div class="card-head">
                                         <header>Info Scolaire</header>
@@ -243,7 +240,6 @@
                                         </div>
                                     </div>
                                 </div>
-                            </form>
                         </div>
                     </form>
                 </div>

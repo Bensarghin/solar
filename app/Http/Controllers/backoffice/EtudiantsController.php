@@ -44,34 +44,57 @@ class EtudiantsController extends Controller
             return abort('404');
         }
     }
+
     // update etudiant
     public function update(Request $request, $id) {
         return redirect()->route('etudiant.profile',['']);
     }
+
     // update contact
     public function contact(Request $request, $id) {
         $request->validate([
-            'tele' => 'required|numeric|min:9|max:9',
+            'tele' => ['required','numeric','digits:9'],
+            'email' => 'email|required',
             'adresse' => 'required',
             'ville_resident' => 'required',
-            'email' => 'email|required',
-            'tele_fixe' => 'numeric|min:9|max:9',
-            'whatsapp' => 'numeric|min:9|max:9',
-            'tele_parent' => 'numeric|min:9|max:9',
-            'code_postal' => 'numeric|max:5',
+            'tele_fixe' => ['nullable','numeric','digits:9'],
+            'whatsapp' => ['nullable','numeric','digits:9'],
+            'tele_parent' => ['nullable','numeric','digits:9'],
+            'code_postal' => ['nullable','numeric','digits:5']
             ]);
-        return redirect()->route('etudiant.profile',[]);
+        Contact::where('id',$id)
+        ->update([
+            'tele' => $request->tele,
+            'email' => $request->email,
+            'whatsapp' => $request->whatsapp,
+            'tele_parent' => $request->tele_parent,
+            'tele_fixe' => $request->tele_fixe,
+            'adresse' => $request->adresse,
+            'ville_resident' => $request->ville_resident,
+            'code_postal' => $request->code_postal
+        ]);
+        return redirect()->route('etudiant.profile',['id' => Contact::find($id)->profile->id]);
     }
+
     // update scolaire
     public function scolaire(Request $request, $id) {
         $request->validate([
             'pack'=> 'required',
-            'bac_niveau' => 'numeric|required|min:4',
+            'bac_niveau' => 'numeric|required|digits:4',
             'code_massar' => 'required' ,
             'filier' => 'required' ,
             'region' => 'required' ,
         ]);
-        return redirect()->route('etudiant.profile',[]);
+
+        Scolaire::where('id',$id)
+        ->update([
+            'pack'=> $request->pack,
+            'bac_niveau' => $request->bac_niveau ,
+            'code_massar' => $request->code_massar ,
+            'filier' => $request->filier ,
+            'region' => $request->region 
+        ]);
+        return redirect()->route('etudiant.profile',['id' => Scolaire::find($id)->profile->id]);
     }
 
     public function create() {
@@ -82,7 +105,7 @@ class EtudiantsController extends Controller
 
         $request->validate([
             //etudiant validate
-            'cin' => 'required',
+            'cin' => 'required|unique:etudiants',
             'nom' => 'required',
             'prenom' => 'required',
             'nom_ar' => 'required',
@@ -91,14 +114,14 @@ class EtudiantsController extends Controller
             'lieu_nais' => 'required',
             'gender' => 'required',
             // contact validate
-            'tele' => 'required',
+            'tele' => ['required','numeric','digits:9'],
             'email' => 'required',
             'adresse' => 'required',
             'ville_resident' => 'required',
-            'tele_fixe' => 'numeric|min:9|max:9',
-            'whatsapp' => 'numeric|min:9|max:9',
-            'tele_parent' => 'numeric|min:9|max:9',
-            'code_postal' => 'numeric|max:5',
+            'tele_fixe' => ['nullable','numeric','digits:9'],
+            'whatsapp' => ['nullable','numeric','digits:9'],
+            'tele_parent' => ['nullable','numeric','digits:9'],
+            'code_postal' => ['nullable','numeric','digits:5'],
             // scolaire validate
             'pack'=> 'required',
             'bac_niveau' => 'required' ,
@@ -148,5 +171,10 @@ class EtudiantsController extends Controller
         return redirect()->route('etudiants',[
             'success', 'votre enregistrement a été bien éffectuer'
         ]);
+    }
+
+    public function destroy($id) {
+        Etudiant::find('$id')->delete();
+        return redirect()->route('etudiants');
     }
 }

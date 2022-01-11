@@ -91,7 +91,7 @@
                                         </div>
                                         <div class="col-md-3 col-6 b-r"> <strong>Email</strong>
                                             <br>
-                                            <p class="text-muted"><a href="https://radixtouch.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="94e0f1e7e0d4f1ecf5f9e4f8f1baf7fbf9">[{{$profile->contact->email}}]</a></p>
+                                            <p class="text-muted"><a href="https://radixtouch.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="94e0f1e7e0d4f1ecf5f9e4f8f1baf7fbf9">{{$profile->contact->email}}</a></p>
                                         </div>
                                     </div>
                                     <hr>
