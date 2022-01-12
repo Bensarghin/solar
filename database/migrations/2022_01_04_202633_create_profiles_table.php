@@ -18,7 +18,8 @@ class CreateProfilesTable extends Migration
             $table->foreignId('etudiant_id')->references('id')->on('etudiants')->onDelete('cascade');
            $table->foreignId('contact_id')->references('id')->on('contacts')->onDelete('cascade');
            $table->foreignId('scolaire_id')->references('id')->on('scolaires')->onDelete('cascade');
-           $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
+           $table->BigInteger('user_id')->unsigned()->nullable();
+           $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
