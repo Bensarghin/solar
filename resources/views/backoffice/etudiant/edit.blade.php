@@ -194,11 +194,35 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-6 p-t-20">
+                                            <div class="col-lg-2 p-t-20">
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-3">
+                                                    <input type="radio" id="option-3" class="mdl-radio__button" name="bac_niveau"
+                                                        value="3" checked>
+                                                    <span class="mdl-radio__label">Back acteul {{date('Y')}}</span>
+                                                </label>
+                                            </div>
+                                            <div class="col-lg-2 p-t-20">
+                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+                                                    <input type="radio" id="option-1" class="mdl-radio__button" name="bac_niveau"
+                                                        value="1">
+                                                    <span class="mdl-radio__label">Aucien bac</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 p-t-20">
                                             <label class="text-muted">Bac année</label>
                                             <div
                                                 class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                                <input class="mdl-textfield__input" type="text" value="{{$profile->scolaire->bac_niveau}}"
+                                                <input class="mdl-textfield__input" type="number" value="{{$profile->scolaire->bac_niveau}}"
                                                     id="txtFirstName" name="bac_niveau">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 p-t-20">
+                                            <label class="text-muted">Filièr </label>
+                                            <div
+                                                class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                                <input class="mdl-textfield__input" type="text" value="{{$profile->scolaire->filier}}" 
+                                                    id="txtRollNo" name="filier">
                                             </div>
                                         </div>
                                         <div class="col-lg-6 p-t-20">
@@ -210,20 +234,31 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-6 p-t-20">
-                                            <label class="text-muted">Filièr</label>
-                                            <div
-                                                class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                                <input class="mdl-textfield__input" type="text" value="{{$profile->scolaire->filier}}" 
-                                                    id="txtRollNo" name="filier">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 p-t-20">
-                                            <label class="text-muted">Région</label>
+                                            <label class="text-muted">Note régional</label>
                                             <div
                                                 class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
                                                 <input class="mdl-textfield__input" type="text"
                                                     id="txtemail" value="{{$profile->scolaire->region}}" name="region">
                                             </div>
+                                        </div>
+                                        <div class="col-lg-6 p-t-20">
+                                            <label class="text-muted">Note global</label>
+                                            <div
+                                                class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                                <input class="mdl-textfield__input" type="text"
+                                                    id="txtemail" value="{{$profile->scolaire->region}}" name="region">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 p-t-20">
+                                            <label class="text-muted">Nom Etablissement actuel</label>
+                                            <div
+                                                class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                                <input class="mdl-textfield__input" type="text"
+                                                    id="txtemail" value="{{$profile->scolaire->region}}" name="region">
+                                            </div>
+                                        </div>
+                                        <div id="app">
+                                            <ville-region></ville-region>
                                         </div>
                                         <div class="col-lg-12 p-t-20 text-center">
                                             <button type="submit"

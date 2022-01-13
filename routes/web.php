@@ -56,6 +56,7 @@ Route::get('/logout',[AdminController::class,'logout'])->name('admin.logout');
 
 	});
 	Route::get('/villes',[VilleController::class,'index']);
+	Route::get('/regions',[VilleController::class,'regions']);
 });
 
 //Etudiant routes

@@ -22,7 +22,16 @@
                 <header>Etudiant</header>
             </div>
             <div class="card-body row">
-                <div class="col-lg-12 p-t-20">
+                <div class="col-lg-6 p-t-20">
+                    <label class="text-muted">Photo</label>
+                    <div class="input-group mb-3">
+                      <div class="custom-file">
+                        <input type="file" accept="image/*" class="custom-file-input" id="inputGroupFile01">
+                        <label class="custom-file-label" for="inputGroupFile01">choiser une image</label>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 p-t-20">
                     <label class="text-muted">CIN</label>
                     <div
                         class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
@@ -31,7 +40,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 p-t-20">
-                    <label class="text-muted">Nom</label>
+                    <label class="text-muted">Nom  <span class="required"> (* obligatoire) </span></label>
                     <div
                         class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
                         <input class="mdl-textfield__input" type="text" value="{{old('nom')}}"
@@ -39,7 +48,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 p-t-20">
-                    <label class="text-muted">Prénom</label>
+                    <label class="text-muted">Prénom <span class="required"> (* obligatoire) </span></label>
                     <div
                         class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
                         <input class="mdl-textfield__input" type="text" value="{{old('prenom')}}"
@@ -47,14 +56,14 @@
                     </div>
                 </div>
                 <div class="col-lg-6 p-t-20">
-                    <label class="text-muted">Nom arab</label>
+                    <label class="text-muted">Nom arab <span class="required"> (* obligatoire) </span></label>
                     <div
                         class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
                         <input class="mdl-textfield__input" type="text" value="{{old('nom_ar')}}" id="txtRollNo" name="nom_ar">
                     </div>
                 </div>
                 <div class="col-lg-6 p-t-20">
-                    <label class="text-muted">Prenom arab</label>
+                    <label class="text-muted">Prenom arab <span class="required"> (* obligatoire) </span></label>
                     <div
                         class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
                         <input class="mdl-textfield__input" type="text"
@@ -62,7 +71,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 p-t-20">
-                    <label class="text-muted">Date Nais</label>
+                    <label class="text-muted">Date Nais <span class="required"> (* obligatoire) </span></label>
                     <div
                         class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
                         <input class="mdl-textfield__input" type="date" value="{{old('date_nais')}}"
@@ -70,7 +79,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 p-t-20">
-                    <label class="text-muted">Lieu Nais</label>
+                    <label class="text-muted">Lieu Nais <span class="required"> (* obligatoire) </span></label>
                     <div
                         class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
                         <input class="mdl-textfield__input" type="text" value="{{old('lieu_nais')}}"
@@ -78,7 +87,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 p-t-20">
-                    <label for="sample2" class="text-muted">Gender</label>
+                    <label for="sample2" class="text-muted">Gender <span class="required"> (* obligatoire) </span></label>
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
                         <input type="radio" {{old('gender')=='M'?'checked':''}} value="M" name="gender" id="male">
                         <label for="male">Masculin</label>
@@ -87,11 +96,12 @@
                     </div>
                 </div>
                 <hr>
+                <!-- contact form -->
                 <div class="card-head">
                     <header>Contact</header>
                 </div>
                 <div class="col-lg-6 p-t-20">
-                    <label class="text-muted" for="text5">Télephone</label>
+                    <label class="text-muted" for="text5">Télephone <span class="required"> (* obligatoire) </span></label>
                     <div
                         class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
                         <input class="mdl-textfield__input" type="text" value="{{old('tele')}}"
@@ -105,7 +115,6 @@
                         class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
                         <input class="mdl-textfield__input" type="text" value="{{old('whatsapp')}}"
                             pattern="-?[0-9]*(\.[0-9]+)?" id="txtPNo" name="whatsapp">
-                        <span class="mdl-textfield__error">Number required!</span>
                     </div>
                 </div>
                 <div class="col-lg-6 p-t-20">
@@ -125,7 +134,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 p-t-20">
-                    <label class="text-muted">Adresee</label>
+                    <label class="text-muted">Adresse <span class="required"> (* obligatoire) </span></label>
                     <div
                         class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
                         <input class="mdl-textfield__input" type="text" value="{{old('adresse')}}"
@@ -133,7 +142,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 p-t-20">
-                    <label class="text-muted" for="text7">Ville résident</label>
+                    <label class="text-muted" for="text7">Ville <span class="required"> (* obligatoire) </span></label>
                     <div
                         class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
                         <input class="mdl-textfield__input" type="text" value="{{old('ville_resident')}}"
@@ -148,11 +157,14 @@
                             id="txtBloodGroup" name="code_postal">
                     </div>
                 </div>
+                <hr>
+
+                <!-- info scolaire -->
                 <div class="card-head">
                     <header>Info Scolaire</header>
                 </div>
-                <div class="col-lg-12 p-t-20">
-                    <label for="sample2" class="text-muted">Pack</label>
+                <div class="col-lg-6 p-t-20">
+                    <label for="sample2" class="text-muted">Pack <span class="required"> (* obligatoire) </span></label>
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
                         <input type="radio" {{old('pack')=='normal'?'checked':''}} 
                         name="pack" value="normal" id="normal">
@@ -166,11 +178,22 @@
                     </div>
                 </div>
                 <div class="col-lg-6 p-t-20">
-                    <label class="text-muted">Bac année</label>
-                    <div
+                    <label for="sample2" class="text-muted">Bac Obtention <span class="required"> (* obligatoire) </span></label>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                        <input type="radio" {{old('bac_niveau')=='actuel'?'checked':''}} 
+                        name="bac_niveau" value="actuel" id="actuel">
+                        <label for="actuel">Back acteul {{date('Y')}}</label>
+                        <input type="radio" {{old('bac_niveau')=='aucien'?'checked':''}} 
+                        name="bac_niveau" value="aucien" id="aucien">
+                        <label for="aucien">Aucien bac</label>
+                    </div>
+                </div>
+                <div class="col-lg-6 p-t-20">
+                    <label class="text-muted">Filiér <span class="required"> (* obligatoire) </span></label>
+                   <div
                         class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                        <input class="mdl-textfield__input" type="number" value="{{old('bac_niveau')}}"
-                            id="date" name="bac_niveau">
+                       <input class="mdl-textfield__input" type="text" value="{{old('filier')}}"
+                         id="date" name="filier">
                     </div>
                 </div>
                 <div class="col-lg-6 p-t-20">
@@ -182,20 +205,31 @@
                     </div>
                 </div>
                 <div class="col-lg-6 p-t-20">
-                    <label class="text-muted">Filiér</label>
+                    <label class="text-muted">Note régional <span class="required"> (* obligatoire) </span></label>
                     <div
                         class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                        <input class="mdl-textfield__input" type="text" value="{{old('filier')}}"
-                            id="date" name="filier">
+                        <input class="mdl-textfield__input" type="number"
+                            id="txtemail" value="" name="region">
                     </div>
                 </div>
                 <div class="col-lg-6 p-t-20">
-                    <label class="text-muted">Région</label>
+                    <label class="text-muted">Note global / 1er soumetre</label>
                     <div
                         class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                        <input class="mdl-textfield__input" type="text" value="{{old('region')}}"
-                            id="date" name="region">
+                        <input class="mdl-textfield__input" type="number"
+                            id="txtemail" value="" name="region">
                     </div>
+                </div>
+                <div class="col-lg-6 p-t-20">
+                    <label class="text-muted">Nom Etablissement actuel <span class="required"> (* obligatoire) </span></label>
+                    <div
+                        class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                        <input class="mdl-textfield__input" type="text"
+                            id="txtemail" value="" name="region">
+                    </div>
+                </div>
+                <div id="app">
+                    <ville-region></ville-region>
                 </div>
                 <div class="col-lg-12 p-t-20">
                     <button type="submit"

@@ -11,4 +11,9 @@ class VilleController extends Controller
         $data = json_decode(file_get_contents(public_path() . "/js/villes.json"), true);
         return response()->json($data);
     }
+
+    public function regions() {
+        $data = json_decode(file_get_contents(public_path() . "/js/regions.json"), true);
+        return response()->json($data);
+    }
 }

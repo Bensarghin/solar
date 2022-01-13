@@ -1,6 +1,5 @@
 
-
-{{-- <script src="{{asset('js/app.js')}}"></script> --}}
+<script src="{{asset('js/app.js')}}"></script>
 <!-- start js include path -->
 <script data-cfasync="false" src="https://cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 <script src="{{asset('assets/plugins/jquery/jquery.min.js')}}"></script>

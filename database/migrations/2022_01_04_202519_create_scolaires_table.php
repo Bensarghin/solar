@@ -22,8 +22,8 @@ class CreateScolairesTable extends Migration
             $table->string('filier');
             $table->string('nom_etab_actuel');
             $table->string('ville_etab_actuel');
-            $table->string('note_regional');
-            $table->string('note_total')->nullable();
+            $table->float('note_regional');
+            $table->float('note_total')->nullable();
             $table->timestamps();
         });
     }
