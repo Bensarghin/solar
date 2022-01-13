@@ -75,9 +75,9 @@
                                                                 class="btn btn-primary btn-xs">
                                                                 <i class="fa fa-pencil"></i>
                                                             </a>
-                                                            <button class="btn btn-danger btn-xs">
+                                                            <a href="{{route('etudiant.destroy',['id' => $profile->etudiant->id])}}" class="btn btn-danger btn-xs">
                                                                 <i class="fa fa-trash-o "></i>
-                                                            </button>
+                                                            </a>
                                                         </td>
                                                     </tr>
                                                     @endforeach

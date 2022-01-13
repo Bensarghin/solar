@@ -104,7 +104,7 @@
                                         <a href="{{route('etudiant.edit',['id' => $etudiant->profile->id])}}" data-bs-toggle="tooltip"
                                             title="Modifier">
                                             <i class="fa fa-check"></i></a> |
-                                        <a href="" class="text-inverse" title="Supprimer"
+                                        <a onclick="return confirm('vous étes sure pour ce supprission!???')" href="{{route('etudiant.destroy',['id' => $etudiant->id])}}" class="text-inverse" title="Supprimer"
                                             data-bs-toggle="tooltip">
                                             <i class="fa fa-trash"></i></a>
                                     </td>

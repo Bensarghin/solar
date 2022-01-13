@@ -20,7 +20,6 @@ class CreateContactsTable extends Migration
             $table->string('whatsapp')->nullable();
             $table->string('tele_parent')->nullable();
             $table->string('tele_fixe')->nullable();
-            $table->string('email')->unique;
             $table->text('adresse');
             $table->string('ville_resident');
             $table->timestamps();

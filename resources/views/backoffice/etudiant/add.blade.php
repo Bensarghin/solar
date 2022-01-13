@@ -100,14 +100,6 @@
                     </div>
                 </div>
                 <div class="col-lg-6 p-t-20">
-                    <label class="text-muted">Email</label>
-                    <div
-                        class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                        <input class="mdl-textfield__input" type="text" value="{{old('email')}}"
-                            id="txtParentName" name="email">
-                    </div>
-                </div>
-                <div class="col-lg-6 p-t-20">
                     <label class="text-muted" for="txtPNo">Whatsapp</label>
                     <div
                         class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">

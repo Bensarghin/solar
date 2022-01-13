@@ -7,5 +7,8 @@ use Illuminate\Http\Request;
 
 class VilleController extends Controller
 {
-    
+    public function index() {
+        $data = json_decode(file_get_contents(public_path() . "/js/villes.json"), true);
+        return response()->json($data);
+    }
 }

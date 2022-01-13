@@ -54,7 +54,6 @@ class EtudiantsController extends Controller
     public function contact(Request $request, $id) {
         $request->validate([
             'tele' => ['required','numeric','digits:9'],
-            'email' => 'email|required',
             'adresse' => 'required',
             'ville_resident' => 'required',
             'tele_fixe' => ['nullable','numeric','digits:9'],
@@ -65,7 +64,6 @@ class EtudiantsController extends Controller
         Contact::where('id',$id)
         ->update([
             'tele' => $request->tele,
-            'email' => $request->email,
             'whatsapp' => $request->whatsapp,
             'tele_parent' => $request->tele_parent,
             'tele_fixe' => $request->tele_fixe,
@@ -115,7 +113,6 @@ class EtudiantsController extends Controller
             'gender' => 'required',
             // contact validate
             'tele' => ['required','numeric','digits:9'],
-            'email' => 'required',
             'adresse' => 'required',
             'ville_resident' => 'required',
             'tele_fixe' => ['nullable','numeric','digits:9'],
@@ -145,7 +142,6 @@ class EtudiantsController extends Controller
 
         $contact = Contact::create([
             'tele' => $request->tele,
-            'email' => $request->email,
             'whatsapp' => $request->whatsapp,
             'tele_parent' => $request->tele_parent,
             'tele_fixe' => $request->tele_fixe,
@@ -174,7 +170,10 @@ class EtudiantsController extends Controller
     }
 
     public function destroy($id) {
-        Etudiant::find('$id')->delete();
+        $etudiant = Etudiant::find($id);
+        $etudiant->profile->contact->delete();
+        $etudiant->profile->scolaire->delete();
+        $etudiant->delete();
         return redirect()->route('etudiants');
     }
 }

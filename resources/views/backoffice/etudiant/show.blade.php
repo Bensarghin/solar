@@ -40,10 +40,10 @@
                             class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 btn-circle btn-primary">
                             Modifier
                         </a>
-                        <button type="button"
+                        <a href="{{route('etudiant.destroy',['id' => $profile->etudiant->id])}}"
                             class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 btn-circle btn-pink">
                             Supprimer
-                        </button>
+                        </a>
                     </div>
                     <!-- END SIDEBAR BUTTONS -->
                 </div>
@@ -76,22 +76,18 @@
                                         </div>
                                         <div class="col-md-3 col-6"> <strong>fixe</strong>
                                             <br>
-                                            <p class="text-muted">{{isset($profile->contact->tele_fixe)?$profile->contact->tele_fixe:'pas téle'}}</p>
+                                            <p class="{{isset($profile->contact->tele_fixe)?'text-muted':'text-danger'}}">{{isset($profile->contact->tele_fixe)?$profile->contact->tele_fixe:'pas donnée'}}</p>
                                         </div>
                                         <div class="col-md-3 col-6 b-r"> <strong>Télephone parent</strong>
                                             <br>
-                                            <p class="text-muted">{{$profile->contact->tele_parent}}</p>
+                                            <p class="{{isset($profile->contact->tele_parent)?'text-muted':'text-danger'}}">{{isset($profile->contact->tele_parent)?$profile->contact->tele_parent:'pas donnée'}}</p>
                                         </div>
                                     </div>
                                     <hr>
                                     <div class="row">
                                         <div class="col-md-3 col-6 b-r"> <strong>whatsapp</strong>
                                             <br>
-                                            <p class="text-muted">{{$profile->contact->whatsapp}}</p>
-                                        </div>
-                                        <div class="col-md-3 col-6 b-r"> <strong>Email</strong>
-                                            <br>
-                                            <p class="text-muted"><a href="https://radixtouch.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="94e0f1e7e0d4f1ecf5f9e4f8f1baf7fbf9">{{$profile->contact->email}}</a></p>
+                                            <p class="{{isset($profile->contact->whatsapp)?'text-muted':'text-danger'}}">{{isset($profile->contact->whatsapp)?$profile->contact->whatsapp:'pas donnée'}}</p>
                                         </div>
                                     </div>
                                     <hr>
@@ -106,7 +102,7 @@
                                         </div>
                                         <div class="col-md-3 col-6"> <strong>code postal</strong>
                                             <br>
-                                            <p class="text-muted">{{$profile->contact->code_postal}}</p>
+                                            <p class="{{isset($profile->contact->code_postal)?'text-muted':'text-danger'}}">{{isset($profile->contact->code_postal)?$profile->contact->code_postal:'pas donnée'}}</p>
                                         </div>
                                     </div>
                                     <hr>

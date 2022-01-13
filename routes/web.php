@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\backoffice\AdminController;
 use App\Http\Controllers\backoffice\DashboardController;
 use App\Http\Controllers\backoffice\EtudiantsController;
+use App\Http\Controllers\backoffice\VilleController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +27,11 @@ Route::group(
 // Admin routes group
 Route::prefix('admin')->group(function(){
 
+	// Auth routes
+Route::get('/login',[AdminController::class,'index'])->name('admin.login');
+Route::post('/login',[AdminController::class,'login'])->name('admin.login');
+Route::get('/logout',[AdminController::class,'logout'])->name('admin.logout');
+
 	Route::get('/',[DashboardController::class,'index']);
 	Route::get('/accueil',[DashboardController::class,'index'])->name('admin.home');
 	
@@ -36,6 +43,7 @@ Route::prefix('admin')->group(function(){
 	Route::post('/update/{id}',[EtudiantsController::class,'update'])->name('etudiant.update');
 	Route::get('/create',[EtudiantsController::class,'create'])->name('etudiant.add');
 	Route::post('/store',[EtudiantsController::class,'store'])->name('etudiant.store');
+	Route::get('/delete/{id}',[EtudiantsController::class,'destroy'])->name('etudiant.destroy');
 	
 	// contact update
 	Route::prefix('contact')->group(function() {
@@ -44,15 +52,15 @@ Route::prefix('admin')->group(function(){
 	// scolaire update
 	Route::prefix('scolaire')->group(function() {
 		Route::post('/update/{id}',[EtudiantsController::class,'scolaire'])->name('scolaire.update');
-	});
+		});
 
-	Auth::routes();
 	});
+	Route::get('/villes',[VilleController::class,'index']);
 });
 
 //Etudiant routes
 Route::get('/', function () { return view('welcome');});	
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+Auth::routes();
 
 });
