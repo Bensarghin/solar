@@ -16,7 +16,7 @@
     @endif
 <div class="row">
     <div class="col-sm-12">
-        <form class="card-box" action="{{route('etudiant.store')}}" method="POST">
+        <form class="card-box" action="{{route('etudiant.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="card-head">
                 <header>Etudiant</header>
@@ -26,7 +26,7 @@
                     <label class="text-muted">Photo</label>
                     <div class="input-group mb-3">
                       <div class="custom-file">
-                        <input type="file" accept="image/*" class="custom-file-input" id="inputGroupFile01">
+                        <input type="file" accept="image/*" class="custom-file-input" id="inputGroupFile01" name="image">
                         <label class="custom-file-label" for="inputGroupFile01">choiser une image</label>
                       </div>
                     </div>
@@ -209,7 +209,7 @@
                     <div
                         class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
                         <input class="mdl-textfield__input" type="number"
-                            id="txtemail" value="" name="region">
+                            id="txtemail" value="{{old('note_regional')}}" name="note_regional">
                     </div>
                 </div>
                 <div class="col-lg-6 p-t-20">
@@ -217,7 +217,7 @@
                     <div
                         class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
                         <input class="mdl-textfield__input" type="number"
-                            id="txtemail" value="" name="region">
+                            id="txtemail" value="{{old('note_total')}}" name="note_total">
                     </div>
                 </div>
                 <div class="col-lg-6 p-t-20">
@@ -225,7 +225,7 @@
                     <div
                         class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
                         <input class="mdl-textfield__input" type="text"
-                            id="txtemail" value="" name="region">
+                            id="txtemail" value="{{old('nom_etab')}}" name="nom_etab">
                     </div>
                 </div>
                 <div id="app">

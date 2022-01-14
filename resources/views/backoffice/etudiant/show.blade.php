@@ -10,7 +10,11 @@
                 <div class="card-body no-padding height-9">
                     <div class="row">
                         <div class="profile-userpic">
-                            <img src="{{asset('assets/img/std/std3.jpg')}}" class="img-responsive" alt="">
+                            @if($profile->etudiant->image)
+                            <img src="{{asset('uploads/'.$profile->etudiant->image)}}" class="img-responsive" alt="">
+                            @else
+                            <img src="{{asset('assets/img/default.png')}}" class="img-responsive" alt="">
+                            @endif
                         </div>
                     </div>
                     <div class="profile-usertitle">
@@ -21,7 +25,7 @@
                             <b>Nom&prenom (ar)</b> <a class="pull-right">{{$profile->etudiant->nom_ar}} {{$profile->etudiant->prenom_ar}}</a>
                         </li>
                         <li class="list-group-item">
-                            <b>cin</b> <a class="pull-right">{{$profile->etudiant->gender}}</a>
+                            <b>CIN</b> <a class="pull-right">{{$profile->etudiant->cin}}</a>
                         </li>
                         <li class="list-group-item">
                             <b>Date nais</b> <a class="pull-right">{{$profile->etudiant->date_nais}}</a>
@@ -70,37 +74,37 @@
                             <div class="tab-pane active fontawesome-demo" id="tab1">
                                 <div id="biography">
                                     <div class="row">
-                                        <div class="col-md-3 col-6 b-r"> <strong>téléphone</strong>
+                                        <div class="col-md-4 col-6 b-r"> <strong>téléphone</strong>
                                             <br>
                                             <p class="text-muted">{{$profile->contact->tele}}</p>
                                         </div>
-                                        <div class="col-md-3 col-6"> <strong>fixe</strong>
+                                        <div class="col-md-4 col-6"> <strong>fixe</strong>
                                             <br>
                                             <p class="{{isset($profile->contact->tele_fixe)?'text-muted':'text-danger'}}">{{isset($profile->contact->tele_fixe)?$profile->contact->tele_fixe:'pas donnée'}}</p>
                                         </div>
-                                        <div class="col-md-3 col-6 b-r"> <strong>Télephone parent</strong>
+                                        <div class="col-md-4 col-6 b-r"> <strong>Télephone parent</strong>
                                             <br>
                                             <p class="{{isset($profile->contact->tele_parent)?'text-muted':'text-danger'}}">{{isset($profile->contact->tele_parent)?$profile->contact->tele_parent:'pas donnée'}}</p>
                                         </div>
                                     </div>
                                     <hr>
                                     <div class="row">
-                                        <div class="col-md-3 col-6 b-r"> <strong>whatsapp</strong>
+                                        <div class="col-md-4 col-6 b-r"> <strong>whatsapp</strong>
                                             <br>
                                             <p class="{{isset($profile->contact->whatsapp)?'text-muted':'text-danger'}}">{{isset($profile->contact->whatsapp)?$profile->contact->whatsapp:'pas donnée'}}</p>
                                         </div>
                                     </div>
                                     <hr>
                                     <div class="row">
-                                        <div class="col-md-3 col-6 b-r"> <strong>Adresse</strong>
+                                        <div class="col-md-4 col-6 b-r"> <strong>Adresse</strong>
                                             <br>
                                             <p class="text-muted">{{$profile->contact->adresse}}</p>
                                         </div>
-                                        <div class="col-md-3 col-6 b-r"> <strong>ville</strong>
+                                        <div class="col-md-4 col-6 b-r"> <strong>ville</strong>
                                             <br>
                                             <p class="text-muted">{{$profile->contact->ville_resident}}</p>
                                         </div>
-                                        <div class="col-md-3 col-6"> <strong>code postal</strong>
+                                        <div class="col-md-4 col-6"> <strong>code postal</strong>
                                             <br>
                                             <p class="{{isset($profile->contact->code_postal)?'text-muted':'text-danger'}}">{{isset($profile->contact->code_postal)?$profile->contact->code_postal:'pas donnée'}}</p>
                                         </div>
@@ -108,34 +112,51 @@
                                     <hr>
                                 </div>
                             </div>
+                            <!-- info scolaire details -->
                             <div class="tab-pane" id="tab2">
                                 <div id="biography"> 
                                     <div class="row">
-                                        <div class="col-md-3 col-6 b-r"> <strong>Pack</strong>
+                                        <div class="col-md-4 col-3 b-r"> <strong>Pack</strong>
                                             <br>
                                             <p class="text-muted">{{$profile->scolaire->pack}}</p>
                                         </div>
-                                    </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-md-3 col-6 b-r"> <strong>bac niveau</strong>
+                                        <div class="col-md-4 col-6 b-r"> <strong>bac obtention</strong>
                                             <br>
                                             <p class="text-muted">{{$profile->scolaire->bac_niveau}}</p>
                                         </div>
-                                        <div class="col-md-3 col-6 b-r"> <strong>filier</strong>
+                                        <div class="col-md-4 col-6 b-r"> <strong>filier</strong>
                                             <br>
                                             <p class="text-muted">{{$profile->scolaire->filier}}</p>
                                         </div>
                                     </div>
                                     <hr>
                                     <div class="row">
-                                        <div class="col-md-3 col-6"> <strong>code massar</strong>
+                                        <div class="col-md-4 col-6"> <strong>code massar</strong>
                                             <br>
                                             <p class="text-muted">{{$profile->scolaire->code_massar}}</p>
                                         </div>
-                                        <div class="col-md-3 col-6"> <strong>Region</strong>
+                                        <div class="col-md-4 col-6 b-r"> <strong>note regional</strong>
+                                            <br>
+                                            <p class="text-muted">{{$profile->scolaire->note_regional}}</p>
+                                        </div>
+                                        <div class="col-md-4 col-6 b-r"> <strong>note total / 1er soumetre</strong>
+                                            <br>
+                                            <p class="text-muted">{{$profile->scolaire->note_total}}</p>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-md-4 col-6"> <strong>Etablissement actuel</strong>
+                                            <br>
+                                            <p class="text-muted">{{$profile->scolaire->nom_etab_actuel}}</p>
+                                        </div>
+                                        <div class="col-md-4 col-6"> <strong>Region</strong>
                                             <br>
                                             <p class="text-muted">{{$profile->scolaire->region}}</p>
+                                        </div>
+                                        <div class="col-md-4 col-6"> <strong>Ville</strong>
+                                            <br>
+                                            <p class="text-muted">{{$profile->scolaire->ville_etab_actuel}}</p>
                                         </div>
                                     </div>
                                 </div>

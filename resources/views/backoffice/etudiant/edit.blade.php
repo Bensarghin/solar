@@ -186,35 +186,28 @@
                                     </div>
                                     <div class="card-body row">
                                         <div class="col-lg-6 p-t-20">
-                                            <label class="text-muted">Pack</label>
-                                            <div
-                                                class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                                <input class="mdl-textfield__input" type="text" value="{{$profile->scolaire->pack}}"
-                                                    id="txtFirstName" name="pack">
+                                            <label for="sample2" class="text-muted">Pack <span class="required"> (* obligatoire) </span></label>
+                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                                <input type="radio" {{$profile->scolaire->pack=='normal'?'checked':''}} 
+                                                name="pack" value="normal" id="normal">
+                                                <label for="normal">Normal</label>
+                                                <input type="radio" {{$profile->scolaire->pack=='premium'?'checked':''}} 
+                                                name="pack" value="premium" id="premium">
+                                                <label for="premium">Premium</label>
+                                                <input type="radio" {{$profile->scolaire->pack=='full'?'checked':''}} 
+                                                name="pack" value="full" id="full">
+                                                <label for="full">Full</label>
                                             </div>
                                         </div>
                                         <div class="col-lg-6 p-t-20">
-                                            <div class="col-lg-2 p-t-20">
-                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-3">
-                                                    <input type="radio" id="option-3" class="mdl-radio__button" name="bac_niveau"
-                                                        value="3" checked>
-                                                    <span class="mdl-radio__label">Back acteul {{date('Y')}}</span>
-                                                </label>
-                                            </div>
-                                            <div class="col-lg-2 p-t-20">
-                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
-                                                    <input type="radio" id="option-1" class="mdl-radio__button" name="bac_niveau"
-                                                        value="1">
-                                                    <span class="mdl-radio__label">Aucien bac</span>
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 p-t-20">
-                                            <label class="text-muted">Bac année</label>
-                                            <div
-                                                class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                                <input class="mdl-textfield__input" type="number" value="{{$profile->scolaire->bac_niveau}}"
-                                                    id="txtFirstName" name="bac_niveau">
+                                            <label for="sample2" class="text-muted">Bac Obtention <span class="required"> (* obligatoire) </span></label>
+                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                                <input type="radio" {{$profile->scolaire->bac_niveau=='actuel'?'checked':''}} 
+                                                name="bac_niveau" value="actuel" id="actuel">
+                                                <label for="actuel">Back actuel {{date('Y')}}</label>
+                                                <input type="radio" {{$profile->scolaire->bac_niveau=='aucien'?'checked':''}} 
+                                                name="bac_niveau" value="aucien" id="aucien">
+                                                <label for="aucien">Aucien bac</label>
                                             </div>
                                         </div>
                                         <div class="col-lg-6 p-t-20">
@@ -237,16 +230,16 @@
                                             <label class="text-muted">Note régional</label>
                                             <div
                                                 class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                                <input class="mdl-textfield__input" type="text"
-                                                    id="txtemail" value="{{$profile->scolaire->region}}" name="region">
+                                                <input class="mdl-textfield__input" type="number"
+                                                    id="txtemail" value="{{$profile->scolaire->note_regional}}" name="note_regional">
                                             </div>
                                         </div>
                                         <div class="col-lg-6 p-t-20">
-                                            <label class="text-muted">Note global</label>
+                                            <label class="text-muted">Note total</label>
                                             <div
                                                 class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                                <input class="mdl-textfield__input" type="text"
-                                                    id="txtemail" value="{{$profile->scolaire->region}}" name="region">
+                                                <input class="mdl-textfield__input" type="number"
+                                                    id="txtemail" value="{{$profile->scolaire->note_total}}" name="note_total">
                                             </div>
                                         </div>
                                         <div class="col-lg-6 p-t-20">
@@ -254,10 +247,12 @@
                                             <div
                                                 class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
                                                 <input class="mdl-textfield__input" type="text"
-                                                    id="txtemail" value="{{$profile->scolaire->region}}" name="region">
+                                                    id="txtemail" value="{{$profile->scolaire->nom_etab_actuel}}" name="nom_etab">
                                             </div>
                                         </div>
                                         <div id="app">
+                                            <p class="text-muted text-center col-md-12">{{$profile->scolaire->ville_etab_actuel}} {{$profile->scolaire->region}}
+                                                    </p>
                                             <ville-region></ville-region>
                                         </div>
                                         <div class="col-lg-12 p-t-20 text-center">

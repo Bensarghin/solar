@@ -47,6 +47,41 @@ class EtudiantsController extends Controller
 
     // update etudiant
     public function update(Request $request, $id) {
+        $etudiant = Etudiant::find($id);
+        if(!$etudiant) {
+            return abort('404');
+        }
+        $request->validate([
+            'image' => ['nullable','mimes:jpg,png,jpeg,gif,svg','max:2024'],
+            //etudiant validate
+            'cin' => 'required|unique:etudiants',
+            'nom' => 'required',
+            'prenom' => 'required',
+            'nom_ar' => 'required',
+            'prenom_ar' => 'required',
+            'date_nais' => 'date|required',
+            'lieu_nais' => 'required',
+            'gender' => 'required'
+        ]);        
+        $image = $request->file('image');
+        if($image!=null) {
+
+            $extension = $image->getClientOriginalExtension();
+            $fileName = time().'.'.$extension; 
+            $image->move(public_path('uploads'), $fileName);
+            Etudiant::whereId($id)->update(['image'=>$fileName]);
+        }
+        Etudiant::whereId($id)
+        ->update([
+            'cin' => $request->cin,
+            'nom' => $request->nom,
+            'prenom' => $request->prenom,
+            'nom_ar' => $request->nom_ar,
+            'prenom_ar' => $request->prenom_ar,
+            'date_nais' => $request->date_nais,
+            'lieu_nais' => $request->lieu_nais,
+            'gender' => $request->gender,
+        ]);
         return redirect()->route('etudiant.profile',['']);
     }
 
@@ -102,6 +137,7 @@ class EtudiantsController extends Controller
     public function store(Request $request) {
 
         $request->validate([
+            'image' => ['nullable','mimes:jpg,png,jpeg,gif,svg','max:2024'],
             //etudiant validate
             'cin' => 'required|unique:etudiants',
             'nom' => 'required',
@@ -124,12 +160,26 @@ class EtudiantsController extends Controller
             'bac_niveau' => 'required' ,
             'code_massar' => 'required' ,
             'filier' => 'required' ,
+            'nom_etab' => 'required',
+            'ville' => 'required',
+            'note_regional'=>   'required',
+            'note_total' => 'required',
             'region' => 'required' ,
 
 
         ]);
 
+        $fileName = null;
+        $image = $request->file('image');
+        if($image!=null) {
+
+            $extension = $image->getClientOriginalExtension();
+            $fileName = time().'.'.$extension; 
+            $image->move(public_path('uploads'), $fileName);
+        }
+
         $etud = Etudiant::create([
+            'image' => $fileName,
             'cin' => $request->cin,
             'nom' => $request->nom,
             'prenom' => $request->prenom,
@@ -153,8 +203,12 @@ class EtudiantsController extends Controller
         $scol = Scolaire::create([
             'pack'=> $request->pack,
             'bac_niveau' => $request->bac_niveau ,
+            'nom_etab_actuel' => $request->nom_etab ,
             'code_massar' => $request->code_massar ,
             'filier' => $request->filier ,
+            'note_regional' => $request->note_regional ,
+            'note_total' => $request->note_total ,
+            'ville_etab_actuel' => $request->ville ,
             'region' => $request->region 
         ]);
 

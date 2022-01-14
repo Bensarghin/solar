@@ -32,7 +32,7 @@ Route::get('/login',[AdminController::class,'index'])->name('admin.login');
 Route::post('/login',[AdminController::class,'login'])->name('admin.login');
 Route::get('/logout',[AdminController::class,'logout'])->name('admin.logout');
 
-	Route::get('/',[DashboardController::class,'index']);
+	Route::get('/',[DashboardController::class,'index'])->name('admin.home');
 	Route::get('/accueil',[DashboardController::class,'index'])->name('admin.home');
 	
 	// etudiant manage routes

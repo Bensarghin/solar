@@ -24,21 +24,21 @@
                 <li class="nav-item start open">
                     <a href="{{route('admin.home')}}" class="nav-link">
                         <i class="material-icons">dashboard</i>
-                        <span class="title">Dashboard</span>
+                        <span class="title">Control panel</span>
                         <span class="selected"></span>
                     </a>
                 </li>
                 <li class="nav-item start open">
                     <a class="nav-link" href="{{route('etudiants')}}">
                         <i class="material-icons">group</i>
-                        <span class="title">Etudiants</span>
+                        <span class="title">Gérer Etudiants</span>
                         <span class="selected"></span>
                     </a>
                 </li>
                 <li class="nav-item  start open">
-                    <a href="javascript:;" class="nav-link">
+                    <a href="{{route('etudiant.add')}}"class="nav-link">
                         <i class="material-icons">school</i>
-                        <span class="title">Filiers</span>
+                        <span class="title">Nouveau Etudiant <b>+</b></span>
                         <span class="selected"></span>
                     </a>
                 </li>

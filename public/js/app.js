@@ -5325,13 +5325,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  mounted: function mounted() {//this.regions = this.villes.region;
-  },
   data: function data() {
     return {
       regions: [],
       villes: [],
-      region: ''
+      region: '',
+      region_id: ''
     };
   },
   created: function created() {
@@ -5351,6 +5350,13 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get('/en/admin/regions').then(function (resp) {
         return _this2.regions = resp.data;
+      });
+    },
+    getregion_obj: function getregion_obj() {
+      var _this3 = this;
+
+      this.region_id = this.regions.find(function (d) {
+        return d.region == _this3.region;
       });
     }
   }
@@ -28103,21 +28109,24 @@ var render = function () {
               },
             ],
             staticClass: "form-select input-height",
-            attrs: { name: "selectType" },
+            attrs: { name: "region" },
             on: {
-              change: function ($event) {
-                var $$selectedVal = Array.prototype.filter
-                  .call($event.target.options, function (o) {
-                    return o.selected
-                  })
-                  .map(function (o) {
-                    var val = "_value" in o ? o._value : o.value
-                    return val
-                  })
-                _vm.region = $event.target.multiple
-                  ? $$selectedVal
-                  : $$selectedVal[0]
-              },
+              change: [
+                function ($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function (o) {
+                      return o.selected
+                    })
+                    .map(function (o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.region = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                },
+                _vm.getregion_obj,
+              ],
             },
           },
           [
@@ -28126,7 +28135,7 @@ var render = function () {
             _vm._l(_vm.regions, function (region) {
               return _c(
                 "option",
-                { key: region.region, domProps: { value: region } },
+                { key: region.id, domProps: { value: region.region } },
                 [_vm._v(_vm._s(region.region))]
               )
             }),
@@ -28142,15 +28151,12 @@ var render = function () {
       _c("div", { staticClass: "col-md-5" }, [
         _c(
           "select",
-          {
-            staticClass: "form-select input-height",
-            attrs: { name: "selectType" },
-          },
+          { staticClass: "form-select input-height", attrs: { name: "ville" } },
           [
             _c("option", { attrs: { value: "" } }, [_vm._v("Select...")]),
             _vm._v(" "),
             _vm._l(_vm.villes, function (ville) {
-              return _vm.region.id == ville.region
+              return _vm.region_id.id == ville.region
                 ? _c(
                     "option",
                     { key: ville.ville, domProps: { value: ville.ville } },
@@ -28170,22 +28176,18 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("label", { staticClass: "control-label col-md-3" }, [
+    return _c("label", { staticClass: "text-muted col-md-3" }, [
       _vm._v("Région\r\n            "),
-      _c("span", { staticClass: "required" }, [
-        _c("span", { staticClass: "required" }, [_vm._v(" (* obligatoire) ")]),
-      ]),
+      _c("span", [_vm._v(" (* obligatoire) ")]),
     ])
   },
   function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("label", { staticClass: "control-label col-md-3" }, [
+    return _c("label", { staticClass: "text-muted col-md-3" }, [
       _vm._v("Ville\r\n            "),
-      _c("span", { staticClass: "required" }, [
-        _c("span", { staticClass: "required" }, [_vm._v(" (* obligatoire) ")]),
-      ]),
+      _c("span", [_vm._v(" (* obligatoire) ")]),
     ])
   },
 ]
