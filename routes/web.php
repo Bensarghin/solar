@@ -60,7 +60,12 @@ Route::get('/logout',[AdminController::class,'logout'])->name('admin.logout');
 });
 
 //Etudiant routes
-Route::get('/', function () { return view('welcome');});	
+
+Route::get('/', function () { return view('Acc');})->name('Acc')	;
+Route::get('/contact', function () { return view('contact');})->name('contact')	;
+Route::get('/profile', function () { return view('profile');})->name('profile')	;
+Route::post('contact', 'ContactController@submitContactForm')->name('contact.submit'); 
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Auth::routes();
 

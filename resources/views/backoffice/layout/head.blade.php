@@ -26,6 +26,10 @@
 	<link href="{{asset('assets/css/responsive.css')}}" rel="stylesheet" type="text/css" />
 	<link href="{{asset('assets/css/theme/light/theme-color.css')}}" rel="stylesheet" type="text/css" />
 	<!-- favicon -->
+<<<<<<< HEAD
 	<link rel="shortcut icon" href="https://radixtouch.com/templates/admin/smart/source/assets/img/favicon.ico" />
 	<link href="{{asset('assets/plugins/sweet-alert/sweetalert2.min.css')}}" rel="stylesheet">
+=======
+	<link rel="shortcut icon" href="{{asset('assets/img/logoico.png')}}" />
+>>>>>>> visiteur
 </head>

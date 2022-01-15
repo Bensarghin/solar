@@ -583,12 +583,12 @@ body {
   background: #193650;
 }
 .page-header.navbar .page-logo {
-  float: left;
-  display: block;
-  width: 235px;
-  height: 60px;
-  padding: 10px 20px 0px 30px;
-  background: #222c3c;
+      float: left;
+    display: block;
+    width: 240px;
+    height: 60px;
+    padding: 5px 18px 0px 3px;
+    background: #222c3c;
 }
 .logo-icon {
   font-size: 35px !important;
@@ -4660,8 +4660,7 @@ textarea.form-control-textarea {
   max-width: 100%;
 }
 .user-panel .image {
-  width: 35%;
-  max-width: 75px;
+  max-width: 222px;
 }
 .user-panel .info {
   width: 50%;
@@ -5864,7 +5863,7 @@ ul.chat.nice-chat {
   border-top: 3px solid #f39c12;
 }
 .card-topline-aqua {
-  border-top: 3px solid #00c0ef;
+  border-top: 3px solid #35c6d3;
 }
 .card-topline-lightblue {
   border-top: 3px solid #3c8dbc;
@@ -6164,7 +6163,7 @@ ul.chat.nice-chat {
   margin: 0px auto;
   width: 130px;
   padding: 3px;
-  border: 3px solid rgb(210, 214, 222);
+  border: 3px solid rgb(53 198 211);
   border-radius: 50% 50% 50% 50%;
 }
 .profile-usertitle {
@@ -6701,9 +6700,9 @@ table.valign-middle tbody tr td {
   color: #fff !important;
 }
 .btn-info {
-  background-color: #3abaf4 !important;
-  border: 1px solid #3abaf4 !important;
-  color: #fff !important;
+background-color: #193557 !important;
+    border: 1px solid #193557 !important;
+    color: #fff !important;
 }
 .btn-info:hover,
 .btn-info:focus,
@@ -6714,9 +6713,9 @@ table.valign-middle tbody tr td {
 .btn-info:focus,
 .btn-info:hover,
 .open > .dropdown-toggle.btn-info {
-  background-color: #32b5f1 !important;
-  border: 1px solid #32b5f1 !important;
-  color: #fff !important;
+ background-color: #193557 !important;
+    border: 1px solid #193557 !important;
+    color: #fff !important;
 }
 .btn-warning {
   background-color: #ffa426 !important;
@@ -6756,9 +6755,9 @@ table.valign-middle tbody tr td {
 }
 
 .btn-pink {
-  background-color: #ff4081 !important;
-  border: 1px solid #ff4081 !important;
-  color: #fff !important;
+     background-color: #35c6d3 !important;
+    border: 1px solid #35c6d3 !important;
+    color: #fff !important;
 }
 .btn-pink:active,
 .btn-pink:focus,
@@ -8515,9 +8514,9 @@ th > .rt-radio.rt-radio-single {
 .customtab.nav-tabs .nav-link.active,
 .customtab.nav-tabs .nav-link.active:focus {
   border-bottom: 0px solid #36c6d3;
-  background-color: rgb(102, 115, 252) !important;
+  background-color: #36c6d3 !important;
   box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.2),
-    0 13px 24px -11px rgb(102, 115, 252);
+    0 13px 24px -11px  rgb(175 219 221);
   color: #fff;
   border-radius: 30px;
 }
@@ -9233,8 +9232,8 @@ nav-tabs > li {
   cursor: pointer;
 }
 .text-muted {
-  color: #919aa3 !important;
-  margin-bottom: 10px;
+    color: #253f5f !important;
+    margin-bottom: 10px;
 }
 .img-100 {
   width: 100px;
@@ -9245,4 +9244,27 @@ nav-tabs > li {
 }
 .feedBody li.active-feed .feed-user-img:after {
   border-color: #2ed8b6;
+}
+.faicon{
+  font-size: 20px;
+  padding: 3px;
+}
+.faicon.pro{
+  color: #35c6d3;
+}
+.faicon.de{
+  color: #c9001e;
+}
+.faicon.ed{
+  color: #5fad3b;
+}
+.rol{
+      border-bottom: 0px solid #36c6d3;
+    background-color: #36c6d3 !important;
+    box-shadow: 0 5px 20px 0 rgb(0 0 0 / 20%), 0 13px 24px -11px rgb(175 219 221);
+    color: #fff;
+    border-radius: 30px;
+    width: 126px;
+    margin: 10px;
+    padding: 10px;
 }

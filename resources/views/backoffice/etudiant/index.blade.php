@@ -71,14 +71,14 @@
                                                         <td>{{'12 déc 2021'}}</td>
                                                         <td>
                                                             <a href="{{route('etudiant.profile',['id'=>$profile->id])}}"
-                                                                class="btn btn-dark btn-xs">
+                                                                class="faicon  pro">
                                                                 <i class="fa fa-user"></i>
                                                             </a>
                                                             <a href="{{route('etudiant.edit',['id'=>$profile->id])}}"
-                                                                class="btn btn-primary btn-xs">
+                                                                class="faicon ed">
                                                                 <i class="fa fa-pencil"></i>
                                                             </a>
-                                                            <a href="{{route('etudiant.destroy',['id' => $profile->etudiant->id])}}" class="btn btn-danger btn-xs">
+                                                            <a href="{{route('etudiant.destroy',['id' => $profile->etudiant->id])}}" class="faicon de">
                                                                 <i class="fa fa-trash-o "></i>
                                                             </a>
                                                         </td>
@@ -106,7 +106,11 @@
                                                 @endif
                                             <div class="profile-usertitle">
                                                 <div class="doctor-name">{{$profile->etudiant->nom}} {{$profile->etudiant->prenom}}</div>
+<<<<<<< HEAD
                                                 <div class="name-center">{{$profile->etudiant->nom_ar}} {{$profile->etudiant->prenom_ar}}</div>
+=======
+                                                <div class="name-center"> {{$profile->etudiant->date_nais}}, {{$profile->etudiant->lieu_nais}} </div>
+>>>>>>> visiteur
                                             </div>
                                             <p>{{$profile->contact->adresse}}, <br/>{{$profile->contact->ville_resident}}
                                             </p>
@@ -119,8 +123,24 @@
                                                         @endif
                                             </div>
                                             <div class="profile-userbuttons">
+<<<<<<< HEAD
                                                 <a href="{{route('etudiant.profile',['id' => $profile->id])}}"
                                                     class="btn btn-circle deepPink-bgcolor btn-sm">Profile</a>
+=======
+                                               
+                                                            <a href="{{route('etudiant.profile',['id'=>$profile->id])}}"
+                                                                class="faicon  pro">
+                                                                <i class="fa fa-user"></i>
+                                                            </a>
+                                                            <a href="{{route('etudiant.edit',['id'=>$profile->id])}}"
+                                                                class="faicon ed">
+                                                                <i class="fa fa-pencil"></i>
+                                                            </a>
+                                                            <a href="{{route('etudiant.destroy',['id' => $profile->etudiant->id])}}" class="faicon de">
+                                                                <i class="fa fa-trash-o "></i>
+                                                            </a>
+                                                       
+>>>>>>> visiteur
                                             </div>
                                         </div>
                                     </div>
