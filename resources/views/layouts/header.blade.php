@@ -23,7 +23,7 @@
                         <div class="main-box clearfix">
                             <div class="logo-box">
                                 <div class="logo">
-                                    <a href="{{route('Acc')}}">
+                                    <a href="{{route('home')}}">
                                         <img src="{{asset('assset/images/logo.png')}}" alt="" title=""></a>
                                 </div>
                             </div>
@@ -32,12 +32,48 @@
                                 <nav class="main-menu navbar-expand-md ">
                                     <div class="collapse show navbar-collapse clearfix" id="navbarSupportedContent">
                                         <ul class="navigation clearfix">
-                                            <li><a href="{{route('Acc')}}">Home</a></li>
+                                            <li><a href="{{route('home')}}">Acceuil</a></li>
+                                            @auth
+                                            <li><a href="{{route('inscrip')}}">Inscription</a></li>
+                                            @endauth
+                                            <li><a href="{{route('contact')}}">Contact</a></li>        
+                                            @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                                <li>
+                                                    <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                                        {{ $properties['native'] }}
+                                                    </a>
+                                                </li>
+                                            @endforeach                                       
+                                        @guest
+                                            @if (Route::has('login'))
+                                                <li>
+                                                    <a href="{{ route('login') }}">Se Connecter</a>
+                                                </li>
+                                            @endif
+                
+                                            {{-- @if (Route::has('register'))
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="{{ route('register') }}">Inscription</a>
+                                                </li>
+                                            @endif --}}
+                                        @else
+                                            <li>
+                                                <a href="">
+                                                    {{ Auth::user()->name }}
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                        {{ __('Déconnecter') }}
+                                                    </a>
+                
+                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                        @csrf
+                                                    </form>
+                                            </li>
+                                        @endguest
+                                    </ul>
 
-                                            <li><a href="{{route('contact')}}">Contact</a></li>
-                                                                                        <li><a href="seconnecter.html">Se Connecter</a></li>
-
-                                        </ul>
                                     </div>
                                 </nav>
                                 <div class="outer-box">
@@ -68,7 +104,7 @@
                     <div class="main-box clearfix">
                         <div class="logo-box">
                             <div class="logo">
-                                <a href="{{route('Acc')}}"><img src="{{asset('assset/images/logo.png')}}" alt="" title=""></a>
+                                <a href="{{route('home')}}"><img src="{{asset('assset/images/logo.png')}}" alt="" title=""></a>
                             </div>
                         </div>
                         <div class="nav-outer clearfix">

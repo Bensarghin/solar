@@ -6,6 +6,7 @@ use App\Http\Controllers\backoffice\AdminController;
 use App\Http\Controllers\backoffice\DashboardController;
 use App\Http\Controllers\backoffice\EtudiantsController;
 use App\Http\Controllers\backoffice\VilleController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -61,12 +62,12 @@ Route::get('/logout',[AdminController::class,'logout'])->name('admin.logout');
 
 //Etudiant routes
 
-Route::get('/', function () { return view('Acc');})->name('Acc')	;
+Route::get('/', function () { return view('Acc');});
+Route::get('/home', function () { return view('Acc');})->name('home');
 Route::get('/contact', function () { return view('contact');})->name('contact')	;
-Route::get('/profile', function () { return view('profile');})->name('profile')	;
-Route::post('contact', 'ContactController@submitContactForm')->name('contact.submit'); 
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/inscription', [ProfileController::class,'create'])->name('inscrip');
+Route::post('/store', [ProfileController::class,'store'])->name('user.store');
+Route::post('contact', 'ContactController@submitContactForm')->name('contact.submit');
 Auth::routes();
 
 });

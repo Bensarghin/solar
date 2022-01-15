@@ -55,7 +55,7 @@ class EtudiantsController extends Controller
         $request->validate([
             'image' => ['nullable','mimes:jpg,png,jpeg,gif,svg','max:2024'],
             //etudiant validate
-            'cin' => 'required',
+            'cin' => 'nullable',
             'nom' => 'required',
             'prenom' => 'required',
             'nom_ar' => 'required',
@@ -162,7 +162,7 @@ class EtudiantsController extends Controller
         $request->validate([
             'image' => ['nullable','mimes:jpg,png,jpeg,gif,svg','max:2024'],
             //etudiant validate
-            'cin' => 'required|unique:etudiants',
+            'cin' => 'nullable|unique:etudiants',
             'nom' => 'required',
             'prenom' => 'required',
             'nom_ar' => 'required',
@@ -187,6 +187,8 @@ class EtudiantsController extends Controller
             'ville' => 'required',
             'note_regional'=>   'required|numeric|max:20',
             'note_total' => 'nullable|numeric|max:20',
+            'Note_semestre'=>   'nullable|numeric|max:20',
+            'Examen_National' => 'nullable|numeric|max:20',
             'region' => 'required' ,
 
 
@@ -232,6 +234,8 @@ class EtudiantsController extends Controller
             'note_regional' => $request->note_regional ,
             'note_total' => $request->note_total ,
             'ville_etab_actuel' => $request->ville ,
+            'Note_semestre'=>   $request->Note_semestre,
+            'Examen_National' => $request->Examen_National,
             'region' => $request->region 
         ]);
 
