@@ -55,34 +55,78 @@
         <!-- /.col -->
     </div>
     <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+            <div class="card-box">
+                <div class="card-head">
+                    <header>Filtrer</header>
+                </div>
+                <div class="card-body">
+                <form action="" method="POST">
+                    <div class="form-group row">
+                        <div class="mb-2">
+                            <select class="form-select input-height" name="assttype">
+                                <option value="">Bac Obtention ...</option>
+                                <option value="Category 1">In Stock</option>
+                                <option value="Category 2">Out Of Stock</option>
+                                <option value="Category 3">Issue</option>
+                                <option value="Category 3">Repair</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="mb-2">
+                            <select class="form-select input-height" name="assttype">
+                                <option value="">Pack ...</option>
+                                <option value="Category 1">In Stock</option>
+                                <option value="Category 2">Out Of Stock</option>
+                                <option value="Category 3">Issue</option>
+                                <option value="Category 3">Repair</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="mb-2">
+                            <select class="form-select input-height" name="assttype">
+                                <option value="">Filiér ...</option>
+                                <option value="Category 1">In Stock</option>
+                                <option value="Category 2">Out Of Stock</option>
+                                <option value="Category 3">Issue</option>
+                                <option value="Category 3">Repair</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="mb-2">
+                            <select class="form-select input-height" name="assttype">
+                                <option value="">Ville ...</option>
+                                <option value="Category 1">In Stock</option>
+                                <option value="Category 2">Out Of Stock</option>
+                                <option value="Category 3">Issue</option>
+                                <option value="Category 3">Repair</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success">Trier</button>
+                </form>
+            </div>
+            </div>
+        </div>
         <div class="col-lg-8 col-md-8 col-sm-12 col-12">
             <div class="card-box">
                 <div class="card-head">
                     <header>Etudiant table</header>
-                    <button id="panel-button8"
-                        class="mdl-button mdl-js-button mdl-button--icon pull-right"
-                        data-upgraded=",MaterialButton">
-                        <i class="material-icons">more_vert</i>
-                    </button>
-                    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
-                        data-mdl-for="panel-button8">
-                        <li class="mdl-menu__item"><i class="material-icons">assistant_photo</i>Action
-                        </li>
-                        <li class="mdl-menu__item"><i class="material-icons">print</i>Another action
-                        </li>
-                        <li class="mdl-menu__item"><i class="material-icons">favorite</i>Something else
-                            here</li>
-                    </ul>
-                </div>
-                <div class="card-body ">
-                    <a href="{{route('etudiant.add')}}" id="addRow"
-                    class="btn btn-info">
+
+                    <a href="{{route('etudiant.add')}}" data-type="dialog7" data-upgraded=",MaterialButton,MaterialRipple" id="addRow"
+                    class="pull-right btn btn-info">
                     Ajouter etudiant <i class="fa fa-plus"></i>
                     </a>
+                </div>
+                <div class="card-body ">
                     <div class="table-responsive">
                         <table class="table table-striped custom-table table-hover">
                             <thead>
                                 <tr>
+                                    <th></th>
                                     <th>CIN</th>
                                     <th>Nom Prenom</th>
                                     <th>Gender</th>
@@ -93,6 +137,13 @@
                             <tbody>
                                 @foreach($etudiants as $etudiant)
                                 <tr>
+                                    <td>
+                                        @if($etudiant->image)
+                                        <img src="{{asset('uploads/'.$etudiant->image)}}" class="img-thumbnail" width="40" height="40">
+                                        @else
+                                        <img src="{{asset('assets/img/default.png')}}" class="img-thumbnail" width="40" height="40">
+                                        @endif
+                                    </td>
                                     <td>{{$etudiant->cin}}</td>
                                     <td>{{$etudiant->nom}} {{$etudiant->prenom}}</td>
                                     <td> {{$etudiant->gender}} </td>
@@ -104,7 +155,7 @@
                                         <a href="{{route('etudiant.edit',['id' => $etudiant->profile->id])}}" data-bs-toggle="tooltip"
                                             title="Modifier">
                                             <i class="fa fa-check"></i></a> |
-                                        <a onclick="return confirm('vous étes sure pour ce supprission!???')" href="{{route('etudiant.destroy',['id' => $etudiant->id])}}" class="text-inverse" title="Supprimer"
+                                        <a href="{{route('etudiant.destroy',['id' => $etudiant->id])}}" class="text-inverse" title="Supprimer"
                                             data-bs-toggle="tooltip">
                                             <i class="fa fa-trash"></i></a>
                                     </td>

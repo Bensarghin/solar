@@ -58,8 +58,11 @@
                                                     @foreach($profiles as $profile)
                                                     <tr class="odd gradeX">
                                                         <td class="patient-img">
-                                                            <img src="{{asset('assets/img/std/std1.jpg')}}"
-                                                                alt="">
+                                                         @if($profile->etudiant->image)
+                                                            <img src="{{asset('uploads/'.$profile->etudiant->image)}}" class="img-thumbnail" width="40" height="40">
+                                                        @else
+                                                            <img src="{{asset('assets/img/default.png')}}" class="img-thumbnail" width="40" height="40">
+                                                        @endif
                                                         </td>
                                                         <td class="left">{{$profile->etudiant->cin}}</td>
                                                         <td>{{$profile->etudiant->nom}} {{$profile->etudiant->prenom}}</td>
@@ -96,22 +99,28 @@
                                 <div class="card card-box">
                                     <div class="card-body no-padding ">
                                         <div class="doctor-profile">
-                                            <img src="{{asset('assets/img/std/std1.jpg')}}" class="doctor-pic"
-                                                alt="">
+                                             @if($profile->etudiant->image)
+                                                <img src="{{asset('uploads/'.$profile->etudiant->image)}}" class="doctor-pic">
+                                                @else
+                                                    <img src="{{asset('assets/img/default.png')}}" class="doctor-pic">
+                                                @endif
                                             <div class="profile-usertitle">
                                                 <div class="doctor-name">{{$profile->etudiant->nom}} {{$profile->etudiant->prenom}}</div>
-                                                <div class="name-center"> Mathematics </div>
+                                                <div class="name-center">{{$profile->etudiant->nom_ar}} {{$profile->etudiant->prenom_ar}}</div>
                                             </div>
-                                            <p>{{$profile->contact->adresse}}, <br />{{$profile->contact->ville_resident}}
+                                            <p>{{$profile->contact->adresse}}, <br/>{{$profile->contact->ville_resident}}
                                             </p>
                                             <div>
                                                 <p><i class="fa fa-phone"></i><a
-                                                        href="tel:(123)456-7890"> {{$profile->contact->tele}}</a></p>
+                                                        href="tel:{{$profile->contact->tele}}"> {{$profile->contact->tele}}</a> 
+                                                        @if($profile->contact->whatsapp)
+                                                        <i class="fa fa-whatsapp"></i> <a
+                                                        href="tel:{{$profile->contact->whatsapp}}"> {{$profile->contact->whatsapp}}</a></p>
+                                                        @endif
                                             </div>
                                             <div class="profile-userbuttons">
-                                                <a href="professor_profile.html"
-                                                    class="btn btn-circle deepPink-bgcolor btn-sm">Read
-                                                    More</a>
+                                                <a href="{{route('etudiant.profile',['id' => $profile->id])}}"
+                                                    class="btn btn-circle deepPink-bgcolor btn-sm">Profile</a>
                                             </div>
                                         </div>
                                     </div>

@@ -1,5 +1,5 @@
 
-<script src="{{asset('js/app.js')}}"></script>
+<!-- <script src="{{asset('js/app.js')}}"></script> -->
 <!-- start js include path -->
 <script data-cfasync="false" src="https://cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 <script src="{{asset('assets/plugins/jquery/jquery.min.js')}}"></script>
@@ -19,3 +19,15 @@
 <script src="{{asset('assets/js/theme-color.js')}}"></script>
 <!-- Material -->
 <script src="{{asset('assets/plugins/material/material.min.js')}}"></script>
+	<script src="{{asset('assets/plugins/sweet-alert/sweetalert2.all.min.js')}}"></script>
+	<script src="{{asset('assets/plugins/sweet-alert/sweetalert2.min.js')}}"></script>
+	<script src="{{asset('assets/js/pages/sweet-alert/sweet-alert-data.js')}}"></script>
+<script>
+  var loadFile = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+    output.onload = function() {
+      URL.revokeObjectURL(output.src) // free memory
+    }
+  };
+</script>

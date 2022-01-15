@@ -23,14 +23,28 @@
                         <a href="#tab5-panel" class="mdl-tabs__tab tabs_three">Contact</a>
                         <a href="#tab6-panel" class="mdl-tabs__tab tabs_three">Info Scolaire</a>
                     </div>
-                    <form action="{{route('etudiant.update',['id' => $profile->etudiant->id ])}}" method="POST" class="mdl-tabs__panel is-active p-t-20" id="tab4-panel">
+                    <form action="{{route('etudiant.update',['id' => $profile->etudiant->id ])}}" method="POST" class="mdl-tabs__panel is-active p-t-20" id="tab4-panel" enctype="multipart/form-data">
+                        @csrf
                         <div class="table-responsive">
                                 <div class="card-box">
                                     <div class="card-head">
                                         <header>Etudiant</header>
                                     </div>
                                     <div class="card-body row">
-                                        <div class="col-lg-12 p-t-20">
+                                        <div class="col-lg-6 p-t-20">
+                                            @if($profile->etudiant->image)
+                                            <img src="{{asset('uploads/'.$profile->etudiant->image)}}" id="output" class="img-thumbnail" width="200" height="200" alt="">
+                                            @else
+                                            <img src="{{asset('assets/img/default.png')}}" id="output" class="img-thumbnail" width="200" height="200" alt="">
+                                            @endif
+                                            <!-- <img src="..." alt="..." class="img-thumbnail"> -->
+                                            <div class="input-group mb-3">
+                                              <div class="custom-file">
+                                                <input type="file" accept="image/*" class="custom-file-input" onchange="loadFile(event)" id="inputGroupFile01" name="image">
+                                              </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 p-t-20">
                                             <label class="text-muted">CIN</label>
                                             <div
                                                 class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
@@ -251,7 +265,7 @@
                                             </div>
                                         </div>
                                         <div id="app">
-                                            <p class="text-muted text-center col-md-12">{{$profile->scolaire->ville_etab_actuel}} {{$profile->scolaire->region}}
+                                            <p class="text-muted text-center col-md-12">{{$profile->scolaire->ville_etab_actuel}} / {{$profile->scolaire->region}}
                                                     </p>
                                             <ville-region></ville-region>
                                         </div>

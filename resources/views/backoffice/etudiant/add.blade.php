@@ -23,11 +23,10 @@
             </div>
             <div class="card-body row">
                 <div class="col-lg-6 p-t-20">
-                    <label class="text-muted">Photo</label>
+                    <img src="{{asset('assets/img/default.png')}}" id="output" class="img-thumbnail" width="200" height="200" alt="">
                     <div class="input-group mb-3">
                       <div class="custom-file">
-                        <input type="file" accept="image/*" class="custom-file-input" id="inputGroupFile01" name="image">
-                        <label class="custom-file-label" for="inputGroupFile01">choiser une image</label>
+                        <input type="file" accept="image/*" class="custom-file-input" onchange="loadFile(event)" id="inputGroupFile01" name="image">
                       </div>
                     </div>
                 </div>

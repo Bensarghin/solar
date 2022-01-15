@@ -4,6 +4,7 @@ namespace App\Http\Controllers\backoffice;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use App\Models\Etudiant;
 use App\Models\Contact;
 use App\Models\Scolaire;
@@ -36,9 +37,9 @@ class EtudiantsController extends Controller
     {
         $profile = Profile::find($id);
         if($profile){
-        return view('backoffice.etudiant.edit',[
-            'profile' => $profile
-        ]);
+            return view('backoffice.etudiant.edit',[
+                'profile' => $profile
+            ]);
         }
         else {
             return abort('404');
@@ -54,7 +55,7 @@ class EtudiantsController extends Controller
         $request->validate([
             'image' => ['nullable','mimes:jpg,png,jpeg,gif,svg','max:2024'],
             //etudiant validate
-            'cin' => 'required|unique:etudiants',
+            'cin' => 'required',
             'nom' => 'required',
             'prenom' => 'required',
             'nom_ar' => 'required',
@@ -65,7 +66,11 @@ class EtudiantsController extends Controller
         ]);        
         $image = $request->file('image');
         if($image!=null) {
-
+            //delete image if exists
+            if(File::exists(public_path('uploads/').$etudiant->image)) {
+                File::delete(public_path('uploads/').$etudiant->image);
+            }
+            // upload new image
             $extension = $image->getClientOriginalExtension();
             $fileName = time().'.'.$extension; 
             $image->move(public_path('uploads'), $fileName);
@@ -82,11 +87,15 @@ class EtudiantsController extends Controller
             'lieu_nais' => $request->lieu_nais,
             'gender' => $request->gender,
         ]);
-        return redirect()->route('etudiant.profile',['']);
+        return redirect()->route('etudiant.profile',['id'=>$etudiant->profile->id]);
     }
 
     // update contact
     public function contact(Request $request, $id) {
+        $contact = Contact::find($id);
+        if(!$contact) {
+            return abort('404');
+        }
         $request->validate([
             'tele' => ['required','numeric','digits:9'],
             'adresse' => 'required',
@@ -106,17 +115,25 @@ class EtudiantsController extends Controller
             'ville_resident' => $request->ville_resident,
             'code_postal' => $request->code_postal
         ]);
-        return redirect()->route('etudiant.profile',['id' => Contact::find($id)->profile->id]);
+        return redirect()->route('etudiant.profile',['id' => $contact->profile->id]);
     }
 
     // update scolaire
     public function scolaire(Request $request, $id) {
+        $scolaire = Scolaire::find($id);
+        if(!$scolaire) {
+            return abort('404');
+        }
         $request->validate([
             'pack'=> 'required',
-            'bac_niveau' => 'numeric|required|digits:4',
+            'bac_niveau' => 'required',
             'code_massar' => 'required' ,
             'filier' => 'required' ,
             'region' => 'required' ,
+            'note_total' => 'nullable|numeric|max:20',
+            'note_regional' => 'required|numeric|max:20' ,
+            'ville' => 'required' ,
+            'nom_etab' => 'required' ,
         ]);
 
         Scolaire::where('id',$id)
@@ -125,12 +142,18 @@ class EtudiantsController extends Controller
             'bac_niveau' => $request->bac_niveau ,
             'code_massar' => $request->code_massar ,
             'filier' => $request->filier ,
-            'region' => $request->region 
+            'region' => $request->region ,
+            'note_total' => $request->note_total ,
+            'note_regional' => $request->note_regional ,
+            'nom_etab_actuel' => $request->nom_etab ,
+            'ville_etab_actuel' => $request->ville
         ]);
-        return redirect()->route('etudiant.profile',['id' => Scolaire::find($id)->profile->id]);
+
+        return redirect()->route('etudiant.profile',['id' => $scolaire->profile->id]);
     }
 
     public function create() {
+
         return view('backoffice.etudiant.add');
     }
 
@@ -162,8 +185,8 @@ class EtudiantsController extends Controller
             'filier' => 'required' ,
             'nom_etab' => 'required',
             'ville' => 'required',
-            'note_regional'=>   'required',
-            'note_total' => 'required',
+            'note_regional'=>   'required|numeric|max:20',
+            'note_total' => 'nullable|numeric|max:20',
             'region' => 'required' ,
 
 
@@ -225,6 +248,14 @@ class EtudiantsController extends Controller
 
     public function destroy($id) {
         $etudiant = Etudiant::find($id);
+        if(!$etudiant) {
+            return abort('404');
+        }
+
+        //delete image if exists
+        if(File::exists(public_path('uploads/').$etudiant->image)) {
+            File::delete(public_path('uploads/').$etudiant->image);
+        }
         $etudiant->profile->contact->delete();
         $etudiant->profile->scolaire->delete();
         $etudiant->delete();
