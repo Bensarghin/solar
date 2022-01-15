@@ -6682,8 +6682,8 @@ table.valign-middle tbody tr td {
   color: #fff !important;
 }
 .btn-success {
-  background-color: #54ca68 !important;
-  border: 1px solid #54ca68 !important;
+  background-color: #35c6d3 !important;
+  border: 1px solid #35c6d3 !important;
   color: #fff !important;
 }
 .btn-success:hover,
@@ -9267,4 +9267,18 @@ nav-tabs > li {
     width: 126px;
     margin: 10px;
     padding: 10px;
+}
+
+.btn {
+    font-size: 12px;
+    transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    margin: 10px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+    padding: 10px 14px 10px;
 }

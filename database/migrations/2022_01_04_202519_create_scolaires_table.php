@@ -19,20 +19,17 @@ class CreateScolairesTable extends Migration
             $table->string('bac_niveau');
             $table->string('code_massar')->nullable();
             $table->string('region');
-<<<<<<< HEAD
             $table->string('filier');
             $table->string('nom_etab_actuel');
             $table->string('ville_etab_actuel');
             $table->float('note_regional');
             $table->float('note_total')->nullable();
-=======
-            $table->string('ville_institude');
-            $table->string('institude');
-            $table->float('Examen_Regional');
-            $table->float('Note_semestre')->nullable();
-            $table->float('Examen_National');
-            $table->float('Note_bac');
->>>>>>> visiteur
+            // $table->string('ville_institude');
+            // $table->string('institude');
+            // $table->float('Examen_Regional');
+            // $table->float('Note_semestre')->nullable();
+            // $table->float('Examen_National');
+            // $table->float('Note_bac');
             $table->timestamps();
         });
     }

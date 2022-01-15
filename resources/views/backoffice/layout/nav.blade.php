@@ -33,7 +33,7 @@
                 <li class="nav-item  start open">
                     <a href="{{route('etudiant.add')}}"class="nav-link">
                         <i class="material-icons">school</i>
-                        <span class="title">Nouveau Etudiant <b>+</b></span>
+                        <span class="title">Nouveau Etudiant </span>
                         <span class="selected"></span>
                     </a>
                 </li>

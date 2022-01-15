@@ -17,12 +17,17 @@
                 </div>
             </div>
         </section>
+
 -->
+
      <section class="contact-page-section">
             <div class="auto-container">
                 <div class="row">
                     <div class="form-column col-lg-12 col-md-12 col-sm-12">
                         <div class="inner-column">
+
+
+
                             <div class="sec-title text-center">
 							<h2>Créez votre profile</h2>
                             </div>

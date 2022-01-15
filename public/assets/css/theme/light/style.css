@@ -989,16 +989,13 @@ tr.group:hover {
   background: #e55957;
 }
 .bg-b-blue {
-  background: linear-gradient(45deg, #4099ff, #73b4ff);
-}
+background: linear-gradient(45deg, #35c6d3, #35c6d3)}
 .bg-b-green {
-  background: linear-gradient(45deg, #2ed8b6, #59e0c5);
-}
+background: linear-gradient(45deg, #35c6d3, #35c6d3)}
 .bg-b-yellow {
-  background: linear-gradient(45deg, #ffb64d, #ffcb80);
-}
+background: linear-gradient(45deg, #35c6d3, #35c6d3)}
 .bg-b-pink {
-  background: linear-gradient(45deg, #ff5370, #ff869a);
+background: linear-gradient(45deg, #35c6d3, #35c6d3)
 }
 
 .bg-blue {
