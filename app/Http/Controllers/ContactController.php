@@ -3,8 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use App\Mail\VisitorContact;
+
 use App\Http\Requests\StoreContactRequest;
 use App\Http\Requests\UpdateContactRequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
 
 class ContactController extends Controller
 {
@@ -26,6 +31,19 @@ class ContactController extends Controller
     public function create()
     {
         //
+    }
+     public function submitContactForm(Request $request)
+    {
+      $data = [
+        'name' => $request->name,
+        'email' =>$request->email,
+        'message' =>$request->message,
+      ];
+
+      Mail::to('yousratribak1@gmail.com')->send (new VisitorContact($data));
+
+      Session::flash('message', 'Thank you for your email');
+      return redirect()->route('contact');
     }
 
     /**

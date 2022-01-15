@@ -68,14 +68,14 @@
                                                         <td>{{'12 déc 2021'}}</td>
                                                         <td>
                                                             <a href="{{route('etudiant.profile',['id'=>$profile->id])}}"
-                                                                class="btn btn-dark btn-xs">
+                                                                class="faicon  pro">
                                                                 <i class="fa fa-user"></i>
                                                             </a>
                                                             <a href="{{route('etudiant.edit',['id'=>$profile->id])}}"
-                                                                class="btn btn-primary btn-xs">
+                                                                class="faicon ed">
                                                                 <i class="fa fa-pencil"></i>
                                                             </a>
-                                                            <a href="{{route('etudiant.destroy',['id' => $profile->etudiant->id])}}" class="btn btn-danger btn-xs">
+                                                            <a href="{{route('etudiant.destroy',['id' => $profile->etudiant->id])}}" class="faicon de">
                                                                 <i class="fa fa-trash-o "></i>
                                                             </a>
                                                         </td>
@@ -100,7 +100,7 @@
                                                 alt="">
                                             <div class="profile-usertitle">
                                                 <div class="doctor-name">{{$profile->etudiant->nom}} {{$profile->etudiant->prenom}}</div>
-                                                <div class="name-center"> Mathematics </div>
+                                                <div class="name-center"> {{$profile->etudiant->date_nais}}, {{$profile->etudiant->lieu_nais}} </div>
                                             </div>
                                             <p>{{$profile->contact->adresse}}, <br />{{$profile->contact->ville_resident}}
                                             </p>
@@ -109,9 +109,19 @@
                                                         href="tel:(123)456-7890"> {{$profile->contact->tele}}</a></p>
                                             </div>
                                             <div class="profile-userbuttons">
-                                                <a href="professor_profile.html"
-                                                    class="btn btn-circle deepPink-bgcolor btn-sm">Read
-                                                    More</a>
+                                               
+                                                            <a href="{{route('etudiant.profile',['id'=>$profile->id])}}"
+                                                                class="faicon  pro">
+                                                                <i class="fa fa-user"></i>
+                                                            </a>
+                                                            <a href="{{route('etudiant.edit',['id'=>$profile->id])}}"
+                                                                class="faicon ed">
+                                                                <i class="fa fa-pencil"></i>
+                                                            </a>
+                                                            <a href="{{route('etudiant.destroy',['id' => $profile->etudiant->id])}}" class="faicon de">
+                                                                <i class="fa fa-trash-o "></i>
+                                                            </a>
+                                                       
                                             </div>
                                         </div>
                                     </div>

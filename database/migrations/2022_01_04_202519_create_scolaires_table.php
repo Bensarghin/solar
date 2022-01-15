@@ -20,6 +20,12 @@ class CreateScolairesTable extends Migration
             $table->string('code_massar')->nullable();
             $table->string('filier');
             $table->string('region');
+            $table->string('ville_institude');
+            $table->string('institude');
+            $table->float('Examen_Regional');
+            $table->float('Note_semestre')->nullable();
+            $table->float('Examen_National');
+            $table->float('Note_bac');
             $table->timestamps();
         });
     }

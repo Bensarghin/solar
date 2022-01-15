@@ -2,7 +2,12 @@
 
 @section('content')
 @section('content-title','Etudiant Profile')
+<div class="rol">
+       <a href="{{route('etudiants')}}" style="color: #ffffff;" >All etudiant</a>
+
+</div>
 <div class="row">
+     
     <div class="col-md-12">
         <!-- BEGIN PROFILE SIDEBAR -->
         <div class="profile-sidebar">
@@ -18,33 +23,24 @@
                     </div>
                     <ul class="list-group list-group-unbordered">
                         <li class="list-group-item">
-                            <b>Nom&prenom (ar)</b> <a class="pull-right">{{$profile->etudiant->nom_ar}} {{$profile->etudiant->prenom_ar}}</a>
+                            <b>Nom&prenom (ar)</b> :{{$profile->etudiant->nom_ar}} {{$profile->etudiant->prenom_ar}}</a>
                         </li>
                         <li class="list-group-item">
-                            <b>cin</b> <a class="pull-right">{{$profile->etudiant->gender}}</a>
+                            <b>cin</b> :{{$profile->etudiant->cin}}
                         </li>
                         <li class="list-group-item">
-                            <b>Date nais</b> <a class="pull-right">{{$profile->etudiant->date_nais}}</a>
+                            <b>Date nais</b> :{{$profile->etudiant->date_nais}}
                         </li>
                         <li class="list-group-item">
-                            <b>Lieu Nais</b> <a class="pull-right">{{$profile->etudiant->lieu_nais}}</a>
+                            <b>Lieu Nais</b> :{{$profile->etudiant->lieu_nais}}
                         </li>
                         <li class="list-group-item">
-                            <b>Gender</b> <a class="pull-right">{{$profile->etudiant->gender}}</a>
+                            <b>Gender</b> :{{$profile->etudiant->gender}}
                         </li>
                     </ul>
                     <!-- END SIDEBAR USER TITLE -->
                     <!-- SIDEBAR BUTTONS -->
-                    <div class="profile-userbuttons">
-                        <a href="{{route('etudiant.edit',['id'=>$profile->id])}}"
-                            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 btn-circle btn-primary">
-                            Modifier
-                        </a>
-                        <a href="{{route('etudiant.destroy',['id' => $profile->etudiant->id])}}"
-                            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 btn-circle btn-pink">
-                            Supprimer
-                        </a>
-                    </div>
+                  
                     <!-- END SIDEBAR BUTTONS -->
                 </div>
             </div>
