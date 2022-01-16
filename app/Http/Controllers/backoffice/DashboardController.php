@@ -19,4 +19,9 @@ class DashboardController extends Controller
             'etudiants' => $etudiants
         ]);
     }
+
+    
+    public function filtrer(Requet $request) {
+        
+    }
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{LaravelLocalization::getCurrentLocale()}}">
 @include('layouts.head')
 <body>
     <div class="page-wrapper">

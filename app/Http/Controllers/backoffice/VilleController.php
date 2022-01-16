@@ -9,11 +9,11 @@ class VilleController extends Controller
 {
     public function index() {
         $data = json_decode(file_get_contents(public_path() . "/js/villes.json"), true);
-        return response()->json($data);
+        return $data;
     }
 
     public function regions() {
         $data = json_decode(file_get_contents(public_path() . "/js/regions.json"), true);
-        return response()->json($data);
+        return $data;
     }
 }

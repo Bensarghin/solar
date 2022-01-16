@@ -24,7 +24,7 @@
                         <div class="inner-column">
 
         <form class="card-box" action="{{route('etudiant.store')}}" method="POST" enctype="multipart/form-data">
-            								<div class="row">
+            <div class="row">
 
             @csrf
             <center>
@@ -33,11 +33,11 @@
             <div class="contact-form row">
             <center>
          	<div class="form-input">
-            <div class="preview">
-            <img src="{{asset('assset/images/Avatar.png')}}" id="inputGroupFile01-preview">
-            </div>
-            <label for="inputGroupFile01"><i class="fa fa-upload"></i></label>
-            <input type="file" id="inputGroupFile01" name="image" accept="image/*" onchange="showPreview(event);">
+                <div class="preview">
+                <img src="{{asset('assset/images/Avatar.png')}}" id="inputGroupFile01-preview">
+                </div>
+                <label for="inputGroupFile01"><i class="fa fa-upload"></i></label>
+                <input type="file" id="inputGroupFile01" name="image" accept="image/*" onchange="showPreview(event);">
             </div>
             </center>
             
@@ -83,11 +83,11 @@
                             id="date" name="lieu_nais">
                 </div>
 
-                <div class="col-lg-6 p-t-20">
+                <div class="form-group col-lg-12 p-t-20">
                     <label for="sample2" class="text-muted">Gender <span class="required"> (* ) </span></label>
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
                         <input type="radio" {{old('gender')=='M'?'checked':''}} value="M" name="gender" id="male">
-                        <label for="male">Masculin</label>
+                        <label for="male">Masculin</label> <b class="text-primary">|</b> 
                         <input type="radio" {{old('gender')=='F'?'checked':''}} value="F" name="gender" id="female">
                         <label for="female">Feminin</label>
                     </div>
@@ -140,30 +140,27 @@
                 <center>
                 <h3>Info Scolaire</h3>
                  </center>
-                <div class="form-group col-lg-6 col-md-12 col-sm-12">
-                    <label for="sample2" class="text-muted">Pack <span class="required"> (* ) </span></label>
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                        <input type="radio" {{old('pack')=='normal'?'checked':''}} 
-                        name="pack" value="normal" id="normal">
-                        <label for="normal">Normal</label>
-                        <input type="radio" {{old('pack')=='premium'?'checked':''}} 
-                        name="pack" value="premium" id="premium">
-                        <label for="premium">Premium</label>
-                        <input type="radio" {{old('pack')=='full'?'checked':''}} 
-                        name="pack" value="full" id="full">
-                        <label for="full">Full</label>
-                    </div>
-                </div>
-                <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                <div class="form-group col-lg-12 col-md-12 col-sm-12">
                     <label for="sample2" class="text-muted">Bac Obtention <span class="required"> (* ) </span></label>
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
                         <input type="radio" {{old('bac_niveau')=='actuel'?'checked':''}} 
                         name="bac_niveau" value="actuel" id="actuel">
-                        <label for="actuel">Back acteul {{date('Y')}}</label>
+                        <label for="actuel">Back acteul {{date('Y')}}</label> <b class="text-primary">|</b>
                         <input type="radio" {{old('bac_niveau')=='aucien'?'checked':''}} 
                         name="bac_niveau" value="aucien" id="aucien">
                         <label for="aucien">Aucien bac</label>
                     </div>
+                </div>
+                <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                    <label for="sample2" class="text-muted">Pack <span class="required"> (* ) </span></label><br>
+                    <input type="radio" {{old('pack')=='sn'?'checked':''}} name="pack" value="sn" required id="sn">
+                     <label for="sn">Pack Sciences Normal</label> <b class="text-primary">|</b>  
+                    <input type="radio" {{old('pack')=='sp'?'checked':''}} name="pack" value="sp" required id="sp">
+                    <label for="sp">Pack Sciences Plus </label> <b class="text-primary">|</b> 
+                    <input type="radio" {{old('pack')=='etl'?'checked':''}} name="pack" value="etl" required id="etl">
+                    <label for="etl">Pack Economie, Techniques et Lettres </label> <b class="text-primary">|</b>
+                    <input type="radio" {{old('pack')=='ep'?'checked':''}} name="pack" value="ep" required id="ep">
+                    <label for="ep">Pack Economie Plus </label>
                 </div>
                 <div class="form-group col-lg-6 col-md-12 col-sm-12">
                     <label>Filiér <span class="required"> (* ) </span></label>
@@ -178,7 +175,15 @@
                         <input class="mdl-textfield__input" type="number" id="txtemail" value="{{old('note_regional')}}" name="note_regional">
                 </div>
                 <div class="form-group col-lg-6 col-md-12 col-sm-12">
-                    <label class="text-muted">Note global / 1er soumetre</label>
+                    <label for="">Note du 1er semestre 2ème année baccalauréat (Si disponible)</label>
+                    <input type="text" class="mdl-textfield__input" name="Note_semestre" placeholder="">
+                </div>
+                <div class="form-group col-lg-6 col-md-12 col-sm-12" >
+                    <label for="">Note Examen national</label>
+                    <input type="text" class="mdl-textfield__input" name="Examen_National" placeholder="" value="{{old('Examen_National')}}">
+                </div>
+                <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                    <label class="text-muted">Note générale de bac</label>
                         <input class="mdl-textfield__input" type="number"
                             id="txtemail" value="{{old('note_total')}}" name="note_total">
                 </div>
@@ -186,9 +191,31 @@
                     <label class="text-muted">Nom Etablissement actuel <span class="required"> (* ) </span></label>
                         <input class="mdl-textfield__input" type="text"  id="txtemail" value="{{old('nom_etab')}}" name="nom_etab">
                 </div>
-
-                <div id="app">
-                    <ville-region></ville-region>
+                <div class="form-group row">
+                    <label class="text-muted col-md-3">Région
+                        <span> (* obligatoire) </span>
+                    </label>
+                    <div class="col-md-5">
+                        <select class="form-select input-height" name="region">
+                            <option value="">Select...</option>
+                            @foreach($regions as $region)
+                            <option value="{{$region['region']}}">{{$region['region']}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="text-muted col-md-3">Ville
+                        <span> (* obligatoire) </span>
+                    </label>
+                    <div class="col-md-5">
+                        <select class="form-select input-height" name="ville">
+                            <option value="">Select...</option>
+                            @foreach($villes as $ville)
+                            <option value="{{$ville['ville']}}">{{$ville['ville']}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
                 <center>
                 <div class="form-group col-lg-6 col-md-12 col-sm-12">
@@ -197,7 +224,7 @@
                         Enregistrer</button>
                 </div>
                 </center>
-            </div>
+
         </form>
     </div>
 </div></div>

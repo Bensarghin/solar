@@ -61,48 +61,42 @@
                     <header>Filtrer</header>
                 </div>
                 <div class="card-body">
-                <form action="" method="POST">
+                <form action="{{route('filtrer')}}" method="POST">
                     <div class="form-group row">
                         <div class="mb-2">
-                            <select class="form-select input-height" name="assttype">
-                                <option value="">Bac Obtention ...</option>
-                                <option value="Category 1">In Stock</option>
-                                <option value="Category 2">Out Of Stock</option>
-                                <option value="Category 3">Issue</option>
-                                <option value="Category 3">Repair</option>
+                            <select class="form-select input-height" name="bac_niveau">
+                                <option selected>Bac Obtention ...</option>
+                                <option value="aucien">Aucien Bac</option>
+                                <option value="actuel">Bac {{date('Y')}}</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="mb-2">
                             <select class="form-select input-height" name="assttype">
-                                <option value="">Pack ...</option>
-                                <option value="Category 1">In Stock</option>
-                                <option value="Category 2">Out Of Stock</option>
-                                <option value="Category 3">Issue</option>
-                                <option value="Category 3">Repair</option>
+                                <option selected>Pack ...</option>
+                                <option value="sn">In Stock</option>
+                                <option value="sp">Out Of Stock</option>
+                                <option value="etl">Issue</option>
+                                <option value="ep">Repair</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="mb-2">
                             <select class="form-select input-height" name="assttype">
-                                <option value="">Filiér ...</option>
-                                <option value="Category 1">In Stock</option>
-                                <option value="Category 2">Out Of Stock</option>
-                                <option value="Category 3">Issue</option>
-                                <option value="Category 3">Repair</option>
+                                <option  selected>Filiér ...</option>
+                                <option value="Sciences Economiques">Sciences Economiques</option><option value="Sciences de Gestion et de Comptabilité">Sciences de Gestion et de Comptabilité</option><option value="Sciences et Technologies Mécaniques">Sciences et Technologies Mécaniques</option><option value="Sciences et Technologies Electriques">Sciences et Technologies Electriques</option><option value="Lettres">Lettres</option><option value="Sciences Humaines">Sciences Humaines</option><option value="Sciences agronomiques">Sciences agronomiques</option><option value="Arts Appliqués">Arts Appliqués</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="mb-2">
                             <select class="form-select input-height" name="assttype">
-                                <option value="">Ville ...</option>
-                                <option value="Category 1">In Stock</option>
-                                <option value="Category 2">Out Of Stock</option>
-                                <option value="Category 3">Issue</option>
-                                <option value="Category 3">Repair</option>
+                                <option selected>Region ...</option>
+                                @foreach($regions as $region)
+                                <option value="{{$region['region']}}">{{$region['region']}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -122,8 +116,8 @@
                     </a>
                 </div>
                 <div class="card-body ">
-                    <div class="table-responsive">
-                        <table class="table table-striped custom-table table-hover">
+                    <div class="table-responsive" style="width: 100% !important;">
+                        <table class="table table-striped table-hover">
                             <thead>
                                 <tr>
                                     <th></th>
@@ -131,6 +125,10 @@
                                     <th>Nom Prenom</th>
                                     <th>Gender</th>
                                     <th>Date, Lieu Nais</th>
+                                    <th>Bac</th>
+                                    <th>Filier</th>
+                                    <th>Etab Actuel</th>
+                                    <th>Ville</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -148,6 +146,10 @@
                                     <td>{{$etudiant->nom}} {{$etudiant->prenom}}</td>
                                     <td> {{$etudiant->gender}} </td>
                                     <td>{{$etudiant->date_nais}}, {{$etudiant->lieu_nais}}</td>
+                                    <th>Bac</th>
+                                    <th>Filier</th>
+                                    <th>Etab Actuel</th>
+                                    <th>Ville</th>
                                     <td>
                                         <a href="{{route('etudiant.profile',['id' => $etudiant->profile->id])}}" data-bs-toggle="tooltip"
                                             title="Profile">
