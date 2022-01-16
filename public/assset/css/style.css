@@ -665,9 +665,6 @@ img {
     width: 35px;
     height: 35px;
     line-height: 35px;
-    border: 1px solid var(--white);
-    color: var(--white);
-    border-radius: 50%;
     margin-left: 10px;
     text-align: center;
     -webkit-transition: all 300ms ease;
@@ -675,11 +672,6 @@ img {
     -ms-transition: all 300ms ease;
     -o-transition: all 300ms ease;
     transition: all 300ms ease;
-}
-
-.social-links li a:hover {
-    background-color: var(--white);
-    color: var(--main-color);
 }
 
 
@@ -2172,8 +2164,6 @@ body.modal-active {
 
 .header-style-three .social-links li a {
     color: var(--grey);
-    border-left: 1px solid rgba(var(--black-opicity), 0.1);
-    border-right: 1px solid rgba(var(--black-opicity), 0.1);
     border-radius: 0;
     margin-left: -1px;
     padding: 3px 0;
@@ -2183,10 +2173,6 @@ body.modal-active {
     border-bottom: none;
 }
 
-.header-style-three .social-links li a:hover {
-    background-color: var(--main-color);
-    color: var(--white);
-}
 
 .header-style-three .header-lower {
     width: 100%;
@@ -6007,18 +5993,7 @@ canvas {
     margin-left: 0;
     margin-right: 10px;
 }
-.project-detail .info-column .inner-column .published-block .social-links a.fb {
-    background-color: var(--facebook-color);
-}
-.project-detail .info-column .inner-column .published-block .social-links a.twitter {
-    background-color: var(--twitter-color);
-}
-.project-detail .info-column .inner-column .published-block .social-links a.linkedin {
-    background-color: var(--linkedin-color);
-}
-.project-detail .info-column .inner-column .published-block .social-links a.gplus {
-    background-color: var(--main-color);
-}
+
 
 /*** 
 

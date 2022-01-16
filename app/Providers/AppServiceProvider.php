@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +24,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $villes = json_decode(file_get_contents(public_path() . "/js/villes.json"), true);
+        $regions = json_decode(file_get_contents(public_path() . "/js/regions.json"), true);
+        View::share([
+            'villes' => $villes,
+            'regions' => $regions
+        ]);
     }
 }

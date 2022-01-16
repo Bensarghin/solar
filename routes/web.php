@@ -66,7 +66,9 @@ Route::get('/', function () { return view('Acc');});
 Route::get('/home', function () { return view('Acc');})->name('home');
 Route::get('/contact', function () { return view('contact');})->name('contact')	;
 Route::get('/inscription', [ProfileController::class,'create'])->name('inscrip');
+Route::get('/profile', [ProfileController::class,'edit'])->name('user.edit');
 Route::post('/store', [ProfileController::class,'store'])->name('user.store');
+Route::post('/update', [ProfileController::class,'update'])->name('user.update');
 Route::post('contact', 'ContactController@submitContactForm')->name('contact.submit');
 Auth::routes();
 

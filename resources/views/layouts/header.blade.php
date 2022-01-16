@@ -11,11 +11,12 @@
                             </ul>
                         </div>
                         <div class="right-header-area">
-                            <ul class="social-links">
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
+                            <ul class="social-links">  
+                                <li>
+                                    <a rel="alternate" href="{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale() == 'fr'?'ar':'fr', null, [], true) }}">
+                                        {{ LaravelLocalization::getCurrentLocaleNative()=='français'?'العربية': 'Français'}}
+                                    </a>
+                                </li> 
                             </ul>
                         </div>
                     </div>
@@ -31,40 +32,28 @@
                                 <div class="mobile-nav-toggler"><span class="icon flaticon flaticon-menu"></span></div>
                                 <nav class="main-menu navbar-expand-md ">
                                     <div class="collapse show navbar-collapse clearfix" id="navbarSupportedContent">
-                                        <ul class="navigation clearfix">
-                                            <li><a href="{{route('home')}}">Acceuil</a></li>
+                                        <ul class="navigation clearfix" style="direction:rtl !important">
+                                            <li><a href="{{route('home')}}">{{ __('layout.acceuil') }}</a></li>
                                             @auth
-                                            <li><a href="{{route('inscrip')}}">Inscription</a></li>
+                                            <li><a href="{{route('inscrip')}}">{{ __('layout.inscription') }}</a></li>
                                             @endauth
-                                            <li><a href="{{route('contact')}}">Contact</a></li>        
-                                            @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                                                <li>
-                                                    <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                                                        {{ $properties['native'] }}
-                                                    </a>
-                                                </li>
-                                            @endforeach                                       
+                                            <li><a href="{{route('contact')}}">{{ __('layout.contact') }}</a></li>                                   
                                         @guest
                                             @if (Route::has('login'))
                                                 <li>
                                                     <a href="{{ route('login') }}">Se Connecter</a>
                                                 </li>
                                             @endif
-                
-                                            {{-- @if (Route::has('register'))
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="{{ route('register') }}">Inscription</a>
-                                                </li>
-                                            @endif --}}
                                         @else
                                             <li>
-                                                <a href="">
+
+                                                <a href="{{route('user.edit')}}">
                                                     {{ Auth::user()->name }}
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                                        {{ __('Déconnecter') }}
+                                                        {{ __('layout.deconnecter') }}
                                                     </a>
                 
                                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -76,24 +65,6 @@
 
                                     </div>
                                 </nav>
-                                <div class="outer-box">
-
-                                    <div class="search-box-outer">
-                                        <button class="search-box-btn" id="one"><span class="flaticon flaticon-magnifier"></span></button>
-                                        <div id="modal-container">
-                                            <div class="modal-background">
-                                                <div class="modal"> <span class="close"><i class="fas fa-times"></i></span>
-                                                    <div class="form-container">
-                                                        <h2>Search Here</h2>
-                                                        <form method="post" action="https://expert-themes.com/html/Musta9bali/blog.html">
-                                                            <div class="form-group"> <input type="search" name="field-name" value="" placeholder="Search Here" required> <button type="submit" class="search-btn"><span class="fa fa-search"></span></button></div>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -110,29 +81,6 @@
                         <div class="nav-outer clearfix">
                             <div class="mobile-nav-toggler"><span class="icon flaticon flaticon-menu"></span></div>
                             <nav class="main-menu navbar-expand-md "> </nav>
-                            <div class="outer-box">
-                                <div class="search-box-outer">
-                                    <button class="search-box-btn" id="one"><span class="flaticon flaticon-magnifier"></span></button>
-                                    <div id="modal-container">
-                                        <div class="modal-background">
-                                            <div class="modal"> <span class="close"><i class="fas fa-times"></i></span>
-                                                <div class="form-container">
-                                                    <h2>Search Here</h2>
-                                                    <form method="post" action="">
-                                                        <div class="form-group"> <input type="search" name="field-name" value="" placeholder="Search Here" required> <button type="submit" class="search-btn"><span class="fa fa-search"></span></button></div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cart-box">
-                                    <div class="dropdown">
-                                        <button class="cart-box-btn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        
-                                    
-                                    </div>
-                                </div></div>
                                 </div>
                             </div>
                         </div>

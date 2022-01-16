@@ -9,7 +9,7 @@ class Profile extends Model
 {
     use HasFactory;
     public $timestamp = true;
-    protected $fillable = ['contact_id','etudiant_id','scolaire_id',];
+    protected $fillable = ['contact_id','etudiant_id','scolaire_id','user_id'];
     /**
          * Get the user that owns the Profile
          *
@@ -28,5 +28,10 @@ class Profile extends Model
         public function scolaire() 
         {
             return $this->belongsTo(Scolaire::class, 'scolaire_id');
+        }
+
+        public function user() 
+        {
+            return $this->belongsTo(User::class, 'user_id');
         }
 }

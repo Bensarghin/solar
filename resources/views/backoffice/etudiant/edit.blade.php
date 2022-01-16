@@ -265,9 +265,32 @@
                                             </div>
                                         </div>
                                         <div id="app">
-                                            <p class="text-muted text-center col-md-12">{{$profile->scolaire->ville_etab_actuel}} / {{$profile->scolaire->region}}
-                                                    </p>
-                                            <ville-region></ville-region>
+                                            <div class="form-group row">
+                                                <label class="text-muted col-md-3">Région
+                                                    <span> (* obligatoire) </span>
+                                                </label>
+                                                <div class="col-md-5">
+                                                    <select class="form-select input-height" name="region">
+                                                        <option value="">Select...</option>
+                                                        @foreach($regions as $region)
+                                                        <option value="{{$region['region']}}">{{$region['region']}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="text-muted col-md-3">Ville
+                                                    <span> (* obligatoire) </span>
+                                                </label>
+                                                <div class="col-md-5">
+                                                    <select class="form-select input-height" name="ville">
+                                                        <option value="">Select...</option>
+                                                        @foreach($villes as $ville)
+                                                        <option value="{{$ville['ville']}}">{{$ville['ville']}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="col-lg-12 p-t-20 text-center">
                                             <button type="submit"
