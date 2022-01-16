@@ -19,8 +19,11 @@
         </section>
 -->
 	@if(Session::has('success'))
-		<div class="alert alert-success text-center">
+		<div class="alert alert-success text-center alert-dismissible fade show" style="width: 300px;margin: auto;margin-top: 50px;">
 			<p>{{__('messages.success')}}</p>
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			    <span aria-hidden="true">&times;</span>
+			  </button>
 			
 		</div>
 	@endif
