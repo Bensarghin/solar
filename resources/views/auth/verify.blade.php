@@ -1,12 +1,19 @@
-@extends('layouts.app')
+
+
+
+
+
+
+@extends('layouts.master')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Verify Your Email Address') }}</div>
 
+
+<div class="container" style="    margin-bottom: 200px;">
+    <div class="form-column col-lg-12 col-md-12 col-sm-12">
+        <div class="inner-column">
+            <div class="contact-form">
+         
                 <div class="card-body">
                     @if (session('resent'))
                         <div class="alert alert-success" role="alert">
@@ -26,3 +33,4 @@
     </div>
 </div>
 @endsection
+

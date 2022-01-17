@@ -30,11 +30,7 @@
                             <b>Nom&prenom (ar)</b> :{{$profile->etudiant->nom_ar}} {{$profile->etudiant->prenom_ar}}</a>
                         </li>
                         <li class="list-group-item">
-<<<<<<< HEAD
-                            <b>CIN</b> <a class="pull-right">{{$profile->etudiant->cin}}</a>
-=======
                             <b>cin</b> :{{$profile->etudiant->cin}}
->>>>>>> visiteur
                         </li>
                         <li class="list-group-item">
                             <b>Date nais</b> :{{$profile->etudiant->date_nais}}

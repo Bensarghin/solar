@@ -8,6 +8,8 @@ return [
     'inscription' => 'Inscription',
     'contact' => 'Contact',
     'deconnecter' => 'Déconnecter',
-    'connecter' => 'Se Connecter'
+    'connecter' => 'Se Connecter',
+    	'Editprofile' => 'Modifier votre profil'
+
 
 ];

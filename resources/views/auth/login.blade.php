@@ -1,20 +1,35 @@
-@extends('layouts.app')
+
+
+@extends('layouts.master')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
 
+<section class="page-title" style="background-image:url({{asset('assset/images/background/22.png')}});">
+            <div id="stars"></div>
+            <div id="stars2"></div>
+            <div id="stars3"></div>
+            <div class="auto-container">
+                <div class="inner-container clearfix">
+                    <div class="title-box">
+                        <h1>Connexion</h1>
+                       
+                    </div>
+                </div>
+            </div>
+        </section>
+<div class="container" style="    margin-bottom: 200px;">
+    <div class="form-column col-lg-12 col-md-12 col-sm-12">
+        <div class="inner-column">
+            <div class="contact-form">
                 <div class="card-body">
+                    <center>
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
-                        <div class="row mb-3">
+                        <div class="form-group col-lg-6 col-md-12 col-sm-12">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('E-Mail Address') }}</label>
 
-                            <div class="col-md-6">
+                          
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
@@ -22,13 +37,9 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
                         </div>
-
-                        <div class="row mb-3">
+                        <div class="form-group col-lg-6 col-md-12 col-sm-12">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                 @error('password')
@@ -36,24 +47,21 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
                         </div>
 
-                        <div class="row mb-3">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
+                                             <div class="form-group col-lg- col-md-12 col-sm-12">
+
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                     <label class="form-check-label" for="remember">
                                         {{ __('Remember Me') }}
                                     </label>
-                                </div>
-                            </div>
+                             
+                          
                         </div>
+                        <div class="form-group col-lg-6 col-md-12 col-sm-12">
 
-                        <div class="row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="theme-btn btn-style-one">
                                     {{ __('Login') }}
                                 </button>
 
@@ -62,12 +70,14 @@
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif
-                            </div>
+                           
                         </div>
                     </form>
+                    </center>
                 </div>
             </div>
         </div>
     </div>
 </div>
 @endsection
+

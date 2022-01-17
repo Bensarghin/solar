@@ -40543,4 +40543,15 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
-;
+  ;
+
+function handleLanguage  () {
+
+$(document).on('click', '.language-switch2 .dropdown-menu2 li a', function () {
+$(".language-switch2>a").html($(this).html()+'<span class="fa fa-angle-down"></span>');
+$(".language-switch2>a img").addClass("position-left");
+});
+
+};
+    
+handleLanguage();
