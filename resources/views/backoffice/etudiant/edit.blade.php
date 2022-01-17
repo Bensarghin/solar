@@ -199,26 +199,23 @@
                                         <header>Info Scolaire</header>
                                     </div>
                                     <div class="card-body row">
-                                        <div class="col-lg-6 p-t-20">
-                                            <label for="sample2" class="text-muted">Pack <span class="required"> (* obligatoire) </span></label>
-                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                                <input type="radio" {{$profile->scolaire->pack=='normal'?'checked':''}} 
-                                                name="pack" value="normal" id="normal">
-                                                <label for="normal">Normal</label>
-                                                <input type="radio" {{$profile->scolaire->pack=='premium'?'checked':''}} 
-                                                name="pack" value="premium" id="premium">
-                                                <label for="premium">Premium</label>
-                                                <input type="radio" {{$profile->scolaire->pack=='full'?'checked':''}} 
-                                                name="pack" value="full" id="full">
-                                                <label for="full">Full</label>
-                                            </div>
+                                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                            <label for="sample2" class="text-muted">Pack <span class="required"> (* ) </span></label><br>
+                                            <input type="radio" {{$profile->scolaire->pack=='sn'?'checked':''}} name="pack" value="sn" required id="sn">
+                                             <label for="sn">Pack Sciences Normal</label> <b class="text-primary">|</b>  
+                                            <input type="radio" {{$profile->scolaire->pack=='sp'?'checked':''}} name="pack" value="sp" required id="sp">
+                                            <label for="sp">Pack Sciences Plus </label> <b class="text-primary">|</b> 
+                                            <input type="radio" {{$profile->scolaire->pack=='etl'?'checked':''}} name="pack" value="etl" required id="etl">
+                                            <label for="etl">Pack Economie, Techniques et Lettres </label> <b class="text-primary">|</b>
+                                            <input type="radio" {{$profile->scolaire->pack=='ep'?'checked':''}} name="pack" value="ep" required id="ep">
+                                            <label for="ep">Pack Economie Plus </label>
                                         </div>
-                                        <div class="col-lg-6 p-t-20">
+                                        <div class="col-lg-12 p-t-20">
                                             <label for="sample2" class="text-muted">Bac Obtention <span class="required"> (* obligatoire) </span></label>
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
                                                 <input type="radio" {{$profile->scolaire->bac_niveau=='actuel'?'checked':''}} 
                                                 name="bac_niveau" value="actuel" id="actuel">
-                                                <label for="actuel">Back actuel {{date('Y')}}</label>
+                                                <label for="actuel">Back actuel {{date('Y')}}</label> <b class="text-primary">|</b>
                                                 <input type="radio" {{$profile->scolaire->bac_niveau=='aucien'?'checked':''}} 
                                                 name="bac_niveau" value="aucien" id="aucien">
                                                 <label for="aucien">Aucien bac</label>
@@ -249,9 +246,22 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-6 p-t-20">
-                                            <label class="text-muted">Note total</label>
+                                            <label for=""  class="text-muted">Note du 1er semestre 2ème année baccalauréat (Si disponible)</label>
                                             <div
-                                                class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                            class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                            <input type="text" value="{{$profile->scolaire->Note_semestre}}" class="mdl-textfield__input" name="Note_semestre" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 p-t-20" >
+                                            <label for=""  class="text-muted">Note Examen national</label><div
+                                            class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                            <input type="text" class="mdl-textfield__input" name="Examen_National" placeholder="" value="{{$profile->scolaire->Examen_National}}">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 p-t-20">
+                                            <label class="text-muted">Note générale de bac</label>
+                                            <div
+                                            class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
                                                 <input class="mdl-textfield__input" type="number"
                                                     id="txtemail" value="{{$profile->scolaire->note_total}}" name="note_total">
                                             </div>
@@ -265,7 +275,7 @@
                                             </div>
                                         </div>
                                         <div id="app">
-                                            <div class="form-group row">
+                                            <div class="row  p-t-20">
                                                 <label class="text-muted col-md-3">Région
                                                     <span> (* obligatoire) </span>
                                                 </label>
@@ -273,20 +283,20 @@
                                                     <select class="form-select input-height" name="region">
                                                         <option value="">Select...</option>
                                                         @foreach($regions as $region)
-                                                        <option value="{{$region['region']}}">{{$region['region']}}</option>
+                                                        <option {{$region['region']==$profile->scolaire->region?'selected':''}} value="{{$region['region']}}">{{$region['region']}}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="form-group row">
+                                            <div class="row  p-t-20">
                                                 <label class="text-muted col-md-3">Ville
                                                     <span> (* obligatoire) </span>
                                                 </label>
                                                 <div class="col-md-5">
                                                     <select class="form-select input-height" name="ville">
-                                                        <option value="">Select...</option>
+                                                        <option disabled>Select...</option>
                                                         @foreach($villes as $ville)
-                                                        <option value="{{$ville['ville']}}">{{$ville['ville']}}</option>
+                                                        <option {{$ville['ville']==$profile->scolaire->ville_etab_actuel?'selected':''}} value="{{$ville['ville']}}">{{$ville['ville']}}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>

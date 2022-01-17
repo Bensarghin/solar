@@ -9,6 +9,7 @@ return [
     'contact' => 'Contact',
     'deconnecter' => 'Déconnecter',
     'connecter' => 'Se Connecter',
+    'connexion' => 'Connexion',
     	'Editprofile' => 'Modifier votre profil'
 
 

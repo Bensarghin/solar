@@ -11,7 +11,8 @@
             <div class="auto-container">
                 <div class="inner-container clearfix">
                     <div class="title-box">
-                        <h1>Connexion</h1>
+                        <h1>{{__('layout.connexion')}}</h1>
+                        <a href="{{route('register')}}" class="text-light">Nouveau Connexion</a>
                        
                     </div>
                 </div>
@@ -27,7 +28,7 @@
                         @csrf
 
                         <div class="form-group col-lg-6 col-md-12 col-sm-12">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('auth.email') }}</label>
 
                           
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -39,7 +40,7 @@
                                 @enderror
                         </div>
                         <div class="form-group col-lg-6 col-md-12 col-sm-12">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('auth.psw') }}</label>
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                 @error('password')
@@ -48,16 +49,8 @@
                                     </span>
                                 @enderror
                         </div>
-
-                                             <div class="form-group col-lg- col-md-12 col-sm-12">
-
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                             
-                          
+                        <div class="form-group col-lg- col-md-12 col-sm-12"> 
+                            
                         </div>
                         <div class="form-group col-lg-6 col-md-12 col-sm-12">
 
@@ -67,7 +60,7 @@
 
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
+                                        {{ __('auth.forget-psw') }}
                                     </a>
                                 @endif
                            

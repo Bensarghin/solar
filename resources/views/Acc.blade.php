@@ -18,7 +18,7 @@
                 <div class="row">
                     <div class="content-column col-lg-6 col-md-12 col-sm-12">
                         <div class="content-inner">
-                            <h1>Musta9bali pour l'orientation scolaire</h1>
+                            <h1>{{__('messages.mosta')}}</h1>
                             <p>Abonnez-vous pour recevoir toutes nos actualités</p>
                             <form class="analysis-form" method="post" action="https://expert-themes.com/html/Musta9bali/blog.html">
                                 <div class="form-group"> <input type="url" name="analysis" value="" placeholder="exemple@gmail.com" required> <button type="submit" class="theme-btn btn-style-one buy-btn"><span class="txt">s'abonner</span></button></div>

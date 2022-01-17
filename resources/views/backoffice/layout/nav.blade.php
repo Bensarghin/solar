@@ -30,6 +30,13 @@
                         <span class="selected"></span>
                     </a>
                 </li>
+                <li class="nav-item start open">
+                    <a class="nav-link" href="{{route('users')}}">
+                        <i class="material-icons">lock</i>
+                        <span class="title">Gérer Comptes auth</span>
+                        <span class="selected"></span>
+                    </a>
+                </li>
                 <li class="nav-item  start open">
                     <a href="{{route('etudiant.add')}}"class="nav-link">
                         <i class="material-icons">school</i>

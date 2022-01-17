@@ -1,9 +1,26 @@
-@extends('layouts.app')
+
+
+@extends('layouts.master')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+
+<section class="page-title" style="background-image:url({{asset('assset/images/background/22.png')}});">
+            <div id="stars"></div>
+            <div id="stars2"></div>
+            <div id="stars3"></div>
+            <div class="auto-container">
+                <div class="inner-container clearfix">
+                    <div class="title-box">
+                        <h1>{{__('layout.connexion')}}</h1>
+                       
+                    </div>
+                </div>
+            </div>
+        </section>
+<div class="container" style="    margin-bottom: 200px;">
+    <div class="form-column col-lg-12 col-md-12 col-sm-12">
+        <div class="inner-column">
+            <div class="contact-form">
             <div class="card">
                 <div class="card-header">{{ __('Register') }}</div>
 
@@ -70,6 +87,7 @@
                         </div>
                     </form>
                 </div>
+            </div>
             </div>
         </div>
     </div>

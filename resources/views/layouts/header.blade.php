@@ -54,7 +54,7 @@
                                         @guest
                                             @if (Route::has('login'))
                                                 <li>
-                                                    <a href="{{ route('login') }}">Se Connecter</a>
+                                                    <a href="{{ route('login') }}">{{__('layout.connecter')}}</a>
                                                 </li>
                                             @endif
                                         @else

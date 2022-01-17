@@ -126,9 +126,9 @@ class ProfileController extends Controller
             'user_id'   => $user_id
         ]);
 
-        return redirect()->route('user.edit')->with([
+        return redirect()->route('user.edit')->with(
             'success', 'votre enregistrement a été bien éffectuer'
-        ]);
+        );
     }
 
     /**

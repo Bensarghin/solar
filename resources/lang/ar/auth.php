@@ -11,11 +11,11 @@ return [
     | messages that we need to display to the user. You are free to modify
     | these language lines according to your application's requirements.
     |
-    */    
-    'email' => 'E-mail',
-    'psw' => 'Mot-de-pass',
-    'cpsw' => 'Confirm Mot-de-pass',
-    'forget-psw' => 'Mot de passe oublié ?',
+    */
+    'email' => 'البريد  الالكتروني',
+    'psw' => 'كلمة السر',
+    'cpsw' =>'تأكيد كلمة السر',
+    'forget-psw' => 'نسيت كلمة المرور ?',
     'failed' => 'These credentials do not match our records.',
     'password' => 'The provided password is incorrect.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
