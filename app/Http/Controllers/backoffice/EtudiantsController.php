@@ -53,6 +53,7 @@ class EtudiantsController extends Controller
 
     // update etudiant
     public function update(Request $request, $id) {
+
         $etudiant = Etudiant::find($id);
         if(!$etudiant) {
             return abort('404');
@@ -102,12 +103,12 @@ class EtudiantsController extends Controller
             return abort('404');
         }
         $request->validate([
-            'tele' => ['required','numeric','digits:9'],
+            'tele' => ['required','numeric','digits:10'],
             'adresse' => 'required',
             'ville_resident' => 'required',
-            'tele_fixe' => ['nullable','numeric','digits:9'],
-            'whatsapp' => ['nullable','numeric','digits:9'],
-            'tele_parent' => ['nullable','numeric','digits:9'],
+            'tele_fixe' => ['nullable','numeric','digits:10'],
+            'whatsapp' => ['nullable','numeric','digits:10'],
+            'tele_parent' => ['nullable','numeric','digits:10'],
             'code_postal' => ['nullable','numeric','digits:5']
             ]);
         Contact::where('id',$id)
@@ -137,11 +138,13 @@ class EtudiantsController extends Controller
             'region' => 'required' ,
             'note_total' => 'nullable|numeric|max:20',
             'note_regional' => 'required|numeric|max:20' ,
+            'Note_semestre' => 'nullable|numeric|max:20',
+            'Examen_National' => 'nullable|numeric|max:20' ,
             'ville' => 'required' ,
             'nom_etab' => 'required' ,
         ]);
 
-        Scolaire::where('id',$id)
+        Scolaire::where('id', $id)
         ->update([
             'pack'=> $request->pack,
             'bac_niveau' => $request->bac_niveau ,
@@ -150,6 +153,8 @@ class EtudiantsController extends Controller
             'region' => $request->region ,
             'note_total' => $request->note_total ,
             'note_regional' => $request->note_regional ,
+            'Examen_National' => $request->Examen_National ,
+            'Note_semestre' => $request->Note_semestre ,
             'nom_etab_actuel' => $request->nom_etab ,
             'ville_etab_actuel' => $request->ville
         ]);
@@ -176,12 +181,12 @@ class EtudiantsController extends Controller
             'lieu_nais' => 'required',
             'gender' => 'required',
             // contact validate
-            'tele' => ['required','numeric','digits:9'],
+            'tele' => ['required','numeric','digits:10'],
             'adresse' => 'required',
             'ville_resident' => 'required',
-            'tele_fixe' => ['nullable','numeric','digits:9'],
-            'whatsapp' => ['nullable','numeric','digits:9'],
-            'tele_parent' => ['nullable','numeric','digits:9'],
+            'tele_fixe' => ['nullable','numeric','digits:10'],
+            'whatsapp' => ['nullable','numeric','digits:10'],
+            'tele_parent' => ['nullable','numeric','digits:10'],
             'code_postal' => ['nullable','numeric','digits:5'],
             // scolaire validate
             'pack'=> 'required',
@@ -250,9 +255,9 @@ class EtudiantsController extends Controller
             'scolaire_id' => $scol->id,
         ]);
 
-        return redirect()->route('etudiants',[
+        return redirect()->route('etudiants')->with(
             'success', 'votre enregistrement a été bien éffectuer'
-        ]);
+        );
     }
 
     public function destroy($id) {

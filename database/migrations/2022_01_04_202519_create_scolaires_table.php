@@ -24,17 +24,14 @@ class CreateScolairesTable extends Migration
             $table->string('ville_etab_actuel');
             $table->float('note_regional');
             $table->float('note_total')->nullable();
-<<<<<<< HEAD
             // $table->string('ville_institude');
             // $table->string('institude');
             // $table->float('Examen_Regional');
             // $table->float('Note_semestre')->nullable();
             // $table->float('Examen_National');
             // $table->float('Note_bac');
-=======
             $table->float('Note_semestre')->nullable();
             $table->float('Examen_National')->nullable();
->>>>>>> admin
             $table->timestamps();
         });
     }

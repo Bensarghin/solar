@@ -6,6 +6,21 @@
        <a href="{{route('etudiants')}}" style="color: #ffffff;" >All etudiant</a>
 
 </div>
+@if($errors->any())
+    <div class="alert alert-danger" style="width: 300px;margin: 10px auto;">
+        @foreach ($errors->all() as $error)
+            <li>{{$error}}</li>
+        @endforeach
+    </div>
+@endif
+@if(Session::has('success'))
+    <div class="alert alert-success alert-dismissible fade show" style="width: 500px;margin: 10px auto;">
+            <p>{{Session::get('success')}}</p>
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			    <span aria-hidden="true">&times;</span>
+			</button>
+    </div>
+@endif
 <div class="row">
      
     <div class="col-md-12">
@@ -29,12 +44,7 @@
                         <li class="list-group-item">
                             <b>Nom&prenom (ar)</b> :{{$profile->etudiant->nom_ar}} {{$profile->etudiant->prenom_ar}}</a>
                         </li>
-                        <li class="list-group-item">
-<<<<<<< HEAD
-                            <b>CIN</b> <a class="pull-right">{{$profile->etudiant->cin}}</a>
-=======
-                            <b>cin</b> :{{$profile->etudiant->cin}}
->>>>>>> visiteur
+                        <li class="list-group-item"><b>cin</b> :{{$profile->etudiant->cin}}
                         </li>
                         <li class="list-group-item">
                             <b>Date nais</b> :{{$profile->etudiant->date_nais}}
@@ -67,6 +77,8 @@
                             <ul class="nav customtab nav-tabs" role="tablist">
                                 <li class="nav-item"><a href="#tab1" class="nav-link active" data-bs-toggle="tab">Contact</a></li>
                                 <li class="nav-item"><a href="#tab2" class="nav-link" data-bs-toggle="tab">Informations Scolaires
+                                </a></li>
+                                <li class="nav-item"><a href="#tab3" class="nav-link" data-bs-toggle="tab">Authentification
                                 </a></li>
                             </ul>
                         </div>
@@ -159,6 +171,42 @@
                                             <p class="text-muted">{{$profile->scolaire->ville_etab_actuel}}</p>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                            <!-- authentification -->
+                            <div class="tab-pane" id="tab3">
+                                <div id="biography">
+                                    @if($profile->user)
+                                    <form action="{{route('auth.update',['id' => $profile->user->id])}}" method="POST">
+                                    @else
+                                    <p class="text-danger">Pas d'autification ajouter nouveau</p>
+                                    <form action="{{route('auth.store',['id' => $profile->id])}}" method="POST">
+                                    @endif
+                                    @csrf
+                                        <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                                            <label class="label">Nom Auth</label>
+                                            <input type="text" class="form-control" value="{{isset($profile->user->name)?$profile->user->name:''}}"
+                                                    id="txtFirstName" name="name">
+                                         </div>
+                                         <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                                            <label class="label">email</label>
+                                            <input type="email" class="form-control" value="{{isset($profile->user->email)?$profile->user->email:''}}"
+                                                    id="txtFirstName" name="email">
+                                         </div>
+                                         <hr>
+                                         <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                                            <label class="label">Nouveau Mot de pass</label>
+                                            <input type="password" class="form-control" value=""
+                                                    id="txtFirstName" name="psw">
+                                         </div>
+                                         <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                                            <label class="label">Comfirm Nouveau Mot de pass</label>
+                                            <input type="password" class="form-control" value=""
+                                                    id="txtFirstName" name="npsw">
+                                         </div>
+                                    
+                                        <button type="submit" class="btn btn-success">Enregistrer</button>
+                                        </form>
                                 </div>
                             </div>
                         </div>

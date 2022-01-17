@@ -2,6 +2,11 @@
 
 @section('content')
 @section('content-title','Etudiant')
+    @if(Session::has('success'))
+        <div class="alert alert-success">
+            <p>{{Session::get('success')}}</p>
+        </div>
+    @endif
     <div class="row">
         <div class="col-md-12">
             <div class="tabbable-line">
@@ -106,11 +111,8 @@
                                                 @endif
                                             <div class="profile-usertitle">
                                                 <div class="doctor-name">{{$profile->etudiant->nom}} {{$profile->etudiant->prenom}}</div>
-<<<<<<< HEAD
                                                 <div class="name-center">{{$profile->etudiant->nom_ar}} {{$profile->etudiant->prenom_ar}}</div>
-=======
                                                 <div class="name-center"> {{$profile->etudiant->date_nais}}, {{$profile->etudiant->lieu_nais}} </div>
->>>>>>> visiteur
                                             </div>
                                             <p>{{$profile->contact->adresse}}, <br/>{{$profile->contact->ville_resident}}
                                             </p>
@@ -123,10 +125,8 @@
                                                         @endif
                                             </div>
                                             <div class="profile-userbuttons">
-<<<<<<< HEAD
                                                 <a href="{{route('etudiant.profile',['id' => $profile->id])}}"
                                                     class="btn btn-circle deepPink-bgcolor btn-sm">Profile</a>
-=======
                                                
                                                             <a href="{{route('etudiant.profile',['id'=>$profile->id])}}"
                                                                 class="faicon  pro">
@@ -140,7 +140,6 @@
                                                                 <i class="fa fa-trash-o "></i>
                                                             </a>
                                                        
->>>>>>> visiteur
                                             </div>
                                         </div>
                                     </div>
