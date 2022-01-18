@@ -12,7 +12,7 @@
 						@else
                         <div class="inner-column">
                             <div class="sec-title text-center">
-							<h2>Créez votre profile</h2>
+							<h2>{{__('layout.addprofile')}}</h2>
                             </div>
 							@if($errors->count()>0)
 								<div class="alert alert-danger">
@@ -36,100 +36,100 @@
 									<div class="row">
 	                                    <br>
 											<div class="form-group col-lg-12 col-md-12 col-sm-12"> 
-												<label for="cin">Cin</label>
+												<label for="cin">{{__('etudiant.cin')}}</label>
 												<input type="text" value="{{old('cin')}}" name="cin" placeholder="">
 											</div>
 	                                        <div class="form-group col-lg-6 col-md-12 col-sm-12">
-												<label for="">Nom (*)</label>
+												<label for="">{{__('etudiant.nom')}} (*)</label>
 												<input type="text" value="{{old('nom')}}" name="nom" placeholder="" required="">
 											</div>
 	                                        <div class="form-group col-lg-6 col-md-12 col-sm-12"> 
-												<label for="">Prénom (*)</label>
+												<label for="">{{__('etudiant.prenom')}} (*)</label>
 												<input type="text" value="{{old('prenom')}}" name="prenom" placeholder="" required="">
 											</div>
 	                                        <div class="form-group col-lg-6 col-md-12 col-sm-12"> 
-												<label for="">Nom en arabe (*)</label>
+												<label for="">{{__('etudiant.nom_ar')}} (*)</label>
 												<input type="text" value="{{old('nom_ar')}}" dir="RTL" name="nom_ar" placeholder="">
 											</div>
 	                                        <div class="form-group col-lg-6 col-md-12 col-sm-12">
-												<label for="">Prénom en arabe (*)</label> 
+												<label for="">{{__('etudiant.prenom_ar')}} (*)</label> 
 												<input type="text" value="{{old('prenom_ar')}}" dir="RTL" name="prenom_ar" placeholder="" required="">
 											</div>
 	                                        <div class="form-group col-lg-6 col-md-12 col-sm-12">  
-												<label for="">Date de naissance (*)</label>
+												<label for="">{{__('etudiant.date_nais')}} (*)</label>
 												<input type="date" name="date_nais" id="date" placeholder="" value="{{old('date_nais')}}" required="">
 											</div>
 											<div class="form-group col-lg-6 col-md-12 col-sm-12">  
-												<label for="">Lieu de naissance (*)</label>
+												<label for="">{{__('etudiant.lieu_nais')}} (*)</label>
 												<input type="text" value="{{old('lieu_nais')}}" name="lieu_nais" id="date" placeholder="" required="">
 											</div>
 	                                        
 	                                        <div class="form-group col-lg-6 col-md-12 col-sm-12">  
-												<label for="">Sexe</label> <br>
-	                                        <label class="container-radio">Feminin
+												<label for="">{{__('etudiant.gender')}}</label> <br>
+	                                        <label class="container-radio">{{__('etudiant.male')}}
 	                                        <input type="radio" name="gender" {{old('gender')=='F'?'checked':''}} value="F" required>
 	                                        <span class="checkmark"></span>
 	                                        </label>
-	                                        <label class="container-radio">Masculin
+	                                        <label class="container-radio">{{__('etudiant.female')}}
 	                                        <input type="radio" {{old('gender')=='M'?'checked':''}} name="gender" value="M" required>
 	                                        <span class="checkmark"></span>
 	                                        </label>
 	                                        </div>
 											</div>
 												<div class="sec-title text-center">
-													<h2>Contact </h2>
+													<h2>{{__('layout.vos_contact')}}</h2>
 												</div>
 											<div class="row">
 	                                          <br>
 												<div class="form-group col-lg-6 col-md-12 col-sm-12">
-													<label for="">Téléphone SMS (Pour recevoir des sms) (*)</label>
+													<label for="">{{__('etudiant.tele')}} (*)</label>
 													<input type="text" name="tele" placeholder="" required="" value="{{old('tele')}}" >
 												</div>
 												<div class="form-group col-lg-6 col-md-12 col-sm-12">  
-													<label>Téléphone WhatsApp</label>
+													<label>{{__('etudiant.whatsapp')}}</label>
 													<input type="text" value="{{old('whatsapp')}}" name="whatsapp" id="date" placeholder="">
 												</div>
 												<div class="form-group col-lg-6 col-md-12 col-sm-12"> 
-													<label for="">Téléphone des parents</label>
+													<label for="">{{__('etudiant.tele_parent')}}</label>
 													<input type="text" name="tele_parent" placeholder="" value="{{old('tele_parent')}}" >
 												</div>
 												<div class="form-group col-lg-6 col-md-12 col-sm-12"> 
-													<label for="">Téléphone fixe</label>
+													<label for="">{{__('etudiant.tele_fixe')}}</label>
 													<input type="text" name="tele_fixe" placeholder="" value="{{old('tele_fixe')}}">
 												</div>
 												<div class="form-group col-lg-12 col-md-12 col-sm-12">
-													<label for="">Adresse (*)</label>
+													<label for="">{{__('etudiant.adresse')}} (*)</label>
 													<textarea name="adresse" placeholder="" required>{{old('adresse')}}</textarea>
 												</div>
 												<div class="form-group col-lg-6 col-md-12 col-sm-12"> 
-													<label for="">Ville (*)</label>
+													<label for="">{{__('etudiant.ville')}} (*)</label>
 													<input type="text" name="ville_resident" placeholder="" required value="{{old('ville_resident')}}">
 												</div>
 												<div class="form-group col-lg-6 col-md-12 col-sm-12"> 
-													<label for="">Code postal</label>
+													<label for="">{{__('etudiant.postal')}}</label>
 													<input type="text" name="code_postal" placeholder="" value="{{old('code_postal')}}">
 												</div>
 											</div>
 											
 											<div class="sec-title text-center">
-												<h2>Informations Scolaires</h2>
+												<h2>{{__('layout.scolaire')}}</h2>
 											</div>
 											<div class="row">
 														<br>
 														<div class="form-group col-lg-6 col-md-12 col-sm-12"> 
 														<label for=""></label> <br>
-														<label class="container-radio">2ème année Bac {{date('Y')}}
+														<label class="container-radio">{{__('etudiant.bac_actuel')}} {{date('Y')}}
 												    	<input type="radio" name="bac_niveau" {{old('bac_niveau')=='actuel'?'checked':''}} value="actuel" required>
 														<span class="checkmark"></span>
 														</label>
-														<label class="container-radio">Aucien Bac
+														<label class="container-radio">{{__('etudiant.bac_aucien')}}
 														<input type="radio" name="bac_niveau" {{old('bac_niveau')=='aucien'?'checked':''}} value="aucien" required>
 														<span class="checkmark"></span>
 														</label>
 														</div>
 														<br>
 														<div class="form-group col-lg-12 col-md-12 col-sm-12"> 
-														<label for="">PACK</label> <br>
+														<label for="">{{__('etudiant.pack')}}</label> <br>
 														<label class="container-radio">Pack Sciences Normal 
 														<input type="radio" {{old('pack')=='sn'?'checked':''}} name="pack" value="sn" required>
 														<span class="checkmark"></span>
@@ -148,17 +148,17 @@
 														</label>
 														</div>
 														<div class="form-group col-lg-6 col-md-12 col-sm-12">
-															<label for="">Code MASSAR (*) (voir anciens bulletins de notes)</label>
+															<label for="">{{__('etudiant.massar')}} (*)</label>
 															<input type="text" name="code_massar" placeholder="" value="{{old('code_massar')}}" required="">
 														</div>
 														<div class="form-group col-lg-6 col-md-12 col-sm-12"> 
-															<label for="">filière (*)</label>
+															<label for="">{{__('etudiant.filier')}} (*)</label>
 															<select name="filier" id="" required>
 																<option value="Sciences Economiques">Sciences Economiques</option><option value="Sciences de Gestion et de Comptabilité">Sciences de Gestion et de Comptabilité</option><option value="Sciences et Technologies Mécaniques">Sciences et Technologies Mécaniques</option><option value="Sciences et Technologies Electriques">Sciences et Technologies Electriques</option><option value="Lettres">Lettres</option><option value="Sciences Humaines">Sciences Humaines</option><option value="Sciences agronomiques">Sciences agronomiques</option><option value="Arts Appliqués">Arts Appliqués</option>
 															</select>
 														</div>
 														<div class="form-group col-lg- col-md-12 col-sm-12">
-														<label for="">Région (*)</label>
+														<label for="">{{__('etudiant.region')}} (*)</label>
 														<select name="region" required>
 															@foreach($regions as $region)
 															<option value="{{$region['region']}}" {{old('region')==$region['region']?'selected':''}}>{{$region['region']}}</option>
@@ -202,7 +202,7 @@
 														<span> J'ai lu et j'accepte les conditions générales d'abonnement <a href="">(Télécharger)</a></span>
 														</label>
 														</div>
-														<div class="form-group col-lg-12 col-md-12 col-sm-12 text"> <button class="theme-btn btn-style-one" type="submit" name="submit-form"><span class="txt">Submit</span></button>
+														<div class="form-group col-lg-12 col-md-12 col-sm-12 text"> <button class="theme-btn btn-style-one" type="submit" name="submit-form"><span class="txt">{{__('layout.submit')}}</span></button>
 														</div>
 								</form>
 							</div>								

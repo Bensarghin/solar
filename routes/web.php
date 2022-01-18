@@ -37,6 +37,7 @@ Route::middleware('auth:admin')->group(function(){
 	Route::get('/',[DashboardController::class,'index'])->name('admin.home');
 	Route::get('/accueil',[DashboardController::class,'index'])->name('admin.home');
 	Route::post('/filtrer',[DashboardController::class,'filtrer'])->name('filtrer');
+	Route::get('/filtrer',[DashboardController::class,'index']);
 	
 	// etudiant manage routes
 	Route::prefix('etudiant')->group(function() {

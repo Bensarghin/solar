@@ -37,7 +37,7 @@
 
 
                             <div class="sec-title text-center">
-							<h2>{{ __('layout.modifier-profile')}}</h2>
+							<h2>{{ __('layout.Editprofile')}}</h2>
                             </div>
 							@if($errors->count()>0)
 								<div class="alert alert-danger">
@@ -85,80 +85,80 @@
 											<input type="text" value="{{Auth::user()->profile->etudiant->prenom_ar}}" dir="RTL" name="prenom_ar" placeholder="" required="">
 										</div>
                                         <div class="form-group col-lg-6 col-md-12 col-sm-12">  
-											<label for="">Date de naissance (*)</label>
+											<label for="">{{__('etudiant.date_nais')}} (*)</label>
 											<input type="date" name="date_nais" id="date" placeholder="" value="{{Auth::user()->profile->etudiant->date_nais}}" required="">
 										</div>
 										<div class="form-group col-lg-6 col-md-12 col-sm-12">  
-											<label for="">Lieu de naissance (*)</label>
+											<label for="">{{__('etudiant.lieu_nais')}} (*)</label>
 											<input type="text" value="{{Auth::user()->profile->etudiant->lieu_nais}}" name="lieu_nais" id="date" placeholder="" required="">
 										</div>
                                         
                                         <div class="form-group col-lg-6 col-md-12 col-sm-12">  
-											<label for="">Sexe</label> <br>
-                                        <label class="container-radio">Feminin
+											<label for="">{{__('etudiant.gender')}}</label> <br>
+                                        <label class="container-radio">{{__('etudiant.female')}}
                                         <input type="radio" name="gender" {{Auth::user()->profile->etudiant->gender=='F'?'checked':''}} value="F" required>
                                         <span class="checkmark"></span>
                                         </label>
-                                        <label class="container-radio">Masculin
+                                        <label class="container-radio">{{__('etudiant.male')}}
                                         <input type="radio" {{Auth::user()->profile->etudiant->gender=='M'?'checked':''}} name="gender" value="M" required>
                                         <span class="checkmark"></span>
                                         </label>
                                         </div>
 										</div>
 											<div class="sec-title text-center">
-												<h2>Contact </h2>
+												<h2>{{__('layout.vos_contact')}}</h2>
 											</div>
 										<div class="row">
                                           <br>
 											<div class="form-group col-lg-6 col-md-12 col-sm-12">
-												<label for="">Téléphone SMS (Pour recevoir des sms) (*)</label>
+												<label for="">{{__('etudiant.tele')}} (*)</label>
 												<input type="text" name="tele" placeholder="" required="" value="{{Auth::user()->profile->contact->tele}}" >
 											</div>
 											<div class="form-group col-lg-6 col-md-12 col-sm-12">  
-												<label>Téléphone WhatsApp</label>
+												<label>{{__('etudiant.whatsapp')}}</label>
 												<input type="text" value="{{Auth::user()->profile->contact->whatsapp}}" name="whatsapp" id="date" placeholder="">
 											</div>
 											<div class="form-group col-lg-6 col-md-12 col-sm-12"> 
-												<label for="">Téléphone des parents</label>
+												<label for="">{{__('etudiant.tele_parent')}}</label>
 												<input type="text" name="tele_parent" placeholder="" value="{{Auth::user()->profile->contact->tele_parent}}" >
 											</div>
 											<div class="form-group col-lg-6 col-md-12 col-sm-12"> 
-												<label for="">Téléphone fixe</label>
+												<label for="">{{__('etudiant.tele_fixe')}}</label>
 												<input type="text" name="tele_fixe" placeholder="" value="{{Auth::user()->profile->contact->tele_fixe}}">
 											</div>
 											<div class="form-group col-lg-12 col-md-12 col-sm-12">
-												<label for="">Adresse (*)</label>
+												<label for="">{{__('etudiant.adresse')}} (*)</label>
 												<textarea name="adresse" placeholder="" required>{{Auth::user()->profile->contact->adresse}}</textarea>
 											</div>
 											<div class="form-group col-lg-6 col-md-12 col-sm-12"> 
-												<label for="">Ville (*)</label>
+												<label for="">{{__('etudiant.ville')}} (*)</label>
 												<input type="text" name="ville_resident" placeholder="" required value="{{Auth::user()->profile->contact->ville_resident}}">
 											</div>
 											<div class="form-group col-lg-6 col-md-12 col-sm-12"> 
-												<label for="">Code postal</label>
+												<label for="">{{__('etudiant.postal')}}</label>
 												<input type="text" name="code_postal" placeholder="" value="{{Auth::user()->profile->contact->code_postal}}">
 											</div>
 										</div>
 										
 										<div class="sec-title text-center">
-											<h2>Informations Scolaires</h2>
+											<h2>{{__('layout.scolaire')}}</h2>
 										</div>
 										<div class="row">
 													<br>
 													<div class="form-group col-lg-6 col-md-12 col-sm-12"> 
 													<label for=""></label> <br>
-													<label class="container-radio">2ème année Bac {{date('Y')}}
+													<label class="container-radio">{{__('etudiant.bac_actuel')}} {{date('Y')}}
 											    	<input type="radio" name="bac_niveau" {{Auth::user()->profile->scolaire->bac_niveau=='actuel'?'checked':''}} value="actuel" required>
 													<span class="checkmark"></span>
 													</label>
-													<label class="container-radio">Ancien BAC
+													<label class="container-radio">{{__('etudiant.bac_aucien')}}
 													<input type="radio" name="bac_niveau" {{Auth::user()->profile->scolaire->bac_niveau=='aucien'?'checked':''}} value="aucien" required>
 													<span class="checkmark"></span>
 													</label>
 													</div>
 													<br>
 													<div class="form-group col-lg-12 col-md-12 col-sm-12"> 
-													<label for="">PACK</label> <br>
+													<label for="">{{__('etudiant.pack')}}</label> <br>
 													<label class="container-radio">Pack Sciences Normal 
 													<input type="radio" {{Auth::user()->profile->scolaire->pack=='sn'?'checked':''}} name="pack" value="sn" required>
 													<span class="checkmark"></span>
@@ -177,17 +177,17 @@
 													</label>
 													</div>
 													<div class="form-group col-lg-6 col-md-12 col-sm-12">
-														<label for="">Code MASSAR (*) (voir anciens bulletins de notes)</label>
+														<label for="">{{__('etudiant.massar')}} (*) </label>
 														<input type="text" name="code_massar" placeholder="" value="{{Auth::user()->profile->scolaire->code_massar}}" required="">
 													</div>
 													<div class="form-group col-lg-6 col-md-12 col-sm-12"> 
-														<label for="">filière (*)</label>
+														<label for="">{{__('etudiant.filier')}} (*)</label>
 														<select name="filier" id="" required>
 															<option value="Sciences Economiques">Sciences Economiques</option><option value="Sciences de Gestion et de Comptabilité">Sciences de Gestion et de Comptabilité</option><option value="Sciences et Technologies Mécaniques">Sciences et Technologies Mécaniques</option><option value="Sciences et Technologies Electriques">Sciences et Technologies Electriques</option><option value="Lettres">Lettres</option><option value="Sciences Humaines">Sciences Humaines</option><option value="Sciences agronomiques">Sciences agronomiques</option><option value="Arts Appliqués">Arts Appliqués</option>
 														</select>
 													</div>
 													<div class="form-group col-lg- col-md-12 col-sm-12">
-													<label for="">Région (*)</label>
+													<label for="">{{__('etudiant.region')}} (*)</label>
 													<select name="region" required>
 														@foreach($regions as $region)
 														<option value="{{$region['region']}}"  {{Auth::user()->profile->scolaire->region==$region['region']?'selected':''}}>{{$region['region']}}</option>
@@ -209,23 +209,23 @@
 														<input type="text" name="nom_etab" placeholder="" value="{{Auth::user()->profile->scolaire->nom_etab_actuel}}" required="">
 													</div>
 													<div class="form-group col-lg-6 col-md-12 col-sm-12" ><label for="">
-														Note Examen régional(*)</label>
+														{{__('etudiant.note_regional')}} (*)</label>
 														<input type="text" name="note_regional" value="{{Auth::user()->profile->scolaire->note_regional}}" required="">
 													</div>
 													<div class="form-group col-lg-6 col-md-12 col-sm-12" id="morakaba">
-														<label for="">Note du 1er semestre 2ème année baccalauréat (Si disponible)</label>
+														<label for="">{{__('etudiant.Note_semestre')}}</label>
 														<input type="text" name="Note_semestre" placeholder="" value="{{Auth::user()->profile->scolaire->Note_semestre}}">
 													</div>
 													<div class="form-group col-lg-6 col-md-12 col-sm-12" >
-														<label for="">Note Examen national</label>
+														<label for="">{{__('etudiant.Examen_National')}}</label>
 														<input type="text" name="Examen_National" placeholder="" value="{{old('Examen_National')}}">
 													</div>
 													<div class="form-group col-lg-6 col-md-12 col-sm-12" >
-														<label for="">Note générale de bac</label>
+														<label for="">{{__('etudiant.note_total')}}</label>
 														<input type="text" name="note_total" placeholder="" value="{{old('note_total')}}">
 													</div>
 												</div>
-													<div class="form-group col-lg-12 col-md-12 col-sm-12 text"> <button class="theme-btn btn-style-one" type="submit" name="submit-form"><span class="txt">Submit</span></button></div>
+													<div class="form-group col-lg-12 col-md-12 col-sm-12 text"> <button class="theme-btn btn-style-one" type="submit" name="submit-form"><span class="txt">{{__('layout.submit')}}</span></button></div>
 								</form>
 												</div>
 								

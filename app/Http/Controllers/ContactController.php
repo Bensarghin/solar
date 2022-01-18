@@ -32,7 +32,7 @@ class ContactController extends Controller
     {
         //
     }
-     public function submitContactForm(Request $request)
+    public function submitContactForm(Request $request)
     {  Mail::send('email', array( 
             'name' =>'yousra tribak', 
             'email' =>'yousratribak1@gmail.com',
@@ -40,7 +40,6 @@ class ContactController extends Controller
             'message' => 'bonjor', 
         ), function($message) use ($request){ 
             $message->from($request->email); 
-            $message->to('tribakyousra7@gmail.com', 'Admin')->subject($request->subject); 
         }); 
       return redirect()->route('contact');
     }
