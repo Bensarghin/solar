@@ -3,12 +3,14 @@ return [
 
 	'admin' => 'لوحة قيادة الدمن',
 	'modifier-profile' => 'تعديل معطيات',
-	'acceuil' => 'الرائسية',
+	'acceuil' => 'الرئيسية',
 	'inscription' => 'التسجيل',
 	'contact' => 'راسلنا',
 	'deconnecter' => 'الخروج',
-	'connecter' => 'الدخول'
+	'connecter' => 'الدخول',
+	'connexion' => 'حساب الدخول',
 
+	'Editprofile' => 'عدل ملفك الشخصي'
 
 ];
 

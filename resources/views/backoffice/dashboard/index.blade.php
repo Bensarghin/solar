@@ -6,10 +6,10 @@
     <div class="row">
         <div class="col-xl-3 col-md-6 col-12">
             <div class="info-box bg-b-green">
-                <span class="info-box-icon push-bottom"><i class="material-icons">group</i></span>
+                <span class="info-box-icon push-bottom"><i class="material-icons">lock</i></span>
                 <div class="info-box-content pt-4">
-                    <span class="info-box-text">Total Etudiants</span>
-                    <span class="info-box-number">{{$etudiants->count()}}</span>
+                    <span class="info-box-text">Auth</span>
+                    <span class="info-box-number">{{$users->count()}}</span>
                 </div>
                 <!-- /.info-box-content  pt-4 -->
             </div>
@@ -18,10 +18,10 @@
         <!-- /.col -->
         <div class="col-xl-3 col-md-6 col-12">
             <div class="info-box bg-b-yellow">
-                <span class="info-box-icon push-bottom"><i class="material-icons">groupadd</i></span>
+                <span class="info-box-icon push-bottom"><i class="material-icons">border_color</i></span>
                 <div class="info-box-content  pt-4">
-                    <span class="info-box-text">Neuveau Etudiants</span>
-                    <span class="info-box-number">155</span>
+                    <span class="info-box-text">Inscriptions</span>
+                    <span class="info-box-number">{{$etudiants->count()}}</span>
                 </div>
                 <!-- /.info-box-content  pt-4 -->
             </div>
@@ -30,10 +30,10 @@
         <!-- /.col -->
         <div class="col-xl-3 col-md-6 col-12">
             <div class="info-box bg-b-blue">
-                <span class="info-box-icon push-bottom"><i class="material-icons">location_on</i></span>
+                <span class="info-box-icon push-bottom"><i class="material-icons">school</i></span>
                 <div class="info-box-content  pt-4">
-                    <span class="info-box-text">inscriptions ville</span>
-                    <span class="info-box-number">52</span>
+                    <span class="info-box-text">Etudiants</span>
+                    <span class="info-box-number">{{$profiles->count()}}</span>
                 </div>
                 <!-- /.info-box-content  pt-4 -->
             </div>
@@ -43,9 +43,9 @@
         <div class="col-xl-3 col-md-6 col-12">
             <div class="info-box bg-b-pink">
                 <span class="info-box-icon push-bottom"><i
-                        class="material-icons">apps</i></span>
+                        class="material-icons">group</i></span>
                 <div class="info-box-content  pt-4">
-                    <span class="info-box-text">top pack</span>
+                    <span class="info-box-text">Top pack</span>
                     <span class="info-box-number">13,921</span><span>$</span>
                 </div>
                 <!-- /.info-box-content  pt-4 -->
@@ -55,13 +55,14 @@
         <!-- /.col -->
     </div>
     <div class="row">
-        <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="card-box">
                 <div class="card-head">
                     <header>Filtrer</header>
                 </div>
                 <div class="card-body">
                 <form action="{{route('filtrer')}}" method="POST">
+                    @csrf
                     <div class="form-group row">
                         <div class="mb-2">
                             <select class="form-select input-height" name="bac_niveau">
@@ -105,7 +106,7 @@
             </div>
             </div>
         </div>
-        <div class="col-lg-8 col-md-8 col-sm-12 col-12">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="card-box">
                 <div class="card-head">
                     <header>Etudiant table</header>
@@ -125,8 +126,7 @@
                                     <th>Nom Prenom</th>
                                     <th>Gender</th>
                                     <th>Date, Lieu Nais</th>
-                                    <th>Bac</th>
-                                    <th>Filier</th>
+                                    <th>Rejoindre</th>
                                     <th>Etab Actuel</th>
                                     <th>Ville</th>
                                     <th>Action</th>
@@ -146,10 +146,9 @@
                                     <td>{{$etudiant->nom}} {{$etudiant->prenom}}</td>
                                     <td> {{$etudiant->gender}} </td>
                                     <td>{{$etudiant->date_nais}}, {{$etudiant->lieu_nais}}</td>
-                                    <th>Bac</th>
-                                    <th>Filier</th>
-                                    <th>Etab Actuel</th>
-                                    <th>Ville</th>
+                                    <th>{{$etudiant->profile->created_at->diffForHumans()}}</th>
+                                    <th>{{$etudiant->profile->scolaire->nom_etab_actuel}}</th>
+                                    <th>{{$etudiant->profile->scolaire->ville_etab_actuel}}</th>
                                     <td>
                                         <a href="{{route('etudiant.profile',['id' => $etudiant->profile->id])}}" data-bs-toggle="tooltip"
                                             title="Profile">

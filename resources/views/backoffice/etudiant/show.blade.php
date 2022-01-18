@@ -14,11 +14,8 @@
     </div>
 @endif
 @if(Session::has('success'))
-    <div class="alert alert-success alert-dismissible fade show" style="width: 500px;margin: 10px auto;">
+    <div class="alert alert-success" style="width: 500px;margin: 10px auto;">
             <p>{{Session::get('success')}}</p>
-			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-			    <span aria-hidden="true">&times;</span>
-			</button>
     </div>
 @endif
 <div class="row">
@@ -44,6 +41,8 @@
                         <li class="list-group-item">
                             <b>Nom&prenom (ar)</b> :{{$profile->etudiant->nom_ar}} {{$profile->etudiant->prenom_ar}}</a>
                         </li>
+                        <li class="list-group-item">
+                            <b>cin</b> :{{$profile->etudiant->cin}}
                         <li class="list-group-item"><b>cin</b> :{{$profile->etudiant->cin}}
                         </li>
                         <li class="list-group-item">

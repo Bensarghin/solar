@@ -33,7 +33,7 @@
 											<input type="file" id="file-ip-1" name="image" accept="image/*" onchange="showPreview(event);">
 										</div>
 									</center>
-									<div class="row text-center">
+									<div class="row">
 	                                    <br>
 											<div class="form-group col-lg-12 col-md-12 col-sm-12"> 
 												<label for="cin">Cin</label>

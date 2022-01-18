@@ -21,31 +21,6 @@
         <div class="top-menu">
             <ul class="nav navbar-nav pull-right">
                 <li><a class="fullscreen-btn"><i class="fa fa-arrows-alt"></i></a></li>
-                <!-- start language menu -->
-                <li class="dropdown language-switch">
-                    <a class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"> <img
-                            src="{{asset('assets/img/flags/gb.png')}}" class="position-left" alt=""> English <span
-                            class="fa fa-angle-down"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a class="deutsch"><img src="{{asset('assets/img/flags/de.png')}}" alt=""> Deutsch</a>
-                        </li>
-                        <li>
-                            <a class="ukrainian"><img src="{{asset('assets/img/flags/ua.png')}}" alt=""> Українська</a>
-                        </li>
-                        <li>
-                            <a class="english"><img src="{{asset('assets/img/flags/gb.png')}}" alt=""> English</a>
-                        </li>
-                        <li>
-                            <a class="espana"><img src="{{asset('assets/img/flags/es.png')}}" alt=""> España</a>
-                        </li>
-                        <li>
-                            <a class="russian"><img src="{{asset('assets/img/flags/ru.png')}}" alt=""> Русский</a>
-                        </li>
-                    </ul>
-                </li>
-                <!-- end language menu -->
                 <!-- start manage user dropdown -->
                 <li class="dropdown dropdown-user">
                     <a class="dropdown-toggle" data-bs-toggle="dropdown" data-hover="dropdown"
@@ -56,13 +31,13 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-default">
                         <li>
-                            <a href="user_profile.html">
+                            <a href="{{route('admin.auth')}}">
                                 <i class="icon-user"></i> Authent 
                             </a>
                         </li>
                         <li>
                             <a href="{{route('admin.logout')}}">
-                                <i class="icon-logout"></i> Log Out 
+                                <i class="icon-logout"></i> Déconnecter 
                             </a>
                         </li>
                     </ul>

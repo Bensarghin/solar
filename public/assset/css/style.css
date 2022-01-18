@@ -1314,7 +1314,7 @@ img {
 }
 
 .main-header .main-menu .navigation>li {
-    margin-left: 50px;
+    margin-left: 30px;
 }
 
 .main-header .main-menu .navigation>li>a {
@@ -1331,6 +1331,7 @@ img {
     width: 10px;
     height: 20px;
     display: block;
+        color: #a9d9dc;
     line-height: 20px;
     font-size: var(--font-16);
     z-index: 5;
@@ -2175,7 +2176,7 @@ body.modal-active {
 
 
 .header-style-three .header-lower {
-    width: 100%;
+    width: 89%;
     padding: 15px 50px;
 }
 
@@ -11262,7 +11263,7 @@ canvas {
 .rtl .header-style-five .outer-box,
 .rtl .header-style-one .outer-box {
     float: left;
-    margin-right: 43px;
+    margin-right: 403px;
 }
 .rtl .comments-area .comment-box .author-thumb,
 .rtl .blog-detail .news-block-two .caption-box blockquote .icon,
@@ -12063,7 +12064,7 @@ canvas {
     margin-left: 20px;
 }
 .box-layout .main-header .main-menu .navigation>li {
-    margin-left: 55px;
+    margin-left: 30px;
 }
 .box-layout .header-style-one .outer-box .contact-info {
     padding-left: 0;
@@ -12612,6 +12613,8 @@ input#check:checked+label svg path {
 .contact-form .form-group input[type="date"],
 .contact-form .form-group input[type="email"],
 .contact-form .form-group input[type="url"],
+.contact-form .form-group input[type="password"],
+
 .contact-form .form-group textarea {
     position: relative;
     display: block;

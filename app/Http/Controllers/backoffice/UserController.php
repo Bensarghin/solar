@@ -11,6 +11,12 @@ use App\Models\Profile;
 
 class UserController extends Controller
 {
+
+    public function __construct() {
+        
+            $this->middleware('auth:admin');
+    }
+
     public function index() {
         $users = User::all();
         return view('backoffice.user.index',[
@@ -24,21 +30,19 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'email|required',
             'psw' => 'nullable|min:8',
-            'npsw' => 'nullable|same:psw'
+            'npsw' => 'same:psw'
         ]);
-        if($request->psw != null && $request->npw != null) {
-            User::whereId($id)
-            ->update([
-                'password' =>  Hash::make($request->npsw)
-            ]);
+        if($request->psw) {
+            User::find($id)->update(['password'=> Hash::make($request->psw)]);
         }
-        User::whereId($id)
+        User::find($id)
         ->update([
             'name' => $request->name,
             'email' => $request->email
         ]);
 
-        return redirect()->back();
+        return redirect()->back()->with(
+            'success', 'Authentification bien Modifier');
 
     }
     public function store(Request $request, $id) {
@@ -59,7 +63,7 @@ class UserController extends Controller
             'user_id' => $user_id->id
         ]);
         return redirect()->back()->with(
-            'success', 'Authentification Enregistrer'
+            'success', 'Authentification Bien Enregistrer'
         );
 
     }

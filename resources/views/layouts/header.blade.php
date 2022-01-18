@@ -13,9 +13,7 @@
                         <div class="right-header-area">
                             <ul class="social-links">  
                                 <li>
-                                    <a rel="alternate" href="{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale() == 'fr'?'ar':'fr', null, [], true) }}">
-                                        {{ LaravelLocalization::getCurrentLocaleNative()=='français'?'العربية': 'Français'}}
-                                    </a>
+                                 
                                 </li> 
                             </ul>
                         </div>
@@ -34,33 +32,52 @@
                                     <div class="collapse show navbar-collapse clearfix" id="navbarSupportedContent">
                                         <ul class="navigation clearfix" style="direction:rtl !important">
                                             <li><a href="{{route('home')}}">{{ __('layout.acceuil') }}</a></li>
-                                            @auth
-                                            <li><a href="{{route('inscrip')}}">{{ __('layout.inscription') }}</a></li>
-                                            @endauth
-                                            <li><a href="{{route('contact')}}">{{ __('layout.contact') }}</a></li>                                   
+                                           
+                                            <li><a href="{{route('contact')}}">{{ __('layout.contact') }}</a></li> 
+                                             
+                                            <li class="dropdown language-switch2">
+                                            <a class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><img src="{{asset('assset/images/language.png')}}" alt="" style="width: 23px;" >  {{ LaravelLocalization::getCurrentLocaleNative()=='français'?'Français': 'العربية'}}</a>
+                                            <ul class="dropdown-menu2">
+                                            <li class="">
+                                            <a class=""   href="{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale() == 'fr'?'ar':'fr', null, [], true) }}"><img src="{{asset('assset/images/france.jpg')}}"  style="width: 23px;"  alt=""> Francais</a>
+                                            </li>
+                                            <li  class="">
+                                            <a class=""  href="{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale() == 'fr'?'ar':'fr', null, [], true) }}"><img src="{{asset('assset/images/maroc.jpg')}}"  style="width: 23px;"  alt=""> Arabe</a>
+                                            </li>
+                                           
+
+                                            </ul>
+
+
+                                            </li>      
+                                           
                                         @guest
                                             @if (Route::has('login'))
                                                 <li>
-                                                    <a href="{{ route('login') }}">Se Connecter</a>
+                                                    <a href="{{ route('login') }}">{{__('layout.connecter')}}</a>
                                                 </li>
                                             @endif
                                         @else
-                                            <li>
+                                <li class="dropdown language-switch2">
+                                <a class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><img src="{{asset('assset/images/Avatar.png')}}" alt="" style="width: 23px;" ></a>
+                                <ul class="dropdown-menu2">
+                                     @auth
+                                            <li><a href="{{route('inscrip')}}">{{ __('layout.inscription') }}</a></li>
+                                    @endauth
+                                <li> <a href="{{route('user.edit')}}"> {{ __('layout.Editprofile') }}</a></li>
+                                <li>    
+                                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                {{ __('layout.deconnecter') }}
+                                </a>
 
-                                                <a href="{{route('user.edit')}}">
-                                                    {{ Auth::user()->name }}
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                                        {{ __('layout.deconnecter') }}
-                                                    </a>
-                
-                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                                        @csrf
-                                                    </form>
-                                            </li>
-                                        @endguest
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                                </form></li>
+
+                                </ul>
+                                </li> @endguest
+
+          
                                     </ul>
 
                                     </div>
@@ -108,3 +125,5 @@
                     </div>
 
         </header>
+
+     

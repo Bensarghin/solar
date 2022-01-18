@@ -24,11 +24,15 @@ use Illuminate\Support\Facades\Auth;
 	
 // Admin routes group
 Route::prefix('admin')->group(function(){
-
 	// Auth routes
 Route::get('/login',[AdminController::class,'index'])->name('admin.login');
 Route::post('/login',[AdminController::class,'login'])->name('admin.login');
 Route::get('/logout',[AdminController::class,'logout'])->name('admin.logout');
+
+Route::middleware('auth:admin')->group(function(){
+	Route::get('/auth',[AdminController::class,'auth'])->name('admin.auth');
+	Route::post('/update',[AdminController::class,'update'])->name('admin.update');
+
 
 	Route::get('/',[DashboardController::class,'index'])->name('admin.home');
 	Route::get('/accueil',[DashboardController::class,'index'])->name('admin.home');
@@ -64,6 +68,8 @@ Route::get('/logout',[AdminController::class,'logout'])->name('admin.logout');
 		});
 	Route::get('/villes',[VilleController::class,'index']);
 	Route::get('/regions',[VilleController::class,'regions']);
+
+});
 });
 
 //Etudiant routes
@@ -74,7 +80,7 @@ Route::group(
 		'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
 	], function(){ 
 
-Route::get('/', function () { return view('Acc');});
+Route::get('/', function () { return view('Acc');})->name('home');
 Route::get('/home', function () { return view('Acc');})->name('home');
 Route::get('/contact', function () { return view('contact');})->name('contact')	;
 Route::get('/inscription', [ProfileController::class,'create'])->name('inscrip');
