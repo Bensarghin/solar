@@ -9,7 +9,6 @@ return [
 	'deconnecter' => 'الخروج',
 	'connecter' => 'الدخول',
 	'connexion' => 'حساب الدخول',
-
 	'Editprofile' => 'عدل ملفك الشخصي'
 
 ];

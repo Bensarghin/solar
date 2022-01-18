@@ -10,7 +10,7 @@ return [
     'deconnecter' => 'Déconnecter',
     'connecter' => 'Se Connecter',
     'connexion' => 'Connexion',
-    	'Editprofile' => 'Modifier votre profil'
+    'Editprofile' => 'Modifier votre profile'
 
 
 ];
