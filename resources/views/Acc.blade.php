@@ -14,10 +14,12 @@
             <div class="pattern-layer-eleven" style="background-image: url(images/main-banner/banner-icon-3.png)"></div>
             <div class="pattern-layer-tweleve" style="background-image: url(images/main-banner/banner-icon-4.png)"></div>
 -->
+
             <div class="container-fluid">
                 <div class="row">
                     <div class="content-column col-lg-6 col-md-12 col-sm-12">
                         <div class="content-inner">
+<div class="video-link"> <a href="https://www.youtube.com/watch?v=FQYFflM0IH4" data-fancybox="gallery" data-caption=""><span class="icon fa fa-play" aria-hidden="true"></span><i class="ripple"></i></a></div>
                             <h1>{{__('messages.mosta')}}</h1>
                             <p>Abonnez-vous pour recevoir toutes nos actualités</p>
                             <form class="analysis-form" method="post" action="https://expert-themes.com/html/Musta9bali/blog.html">
@@ -47,6 +49,19 @@
                         </div>
                     </div>
                     </section>
+
+
+                    <div id="chatbutton-wa" data-phone="+212634271176" data-showpopup="true" data-headertitle="Musta9bali 👋" data-popupmessage="Hi!
+Please tell me who you'd like to chat with?
+Help me
+Please give your contact details according to your convenient time." data-placeholder="Type here" data-position="left" data-headercolor="rgb(2 174 182)" data-backgroundcolor="#e5ddd5" data-autoopentimeout="5" data-size="65px">
+    <div class="floating-wpp-button" style="width: 65px; height: 65px;">
+        <div class="floating-wpp-button-image">
+                <img src="{{asset('assset/images/whatsapp-logo-4.png')}}" alt="">
+                
+    </div>
+    </div>
+</div>
                     <section class="services-section style-four">
                         <div class="upper-box">
                             <div class="auto-container">
@@ -169,6 +184,8 @@
                             </div>
                         </div>
                     </section>
+ 
+
 
               <!--
                     <section class="get-started-form">

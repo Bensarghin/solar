@@ -76,7 +76,6 @@
 
 
 
-                <div class="scroll-to-top scroll-to-target theme-btn btn-style-one" data-target="html"><span class="txt"><i class="fas fa-arrow-up"></i></span></div>
                 <script src="{{asset('assset/js/jquery.js')}}"></script>
                                 <script src="{{asset('assset/js/app.js')}}"></script>
 
@@ -95,3 +94,6 @@
                 <script src="{{asset('assset/js/wow.js')}}"></script>
                 <script src="{{asset('assset/js/script.js')}}"></script>
                 <script src="{{asset('assset/js/color-settings.js')}}"></script>
+                <script src="{{asset('assset/js/jquery.min.js')}}"></script>  
+                <script src="{{asset('assset/js/chatbutton/floating-wpp.js')}}"></script>  
+                <script src="{{asset('assset/js/chatbutton/script.js')}}"></script>  

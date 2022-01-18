@@ -33,16 +33,20 @@ class ContactController extends Controller
         //
     }
      public function submitContactForm(Request $request)
-    {  Mail::send('email', array( 
-            'name' =>'yousra tribak', 
-            'email' =>'yousratribak1@gmail.com',
-            'subject' =>'test', 
-            'message' => 'bonjor', 
+    {   Mail::send('email', array( 
+        'name' => $request->name,
+        'email' =>$request->email,
+        'emmessage' =>$request->message,
+        'subject' =>'Musta9bali', 
+         
         ), function($message) use ($request){ 
             $message->from($request->email); 
             $message->to('tribakyousra7@gmail.com', 'Admin')->subject($request->subject); 
         }); 
+
+      Session::flash('message', 'Thank you for your email');
       return redirect()->route('contact');
+      
     }
 
     /**
@@ -62,8 +66,9 @@ class ContactController extends Controller
      * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show(Contact $contact)
     {
+        //
     }
 
     /**
