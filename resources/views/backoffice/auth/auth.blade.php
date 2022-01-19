@@ -30,7 +30,7 @@
 								        <label class="text-muted">Nom</label>
 								        <div
 								            class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-								            <input class="mdl-textfield__input" type="text" value="{{$admin->name}}"
+								            <input class="mdl-textfield__input" type="text" value="{{Auth::guard('admin')->user()->name}}"
 								                id="txtFirstName" name="name">
 								        </div>
 								    </div>
@@ -38,7 +38,7 @@
 								        <label class="text-muted">Email</label>
 								        <div
 								            class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-								            <input class="mdl-textfield__input" type="text" value="{{$admin->email}}"
+								            <input class="mdl-textfield__input" type="text" value="{{Auth::guard('admin')->user()->email}}"
 								                id="txtFirstName" name="email">
 								        </div>
 								    </div>

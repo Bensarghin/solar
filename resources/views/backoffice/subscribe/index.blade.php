@@ -2,6 +2,7 @@
 
 @section('content')
 @section('content-title','Etudiant')
+
     @if(Session::has('success'))
         <div class="alert alert-success">
             <p>{{Session::get('success')}}</p>

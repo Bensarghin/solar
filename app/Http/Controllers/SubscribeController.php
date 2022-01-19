@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateSubscribeRequest;
 use Illuminate\Http\Request;
 use App\Exports\UsersExport;
 use Maatwebsite\Excel\Facades\Excel;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class SubscribeController extends Controller
 {

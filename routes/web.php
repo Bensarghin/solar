@@ -29,10 +29,10 @@ Route::prefix('admin')->group(function(){
 	Route::get('/login',[AdminController::class,'index'])->name('admin.login');
 	Route::post('/login',[AdminController::class,'login'])->name('admin.login');
 	Route::get('/logout',[AdminController::class,'logout'])->name('admin.logout');
-Route::group(['middleware' => 'auth:admin'],function() {
-	Route::get('/auth',[AdminController::class,'auth'])->name('admin.auth');
-	Route::post('/update',[AdminController::class,'update'])->name('admin.update');
-});
+	Route::group(['middleware' => 'auth:admin'],function() {
+		Route::get('/auth',[AdminController::class,'auth'])->name('admin.auth');
+		Route::post('/update',[AdminController::class,'update'])->name('admin.update');
+	});
 
 	Route::get('/',[DashboardController::class,'index'])->name('admin.home');
 	Route::get('/accueil',[DashboardController::class,'index'])->name('admin.home');
@@ -96,12 +96,12 @@ Route::prefix('subscribers')->group(function() {
 	Route::post('/store',[SubscribeController::class,'store'])->name('subscribe.store');
 
 });
-Route::middleware('auth:web')->group(function(){
+Route::middleware(['auth','verified'])->group(function(){
 	Route::get('/inscription', [ProfileController::class,'create'])->name('inscrip');
 	Route::get('/profile', [ProfileController::class,'edit'])->name('user.edit');
 	Route::post('/store', [ProfileController::class,'store'])->name('user.store');
 	Route::post('/update', [ProfileController::class,'update'])->name('user.update');
 });
-Auth::routes();
-Route::get('/logout', function () { return view('Acc');});
+	Auth::routes(['verify' => true]);
+	Route::get('/logout', function () { return view('Acc');});
 });

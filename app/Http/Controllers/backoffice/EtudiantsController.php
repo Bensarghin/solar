@@ -261,6 +261,7 @@ class EtudiantsController extends Controller
     }
 
     public function destroy($id) {
+        
         $etudiant = Etudiant::find($id);
         if(!$etudiant) {
             return abort('404');
