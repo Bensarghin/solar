@@ -3477,7 +3477,7 @@ canvas {
 .banner-section.style-three .content-column .content-inner .analysis-form .form-group {
     position: relative;
 }
-.banner-section.style-three .content-column .content-inner .analysis-form .form-group input[type="url"] {
+.banner-section.style-three .content-column .content-inner .analysis-form .form-group input[type="email"] {
     position: relative;
     display: block;
     width: 100%;

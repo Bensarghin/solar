@@ -9,6 +9,7 @@ use App\Http\Controllers\backoffice\VilleController;
 use App\Http\Controllers\backoffice\UserController;
 // guests controllers
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SubscribeController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -25,14 +26,13 @@ use Illuminate\Support\Facades\Auth;
 // Admin routes group
 Route::prefix('admin')->group(function(){
 	// Auth routes
-Route::get('/login',[AdminController::class,'index'])->name('admin.login');
-Route::post('/login',[AdminController::class,'login'])->name('admin.login');
-Route::get('/logout',[AdminController::class,'logout'])->name('admin.logout');
-
-Route::middleware('auth:admin')->group(function(){
+	Route::get('/login',[AdminController::class,'index'])->name('admin.login');
+	Route::post('/login',[AdminController::class,'login'])->name('admin.login');
+	Route::get('/logout',[AdminController::class,'logout'])->name('admin.logout');
+Route::group(['middleware' => 'auth:admin'],function() {
 	Route::get('/auth',[AdminController::class,'auth'])->name('admin.auth');
 	Route::post('/update',[AdminController::class,'update'])->name('admin.update');
-
+});
 
 	Route::get('/',[DashboardController::class,'index'])->name('admin.home');
 	Route::get('/accueil',[DashboardController::class,'index'])->name('admin.home');
@@ -50,6 +50,8 @@ Route::middleware('auth:admin')->group(function(){
 	Route::post('/store',[EtudiantsController::class,'store'])->name('etudiant.store');
 	Route::get('/delete/{id}',[EtudiantsController::class,'destroy'])->name('etudiant.destroy');
 	
+	Route::get('/payer/{id}',[EtudiantsController::class,'payer'])->name('pay.update');
+	
 	// contact update
 	Route::prefix('contact')->group(function() {
 		Route::post('/update/{id}',[EtudiantsController::class,'contact'])->name('contact.update');
@@ -61,16 +63,21 @@ Route::middleware('auth:admin')->group(function(){
 
 	});
 	// users
-	Route::prefix('users')->group(function() {
+	Route::group(['prefix' => 'users'],function() {
 		Route::get('/',[UserController::class,'index'])->name('users');
 		Route::post('/store/{id}',[UserController::class,'store'])->name('auth.store');
 		Route::post('/update/{id}',[UserController::class,'update'])->name('auth.update');
 		Route::get('/delete/{id}',[UserController::class,'delete'])->name('auth.delete');
 		});
+	Route::prefix('subscribers')->group(function() {
+		Route::get('/',[SubscribeController::class,'index'])->name('subscribers');
+		Route::get('/delete/{id}',[SubscribeController::class,'destroy'])->name('sub.delete');
+		Route::get('/excel',[SubscribeController::class,'export'])->name('subcribe.excel');
+
+	});
 	Route::get('/villes',[VilleController::class,'index']);
 	Route::get('/regions',[VilleController::class,'regions']);
 
-});
 });
 
 //Etudiant routes
@@ -84,11 +91,17 @@ Route::group(
 Route::get('/', function () { return view('Acc');})->name('home');
 Route::get('/home', function () { return view('Acc');})->name('home');
 Route::get('/contact', function () { return view('contact');})->name('contact')	;
-Route::get('/inscription', [ProfileController::class,'create'])->name('inscrip');
-Route::get('/profile', [ProfileController::class,'edit'])->name('user.edit');
-Route::post('/store', [ProfileController::class,'store'])->name('user.store');
-Route::post('/update', [ProfileController::class,'update'])->name('user.update');
 Route::post('/contact', 'ContactController@submitContactForm')->name('contact.submit');
-Auth::routes();
+Route::prefix('subscribers')->group(function() {
+	Route::post('/store',[SubscribeController::class,'store'])->name('subscribe.store');
 
+});
+Route::middleware('auth:web')->group(function(){
+	Route::get('/inscription', [ProfileController::class,'create'])->name('inscrip');
+	Route::get('/profile', [ProfileController::class,'edit'])->name('user.edit');
+	Route::post('/store', [ProfileController::class,'store'])->name('user.store');
+	Route::post('/update', [ProfileController::class,'update'])->name('user.update');
+});
+Auth::routes();
+Route::get('/logout', function () { return view('Acc');});
 });

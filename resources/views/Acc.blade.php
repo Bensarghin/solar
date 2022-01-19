@@ -22,8 +22,15 @@
 <div class="video-link"> <a href="https://www.youtube.com/watch?v=FQYFflM0IH4" data-fancybox="gallery" data-caption=""><span class="icon fa fa-play" aria-hidden="true"></span><i class="ripple"></i></a></div>
                             <h1>{{__('messages.mosta')}}</h1>
                             <p>{{ __('messages.mos') }}</p>
-                            <form class="analysis-form" method="post" action="https://expert-themes.com/html/Musta9bali/blog.html">
-                                <div class="form-group"> <input type="url" name="analysis" value="" placeholder="exemple@gmail.com" required> <button type="submit" class="theme-btn btn-style-one buy-btn"><span class="txt">s'abonner</span></button></div>
+                            <form class="analysis-form" method="post" action="{{route('subscribe.store')}}">
+                                @csrf
+                                <div class="form-group"> 
+                                    <input type="email" name="email" value="" placeholder="exemple@gmail.com" required> 
+                                    @error('email')
+                                    <span class="text-danger">{{$message}}</span>
+                                    @enderror
+                                    <button type="submit" class="theme-btn btn-style-one buy-btn"><span class="txt">s'abonner</span></button>
+                                </div>
                                     </form>
                                     <div class="info-box">
                                         <div class="icon-box"> <i class="flaticon flaticon-communication"></i></div>

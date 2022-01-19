@@ -13,9 +13,9 @@ use App\Models\Profile;
 class EtudiantsController extends Controller
 {
     public function __construct() {
-
-        $this->middleware('auth:admin');
-    }
+        
+		$this->middleware('auth:admin');
+	}
 
     public function index()
     {
@@ -274,5 +274,18 @@ class EtudiantsController extends Controller
         $etudiant->profile->scolaire->delete();
         $etudiant->delete();
         return redirect()->route('etudiants');
+    }
+
+    public function payer($id) {
+        $etudiant = Etudiant::find($id);
+        $payer = Etudiant::find($id)->payer;
+        if(!$etudiant) {
+            return abort('404');
+        }
+        $etudiant->update([
+            'payer' => !$payer
+        ]);
+
+        return redirect()->back();
     }
 }

@@ -136,6 +136,7 @@
                                     <th>Rejoindre</th>
                                     <th>Etab Actuel</th>
                                     <th>Ville</th>
+                                    <th>Payer</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -156,6 +157,13 @@
                                     <th>{{$etudiant->profile->created_at->diffForHumans()}}</th>
                                     <th>{{$etudiant->profile->scolaire->nom_etab_actuel}}</th>
                                     <th>{{$etudiant->profile->scolaire->ville_etab_actuel}}</th>
+                                    <th>
+                                        @if($etudiant->payer == false)
+                                        <a href="{{route('pay.update',['id'=> $etudiant->id])}}" class="text-danger"> <i class="fa fa-times fa-1x"></i></a>
+                                        @else
+                                        <a href="{{route('pay.update',['id'=> $etudiant->id])}}" class="text-success"> <i class="fa fa-check-circle  fa-1x"></i></a>
+                                        @endif
+                                    </th>
                                     <td>
                                         <a href="{{route('etudiant.profile',['id' => $etudiant->profile->id])}}" data-bs-toggle="tooltip"
                                             title="Profile">

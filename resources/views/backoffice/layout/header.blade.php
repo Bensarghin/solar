@@ -2,9 +2,7 @@
     <div class="page-header-inner ">
         <!-- logo start -->
         <div class="page-logo">
-           <img src="{{asset('assets/img/logo.png')}}" style="
-    width: 176px;
-"
+           <img src="{{asset('assets/img/logo.png')}}" style="width: 176px;"
                                />
         </div>
         <!-- logo end -->
@@ -18,7 +16,7 @@
         </a>
         <!-- end mobile menu -->
         <!-- start header menu -->
-        <div class="top-menu">
+        <div class="top-menu" id="content">
             <ul class="nav navbar-nav pull-right">
                 <li><a class="fullscreen-btn"><i class="fa fa-arrows-alt"></i></a></li>
                 <!-- start manage user dropdown -->
@@ -26,7 +24,7 @@
                     <a class="dropdown-toggle" data-bs-toggle="dropdown" data-hover="dropdown"
                         data-close-others="true">
                         <img alt="" class="img-circle " src="{{asset('assets/img/default.png')}}" />
-                        <span class="username username-hide-on-mobile"> Admin </span>
+                        <span class="username username-hide-on-mobile"> {{Auth::guard('admin')->user()->name}} </span>
                         <i class="fa fa-angle-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-default">

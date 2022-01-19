@@ -26,7 +26,9 @@ class RedirectIfAuthenticated
                 if($guard == 'admin') {
                     return redirect('admin.home');
                 }
-                return redirect('home');
+                if($guard == 'web') {
+                    return redirect('home');
+                }
             }
         }
 

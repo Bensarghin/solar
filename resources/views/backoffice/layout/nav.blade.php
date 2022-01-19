@@ -44,6 +44,13 @@
                         <span class="selected"></span>
                     </a>
                 </li>
+                <li class="nav-item  start open">
+                    <a href="{{route('subscribers')}}"class="nav-link">
+                        <i class="material-icons">group</i>
+                        <span class="title">Subscribers</span>
+                        <span class="selected"></span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
