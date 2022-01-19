@@ -130,7 +130,6 @@
 
 
 
-
                                             <div class="front-box" style="background-image: url({{asset('assset/images/services/56.png')}});">
                                                 <div class="icon-box"> <i class="">ETL</i></div>
                                                 <div class="lower-content">
