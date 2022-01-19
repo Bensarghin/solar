@@ -21,7 +21,7 @@
                         <div class="content-inner">
 <div class="video-link"> <a href="https://www.youtube.com/watch?v=FQYFflM0IH4" data-fancybox="gallery" data-caption=""><span class="icon fa fa-play" aria-hidden="true"></span><i class="ripple"></i></a></div>
                             <h1>{{__('messages.mosta')}}</h1>
-                            <p>Abonnez-vous pour recevoir toutes nos actualités</p>
+                            <p>{{ __('messages.mos') }}</p>
                             <form class="analysis-form" method="post" action="https://expert-themes.com/html/Musta9bali/blog.html">
                                 <div class="form-group"> <input type="url" name="analysis" value="" placeholder="exemple@gmail.com" required> <button type="submit" class="theme-btn btn-style-one buy-btn"><span class="txt">s'abonner</span></button></div>
                                     </form>
@@ -51,10 +51,7 @@
                     </section>
 
 
-                    <div id="chatbutton-wa" data-phone="+212634271176" data-showpopup="true" data-headertitle="Musta9bali 👋" data-popupmessage="Hi!
-Please tell me who you'd like to chat with?
-Help me
-Please give your contact details according to your convenient time." data-placeholder="Type here" data-position="left" data-headercolor="rgb(2 174 182)" data-backgroundcolor="#e5ddd5" data-autoopentimeout="5" data-size="65px">
+                    <div id="chatbutton-wa" data-phone="+212634271176" data-showpopup="true" data-headertitle="Musta9bali 👋" data-popupmessage="Salut, 😊 comment puis-je vous aider" data-placeholder="Type here" data-position="left" data-headercolor="rgb(25 53 87)" data-backgroundcolor="#e5ddd5" data-autoopentimeout="5" data-size="65px">
     <div class="floating-wpp-button" style="width: 65px; height: 65px;">
         <div class="floating-wpp-button-image">
                 <img src="{{asset('assset/images/whatsapp-logo-4.png')}}" alt="">
@@ -66,8 +63,8 @@ Please give your contact details according to your convenient time." data-placeh
                         <div class="upper-box">
                             <div class="auto-container">
                                 <div class="sec-title text-center">
-                                    <h2>Nos Pack <br /> </h2>
-                                       <h6 class="subtitle">pour votre orientation</h6>
+                                    <h2>{{__('messages.nos-abonnement')}}<br /> </h2>
+                                       <h6 class="subtitle">{{__('messages.orient')}}</h6>
 
                                 </div>
                             </div>
@@ -79,25 +76,25 @@ Please give your contact details according to your convenient time." data-placeh
                                         <div class="inner-box">
 
 
-
-
-                                            <div class="front-box">
+                                       <div class="back-box" >
                                                 <div class="icon-box"> <i class="">SN</i></div>
                                                 <div class="lower-content">
-                                                    <h4><a href="">Pack Sciences Normal</a></h4>
-                                                    <p>Pour Bac: PC-SM-SV</p>
-                                                     <p>......</p>
-
-                                                </div>
-                                            </div>
-                                            <div class="back-box" style="background-image: url({{asset('assset/images/services/14.png')}});">
-                                                <div class="icon-box"> <i class="">SN</i></div>
-                                                <div class="lower-content">
-                                                    <h4><a href="">Pack Sciences Normal</a></h4>
+                                                    <h4><a href="">Abonnement Sciences Normal</a></h4>
                                                         <p>Pour Bac: PC-SM-SV</p>
                                                         <p>......</p>
                                                 </div>
                                             </div>
+
+                                            <div class="front-box" style="background-image: url({{asset('assset/images/services/14.png')}});" >
+                                                <div class="icon-box"> <i class="">SN</i></div>
+                                                <div class="lower-content">
+                                                    <h4><a href="">Abonnement Sciences Normal</a></h4>
+                                                    <p>Pour Bac: PC-SM-SV</p>
+                                                        <p>......</p>
+
+                                                </div>
+                                            </div>
+                                           
                                         </div>
                                     </div>
                                 </div>
@@ -108,18 +105,18 @@ Please give your contact details according to your convenient time." data-placeh
 
 
 
-                                            <div class="front-box">
+                                            <div class="front-box" style="background-image: url({{asset('assset/images/services/14.png')}});">
                                                 <div class="icon-box"> <i class="">SP</i></div>
                                                 <div class="lower-content">
-                                                    <h4><a href="">Pack Sciences</a><br><a href="">Plus</a> </h4>
+                                                    <h4><a href="">Abonnement Sciences plus</a> </h4>
                                                             <p>Pour Bac: PC-SM-SV</p>
                                                             <p>......</p>
                                                 </div>
                                             </div>
-                                            <div class="back-box" style="background-image: url({{asset('assset/images/services/14.png')}});">
+                                            <div class="back-box" >
                                                 <div class="icon-box"> <i class="">SP</i></div>
                                                 <div class="lower-content">
-                                                    <h4><a href="">Pack Sciences Plus</a></h4>
+                                                    <h4><a href="">Abonnement Sciences Plus</a></h4>
                                                             <p>Pour Bac: PC-SM-SV</p>
                                                             <p>......</p>
                                                 </div>
@@ -134,19 +131,19 @@ Please give your contact details according to your convenient time." data-placeh
 
 
 
-                                            <div class="front-box">
+                                            <div class="front-box" style="background-image: url({{asset('assset/images/services/56.png')}});">
                                                 <div class="icon-box"> <i class="">ETL</i></div>
                                                 <div class="lower-content">
-                                                    <h4><a href="">Pack Eco,Tech et Lettres</a></h4>
+                                                    <h4><a href="">Abonnement Eco,Tech et Lettres</a></h4>
                                                     <p>Pour Bac:ECO-STE-STM-L-SH</p>
                                                       <p>......</p>
 
                                                 </div>
                                             </div>
-                                            <div class="back-box" style="background-image: url({{asset('assset/images/services/14.png')}});">
+                                            <div class="back-box" >
                                                 <div class="icon-box"> <i class="">ETL</i></div>
                                                 <div class="lower-content">
-                                                    <h4><a href="">Pack Eco,Tech et Lettres</a></h4>
+                                                    <h4><a href="">Abonnement Eco,Tech et Lettres</a></h4>
                                                     <p>Pour Bac:ECO-STE-STM-L-SH</p>
                                                     <p>......</p>
 
@@ -162,18 +159,18 @@ Please give your contact details according to your convenient time." data-placeh
 
 
 
-                                            <div class="front-box">
+                                            <div class="front-box" style="background-image: url({{asset('assset/images/services/56.png')}});">
                                                 <div class="icon-box"> <i class="">EP</i></div>
                                                 <div class="lower-content">
-                                                    <h4><a href="">Pack Economie Plus</a></h4>
+                                                    <h4><a href="">Abonnement Economie Plus</a></h4>
                                                     <p>Pour Bac: ECO-SGC</p>
                                                     <p>......</p>
                                                 </div>
                                             </div>
-                                            <div class="back-box" style="background-image: url({{asset('assset/images/services/14.png')}});">
+                                            <div class="back-box" >
                                                 <div class="icon-box"> <i class="">EP</i></div>
                                                 <div class="lower-content">
-                                                    <h4><a href="">Pack Economie Plust</a></h4>
+                                                    <h4><a href="">Abonnement Economie Plust</a></h4>
                                                     <p>Pour Bac: ECO-SGC</p>
                                                     <p>......</p>
                                                 </div>

@@ -67,33 +67,40 @@
                         <div class="mb-2">
                             <select class="form-select input-height" name="bac_niveau">
                                 <option selected>Bac Obtention ...</option>
-                                <option value="aucien">Aucien Bac</option>
+                                <option value="aucien">Ancien Bac</option>
                                 <option value="actuel">Bac {{date('Y')}}</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="mb-2">
-                            <select class="form-select input-height" name="assttype">
+                            <select class="form-select input-height" name="pack">
                                 <option selected>Pack ...</option>
-                                <option value="sn">In Stock</option>
-                                <option value="sp">Out Of Stock</option>
-                                <option value="etl">Issue</option>
-                                <option value="ep">Repair</option>
+                                <option value="sn">Science Normal</option>
+                                <option value="sp">Science Plus</option>
+                                <option value="etl">Economie, Technique, et Letteres</option>
+                                <option value="ep">Economie Plus</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="mb-2">
-                            <select class="form-select input-height" name="assttype">
+                            <select class="form-select input-height" name="filier">
                                 <option  selected>Filiér ...</option>
-                                <option value="Sciences Economiques">Sciences Economiques</option><option value="Sciences de Gestion et de Comptabilité">Sciences de Gestion et de Comptabilité</option><option value="Sciences et Technologies Mécaniques">Sciences et Technologies Mécaniques</option><option value="Sciences et Technologies Electriques">Sciences et Technologies Electriques</option><option value="Lettres">Lettres</option><option value="Sciences Humaines">Sciences Humaines</option><option value="Sciences agronomiques">Sciences agronomiques</option><option value="Arts Appliqués">Arts Appliqués</option>
+                                <option value="Sciences Economiques">Sciences Economiques</option>
+                                <option value="Sciences de Gestion et de Comptabilité">Sciences de Gestion et de Comptabilité</option>
+                                <option value="Sciences et Technologies Mécaniques">Sciences et Technologies Mécaniques</option>
+                                <option value="Sciences et Technologies Electriques">Sciences et Technologies Electriques</option>
+                                <option value="Lettres">Lettres</option>
+                                <option value="Sciences Humaines">Sciences Humaines</option>
+                                <option value="Sciences agronomiques">Sciences agronomiques</option>
+                                <option value="Arts Appliqués">Arts Appliqués</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="mb-2">
-                            <select class="form-select input-height" name="assttype">
+                            <select class="form-select input-height" name="region">
                                 <option selected>Region ...</option>
                                 @foreach($regions as $region)
                                 <option value="{{$region['region']}}">{{$region['region']}}</option>

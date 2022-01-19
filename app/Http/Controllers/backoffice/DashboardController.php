@@ -31,9 +31,14 @@ class DashboardController extends Controller
     
     public function filtrer(Request $request) {
 
-        if($request->all()->count() > 0) {
+        if($request->all()) {
 
-            $scolaire_id = Scolaire::where('bac_niveau',$request->bac_niveau)->get('id');
+            $scolaire_id = Scolaire::
+            where('bac_niveau',$request->bac_niveau)
+            ->orWhere('pack',$request->pack)
+            ->orWhere('filier',$request->filier)
+            ->orWhere('region',$request->region)
+            ->get('id');
             $prof_id = Profile::whereIn('scolaire_id',$scolaire_id)->get('etudiant_id');
             $user_ids = Profile::whereNotNull('user_id');
             $profiles = Profile::all();
@@ -46,7 +51,7 @@ class DashboardController extends Controller
             ]);
         }
         else {
-            return redirect()->back();
+            return redirect()->route('admin.home');
         }
     }
 }

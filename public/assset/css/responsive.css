@@ -1051,6 +1051,7 @@
 	}
 	.main-header .logo-box .logo {
 	    padding: 23px 0;
+		width: 200px;
 	}
 	.header-style-two .header-lower .main-box .nav-outer {
 	    margin-top: -27px;

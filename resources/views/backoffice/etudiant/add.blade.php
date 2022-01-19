@@ -2,7 +2,7 @@
 
 @section('content')
 @section('content-title','Ajouter Etudiant')
-    @if($errors->count()>0)
+    @if($errors->count() > 0)
         <div class="alert alert-danger">
             @foreach($errors->all() as $error)
             <li>{{$error}}</li>

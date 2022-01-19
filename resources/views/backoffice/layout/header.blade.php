@@ -25,14 +25,14 @@
                 <li class="dropdown dropdown-user">
                     <a class="dropdown-toggle" data-bs-toggle="dropdown" data-hover="dropdown"
                         data-close-others="true">
-                        <img alt="" class="img-circle " src="{{asset('assets/img/dp.jpg')}}" />
-                        <span class="username username-hide-on-mobile"> Kiran </span>
+                        <img alt="" class="img-circle " src="{{asset('assets/img/default.png')}}" />
+                        <span class="username username-hide-on-mobile"> Admin </span>
                         <i class="fa fa-angle-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-default">
                         <li>
                             <a href="{{route('admin.auth')}}">
-                                <i class="icon-user"></i> Authent 
+                                <i class="icon-user"></i> profile 
                             </a>
                         </li>
                         <li>

@@ -3,14 +3,18 @@
 return [
 
     'admin' => 'this admin dashboard',
-    'modifier-profile' => 'Modifier votre profile',
+	'Editprofile' => 'Votre Profil',
     'acceuil' => 'Acceuil',
     'inscription' => 'Inscription',
     'contact' => 'Contact',
+	'vos_contact' => 'Votre Contact',
+	'scolaire' => 'Info Scolaire',
     'deconnecter' => 'Déconnecter',
     'connecter' => 'Se Connecter',
     'connexion' => 'Connexion',
-    'Editprofile' => 'Modifier votre profile'
+	'addprofile' => 'Créez votre profil',
+	'submit' => 'Enregistrer',
+	'link'=>'liens'
 
 
 ];
