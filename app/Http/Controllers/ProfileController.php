@@ -14,9 +14,6 @@ use Illuminate\Support\Facades\File;
 
 class ProfileController extends Controller
 {
-    public function __construct() {
-        return $this->middleware('auth');
-    }
     /**
      * Display a listing of the resource.
      *

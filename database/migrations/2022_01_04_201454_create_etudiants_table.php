@@ -21,6 +21,7 @@ class CreateEtudiantsTable extends Migration
             $table->string('prenom');
             $table->string('nom_ar');
             $table->string('prenom_ar');
+            $table->boolean('payer')->default(0);
             $table->string('gender');
             $table->date('date_nais');
             $table->string('lieu_nais');

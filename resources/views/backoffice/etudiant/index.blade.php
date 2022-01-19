@@ -46,7 +46,7 @@
                                         </div>
                                         <div class="table-scrollable">
                                             <table
-                                                class="table table-striped table-hover table-checkable order-column valign-middle"
+                                                class="table text-center table-striped table-hover table-checkable order-column valign-middle"
                                                 id="example4">
                                                 <thead>
                                                     <tr>
@@ -56,6 +56,7 @@
                                                         <th> Date, Lieu nais </th>
                                                         <th> Gender </th>
                                                         <th>Inscription</th>
+                                                        <th>Payer</th>
                                                         <th> Action </th>
                                                     </tr>
                                                 </thead>
@@ -73,7 +74,14 @@
                                                         <td>{{$profile->etudiant->nom}} {{$profile->etudiant->prenom}}</td>
                                                         <td class="left">{{$profile->etudiant->date_nais}}, {{$profile->etudiant->lieu_nais}}</td>
                                                         <td>{{$profile->etudiant->gender}}</td>
-                                                        <td>{{'12 déc 2021'}}</td>
+                                                        <td>{{$profile->created_at->diffForHumans()}}</td>
+                                                        <th>
+                                                            @if($profile->etudiant->payer == false)
+                                                            <a href="{{route('pay.update',['id'=> $profile->etudiant->id])}}" class=" text-danger"> <i class="fa fa-times fa-2x text-center"></i></a>
+                                                            @else
+                                                            <a href="{{route('pay.update',['id'=> $profile->etudiant->id])}}" class=" text-success"> <i class="fa fa-check-circle  fa-2x"></i></a>
+                                                            @endif
+                                                        </th>
                                                         <td>
                                                             <a href="{{route('etudiant.profile',['id'=>$profile->id])}}"
                                                                 class="faicon  pro">

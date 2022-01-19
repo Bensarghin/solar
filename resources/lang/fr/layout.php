@@ -3,7 +3,7 @@
 return [
 
     'admin' => 'this admin dashboard',
-	'Editprofile' => 'Modifier Votre Profil',
+	'Editprofile' => 'Votre Profil',
     'acceuil' => 'Acceuil',
     'inscription' => 'Inscription',
     'contact' => 'Contact',
@@ -13,7 +13,8 @@ return [
     'connecter' => 'Se Connecter',
     'connexion' => 'Connexion',
 	'addprofile' => 'Créez votre profil',
-	'submit' => 'Enregistrer'
+	'submit' => 'Enregistrer',
+	'link'=>'liens'
 
 
 ];

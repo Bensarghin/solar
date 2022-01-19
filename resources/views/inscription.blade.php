@@ -5,7 +5,8 @@
                 <div class="row">
                     <div class="form-column col-lg-12 col-md-12 col-sm-12">
                 		@if(Auth::user()->profile)
-							<div class="alert alert-success text-center">
+							<div class="alert text-center" style="color: #193557;
+    background-color: #a9d9dc;">
 								<p>{{__('messages.inscrip')}}</p>| <a class="btn btn-link" href="{{route('user.edit')}}">{{__('messages.profile-redirect')}}</a>
 								
 							</div>

@@ -18,7 +18,9 @@ Email:  {{ $email }}<br>
 
 Subject:  {{ $subject }}<br> 
 
-Message:  {!! $subject !!}<br><br> 
+
+Message:  {{ $emmessage }}<br> 
+
 
  
 

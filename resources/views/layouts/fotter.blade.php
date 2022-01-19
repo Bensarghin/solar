@@ -6,7 +6,7 @@
                                 <div class="row">
                                     <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
                                         <div class="row">
-                                            <div class="footer-column col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                            <div class="footer-column col-xl-8 col-lg-6 col-md-6 col-sm-12">
                                                 <div class="footer-widget about-widget">
                                                     <div class="footer-logo">
                                                         <figure>
@@ -14,7 +14,7 @@
                                                         </figure>
                                                     </div>
                                                     <div class="widget-content">
-                                                        <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. anonyme
+                                                        <p>{{ __('messages.mos') }}
                                                         </p>
                                                     </div>
                                                 </div>
@@ -26,11 +26,11 @@
                                         <div class="row clearfix">
                                             <div class="footer-column col-xl-7 col-lg-6 col-md-6 col-sm-12">
                                                 <div class="footer-widget links-widget">
-                                                    <h4 class="widget-title">Useful links</h4>
+                                                    <h4 class="widget-title">{{ __('layout.link') }}</h4>
                                                     <div class="widget-content">
                                                         <ul class="list">
-                                                            <li><a href="#">Home</a></li>
-                                                            <li><a href="#">Contact</a></li>
+                                                            <li><a href="{{route('home')}}">{{ __('layout.acceuil') }}</a></li>
+                                                            <li><a href="{{route('contact')}}">{{ __('layout.contact') }}</a></li>
 
                                                         </ul>
 
@@ -39,7 +39,7 @@
                                             </div>
                                             <div class="footer-column col-xl-5 col-lg-6 col-md-6 col-sm-12">
                                                 <div class="footer-widget contact-widget">
-                                                    <h4 class="widget-title">Contacts</h4>
+                                                    <h4 class="widget-title">{{ __('layout.contact') }}</h4>
                                                     <div class="widget-content">
                                                         <ul class="list-style-one">
                                                             <li><span class="icon fas fa-phone-volume"></span>+212 Tlephone</li>
@@ -76,7 +76,6 @@
 
 
 
-                <div class="scroll-to-top scroll-to-target theme-btn btn-style-one" data-target="html"><span class="txt"><i class="fas fa-arrow-up"></i></span></div>
                 <script src="{{asset('assset/js/jquery.js')}}"></script>
                                 <script src="{{asset('assset/js/app.js')}}"></script>
 
@@ -95,3 +94,6 @@
                 <script src="{{asset('assset/js/wow.js')}}"></script>
                 <script src="{{asset('assset/js/script.js')}}"></script>
                 <script src="{{asset('assset/js/color-settings.js')}}"></script>
+                <script src="{{asset('assset/js/jquery.min.js')}}"></script>  
+                <script src="{{asset('assset/js/chatbutton/floating-wpp.js')}}"></script>  
+                <script src="{{asset('assset/js/chatbutton/script.js')}}"></script>  

@@ -10,9 +10,11 @@ return [
 	'deconnecter' => 'الخروج',
 	'connecter' => 'الدخول',
 	'connexion' => 'حساب الدخول',
-	'Editprofile' => 'تعديل ملفك الشخصي',
+	'Editprofile' => ' ملفك الشخصي',
 	'addprofile' => 'أضف ملفك الشخصي',
-	'submit' => 'حفظ'
+	'submit' => 'حفظ',
+	'link'=>'روابط',
+	'eco'=>"واجب االشتراك علوم اقتصادية 2000درهم   "
 
 ];
 
