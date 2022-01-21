@@ -14,6 +14,7 @@
                     <td>Nom auth</td>
                     <td>email</td>
                     <td>crée a</td>
+                    <td>Email</td>
                     <td></td>
                     <td></td>
                 </tr>
@@ -23,6 +24,13 @@
                     <td>{{$user->name}}</td>
                     <td>{{$user->email}}</td>
                     <td>{{$user->created_at->diffForHumans()}}</td>
+                    <td>
+                        @if($user->email_verified_at)
+                        <span class="text-success"><i class="fa fa-check"></i> Verifier</span>
+                        @else
+                        <span class="text-muted"> en attend ..</span>
+                        @endif
+                    </td>
                         <td class="text-danger">Sans d'inscription</td>
                     <td>
                         <a href="{{route('auth.delete',['id'=>$user->id])}}" class="faicon de">

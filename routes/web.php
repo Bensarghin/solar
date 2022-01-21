@@ -5,7 +5,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\backoffice\AdminController;
 use App\Http\Controllers\backoffice\DashboardController;
 use App\Http\Controllers\backoffice\EtudiantsController;
-use App\Http\Controllers\backoffice\VilleController;
 use App\Http\Controllers\backoffice\UserController;
 // guests controllers
 use App\Http\Controllers\ProfileController;
@@ -22,9 +21,10 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
-	
+
+
 // Admin routes group
-Route::prefix('admin')->group(function(){
+Route::prefix('admin/')->group(function(){
 	// Auth routes
 	Route::get('/login',[AdminController::class,'index'])->name('admin.login');
 	Route::post('/login',[AdminController::class,'login'])->name('admin.login');
@@ -34,7 +34,8 @@ Route::prefix('admin')->group(function(){
 		Route::post('/update',[AdminController::class,'update'])->name('admin.update');
 	});
 
-	Route::get('/',[DashboardController::class,'index'])->name('admin.home');
+	
+	Route::get('/',[DashboardController::class,'index']);
 	Route::get('/accueil',[DashboardController::class,'index'])->name('admin.home');
 	Route::post('/filtrer',[DashboardController::class,'filtrer'])->name('filtrer');
 	Route::get('/filtrer',[DashboardController::class,'index']);
@@ -75,8 +76,6 @@ Route::prefix('admin')->group(function(){
 		Route::get('/excel',[SubscribeController::class,'export'])->name('subcribe.excel');
 
 	});
-	Route::get('/villes',[VilleController::class,'index']);
-	Route::get('/regions',[VilleController::class,'regions']);
 
 });
 
@@ -88,7 +87,7 @@ Route::group(
 		'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
 	], function(){ 
 
-Route::get('/', function () { return view('Acc');})->name('home');
+Route::get('/', function () { return view('Acc');});
 Route::get('/home', function () { return view('Acc');})->name('home');
 Route::get('/contact', function () { return view('contact');})->name('contact')	;
 Route::post('/contact', 'ContactController@submitContactForm')->name('contact.submit');

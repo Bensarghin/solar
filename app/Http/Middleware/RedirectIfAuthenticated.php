@@ -20,17 +20,12 @@ class RedirectIfAuthenticated
     public function handle(Request $request, Closure $next, ...$guards)
     {
         $guards = empty($guards) ? [null] : $guards;
-
-        foreach ($guards as $guard) {
-            if (Auth::guard($guard)->check()) {
-                if($guard == 'admin') {
-                    return redirect('admin.home');
+            if (Auth::guard()->check()) {
+                if(Auth::guard('admin')) {
+                    return redirect('admin/');
                 }
-                if($guard == 'web') {
-                    return redirect('home');
-                }
+                return redirect('home');
             }
-        }
 
         return $next($request);
     }
