@@ -100,6 +100,7 @@ Route::post('/contact', 'ContactController@submitContactForm')->name('contact.su
 Route::post('/subs',[HomeController::class,'store'])->name('subscribe.store');
 Route::post('/check',[visiController::class,'check'])->name('check');
 Route::get('/userlogout',[visiController::class,'logout'])->name('user.logout');
+Route::get('/packnormal', function () { return view('packn');})->name('pack.normal')	;
 
 Route::middleware('auth:web')->group( function() {
 	Route::get('/inscription', [ProfileController::class,'create'])->name('inscrip');

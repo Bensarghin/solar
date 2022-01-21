@@ -86,7 +86,7 @@
                                        <div class="back-box" >
                                                 <div class="icon-box"> <i class="">SN</i></div>
                                                 <div class="lower-content">
-                                                    <h4><a href="">Abonnement Sciences Normal</a></h4>
+                                                    <h4><a href="{{route('pack.normal')}}">Abonnement Sciences Normal</a></h4>
                                                         <p>Pour Bac: PC-SM-SV</p>
                                                         <p>......</p>
                                                 </div>
@@ -95,7 +95,7 @@
                                             <div class="front-box" style="background-image: url({{asset('assset/images/services/14.png')}});" >
                                                 <div class="icon-box"> <i class="">SN</i></div>
                                                 <div class="lower-content">
-                                                    <h4><a href="">Abonnement Sciences Normal</a></h4>
+                                                    <h4><a href="{{route('pack.normal')}}">Abonnement Sciences Normal</a></h4>
                                                     <p>Pour Bac: PC-SM-SV</p>
                                                         <p>......</p>
 
