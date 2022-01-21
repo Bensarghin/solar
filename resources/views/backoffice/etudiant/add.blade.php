@@ -182,7 +182,7 @@
                     </select>
                 </div>
                 <div class="form-group col-lg-6 col-md-12 col-sm-12">
-                    <label class="text-muted">Code massar</label>
+                    <label class="text-muted">Code massar <span class="required"> (* ) </span></label>
                         <input class="mdl-textfield__input" type="text" value="{{old('code_massar')}}" id="date" name="code_massar">
                 </div>
                 <div class="form-group col-lg-6 col-md-12 col-sm-12">

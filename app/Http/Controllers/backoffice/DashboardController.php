@@ -49,12 +49,16 @@ class DashboardController extends Controller
             $prof_id = Profile::whereIn('scolaire_id',$scolaire_id)->get('etudiant_id');
             $user_ids = Profile::whereNotNull('user_id');
             $profiles = Profile::all();
+            
+        $Subscribe = Subscribe::all();
             $users = User::whereNotIn('id',$user_ids->get('user_id'))->get();
             $etudiants = Etudiant::whereIn('id',$prof_id)->get();
             return view('backoffice.dashboard.index', [
                 'etudiants' => $etudiants,
                 'users' => $users,
-                'profiles' => $profiles
+                'profiles' => $profiles,
+            
+                'Subscribe' => $Subscribe
             ]);
         }
         else {
