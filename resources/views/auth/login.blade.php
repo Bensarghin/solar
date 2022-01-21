@@ -12,7 +12,7 @@
                 <div class="inner-container clearfix">
                     <div class="title-box">
                         <h1>{{__('layout.connexion')}}</h1>
-                        <a href="{{route('register')}}" class="text-light">Nouveau Connexion</a>
+                        <a href="" class="text-light"></a>
                        
                     </div>
                 </div>
@@ -24,7 +24,7 @@
             <div class="contact-form">
                 <div class="card-body">
                     <center>
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="{{ route('check') }}">
                         @csrf
 
                         <div class="form-group col-lg-6 col-md-12 col-sm-12">
@@ -55,10 +55,10 @@
                         <div class="form-group col-lg-6 col-md-12 col-sm-12">
 
                                 <button type="submit" class="theme-btn btn-style-one">
-                                    {{ __('Login') }}
+                                 <span class="txt">{{ __('Login') }}</span>
                                 </button>
-
-                                @if (Route::has('password.request'))
+                                 
+                            @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('auth.forget-psw') }}
                                     </a>

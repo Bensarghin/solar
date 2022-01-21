@@ -123,7 +123,7 @@ class ProfileController extends Controller
             'user_id'   => $user_id
         ]);
 
-        return redirect()->back();
+        return redirect()->route('home');
     }
 
     /**
@@ -240,7 +240,7 @@ class ProfileController extends Controller
             'region' => $request->region 
         ]);
 
-        return redirect()->back()->with(
+        return redirect()->route('user.edit')->with(
             'success', 'votre enregistrement a été bien éffectuer'
         );
     }

@@ -45,8 +45,8 @@
                 <span class="info-box-icon push-bottom"><i
                         class="material-icons">group</i></span>
                 <div class="info-box-content  pt-4">
-                    <span class="info-box-text">Top pack</span>
-                    <span class="info-box-number">13,921</span><span>$</span>
+                    <span class="info-box-text">Subscribe</span>
+                    <span class="info-box-number">{{$Subscribe->count()}}</span><span></span>
                 </div>
                 <!-- /.info-box-content  pt-4 -->
             </div>

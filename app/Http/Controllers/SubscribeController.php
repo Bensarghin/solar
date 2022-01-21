@@ -10,6 +10,9 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class SubscribeController extends Controller
 {
+    public function __construct() {
+		$this->middleware('auth:admin');
+	}
     /**
      * Display a listing of the resource.
      *
@@ -33,18 +36,7 @@ class SubscribeController extends Controller
         //
     }
 
-    public function store(Request $request)
-    {
-
-        $request->validate([
-            'email' => 'required|email|unique:subscribes'
-        ]);
-        Subscribe::create([
-            'email' => $request->email
-        ]);
-
-        return redirect()->back()->with('success','Votre Abonneé à été bien enregistrer');
-    }
+    
 
     /**
      * Display the specified resource.

@@ -10,6 +10,11 @@ use App\Http\Controllers\backoffice\UserController;
 // guests controllers
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SubscribeController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\User;
+use App\Http\Controllers\visiController;
+
+
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -29,6 +34,7 @@ Route::prefix('admin')->group(function(){
 	Route::get('/login',[AdminController::class,'index'])->name('admin.login');
 	Route::post('/login',[AdminController::class,'login'])->name('admin.login');
 	Route::get('/logout',[AdminController::class,'logout'])->name('admin.logout');
+	
 Route::group(['middleware' => 'auth:admin'],function() {
 	Route::get('/auth',[AdminController::class,'auth'])->name('admin.auth');
 	Route::post('/update',[AdminController::class,'update'])->name('admin.update');
@@ -75,8 +81,6 @@ Route::group(['middleware' => 'auth:admin'],function() {
 		Route::get('/excel',[SubscribeController::class,'export'])->name('subcribe.excel');
 
 	});
-	Route::get('/villes',[VilleController::class,'index']);
-	Route::get('/regions',[VilleController::class,'regions']);
 
 });
 
@@ -88,20 +92,23 @@ Route::group(
 		'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
 	], function(){ 
 
+
 Route::get('/', function () { return view('Acc');})->name('home');
 Route::get('/home', function () { return view('Acc');})->name('home');
 Route::get('/contact', function () { return view('contact');})->name('contact')	;
 Route::post('/contact', 'ContactController@submitContactForm')->name('contact.submit');
-Route::prefix('subscribers')->group(function() {
-	Route::post('/store',[SubscribeController::class,'store'])->name('subscribe.store');
+Route::post('/subs',[HomeController::class,'store'])->name('subscribe.store');
+Route::post('/check',[visiController::class,'check'])->name('check');
+Route::get('/userlogout',[visiController::class,'logout'])->name('user.logout');
 
-});
-Route::middleware('auth:web')->group(function(){
+Route::middleware('auth:web')->group( function() {
 	Route::get('/inscription', [ProfileController::class,'create'])->name('inscrip');
 	Route::get('/profile', [ProfileController::class,'edit'])->name('user.edit');
 	Route::post('/store', [ProfileController::class,'store'])->name('user.store');
 	Route::post('/update', [ProfileController::class,'update'])->name('user.update');
+	
 });
+
 Auth::routes();
-Route::get('/logout', function () { return view('Acc');});
+
 });

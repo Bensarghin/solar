@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backoffice;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Etudiant;
+use App\Models\Subscribe;
 use App\Models\User;
 use App\Models\Profile;
 use App\Models\Scolaire;
@@ -19,12 +20,16 @@ class DashboardController extends Controller
     {
         $user_ids = Profile::whereNotNull('user_id');
         $profiles = Profile::all();
+        
+        $Subscribe = Subscribe::all();
         $users = User::whereNotIn('id',$user_ids->get('user_id'))->get();
         $etudiants = Etudiant::whereIn('id',$user_ids->get('etudiant_id'))->get();
         return view('backoffice.dashboard.index', [
             'etudiants' => $etudiants,
             'users' => $users,
-            'profiles' => $profiles
+            'profiles' => $profiles,
+            
+            'Subscribe' => $Subscribe,
         ]);
     }
 
