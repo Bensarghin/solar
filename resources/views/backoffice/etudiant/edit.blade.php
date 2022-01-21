@@ -225,8 +225,17 @@
                                             <label class="text-muted">Filièr </label>
                                             <div
                                                 class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                                <input class="mdl-textfield__input" type="text" value="{{$profile->scolaire->filier}}" 
-                                                    id="txtRollNo" name="filier">
+                                                <select class="form-select input-height" name="filier" id="" required>
+                                                    <option disabled selected>....</option>
+                                                    <option value="Sciences Economiques" {{$profile->scolaire->filier=='Sciences Economiques'?'selected':''}}>Sciences Economiques</option>
+                                                    <option value="Sciences de Gestion et de Comptabilité" {{$profile->scolaire->filier=='Sciences de Gestion et de Comptabilité'?'selected':''}}>Sciences de Gestion et de Comptabilité</option>
+                                                    <option value="Sciences et Technologies Mécaniques" {{$profile->scolaire->filier=='Sciences de Gestion et de Comptabilité'?'selected':''}}>Sciences et Technologies Mécaniques</option>
+                                                    <option value="Sciences et Technologies Electriques" {{$profile->scolaire->filier=='Sciences de Gestion et de Comptabilité'?'selected':''}}>Sciences et Technologies Electriques</option>
+                                                    <option value="Lettres" {{$profile->scolaire->filier=='Lettres'?'selected':''}}>Lettres</option>
+                                                    <option value="Sciences Humaines" {{$profile->scolaire->filier=='Sciences Humaines'?'selected':''}}>Sciences Humaines</option>
+                                                    <option value="Sciences agronomiques" {{$profile->scolaire->filier=='Sciences agronomiques'?'selected':''}}>Sciences agronomiques</option>
+                                                    <option value="Arts Appliqués" {{$profile->scolaire->filier=='Arts Appliqués'?'selected':''}}>Arts Appliqués</option>
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="col-lg-6 p-t-20">

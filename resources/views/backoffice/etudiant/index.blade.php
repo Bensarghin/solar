@@ -91,7 +91,7 @@
                                                                 class="faicon ed">
                                                                 <i class="fa fa-pencil"></i>
                                                             </a>
-                                                            <a href="{{route('etudiant.destroy',['id' => $profile->etudiant->id])}}" class="faicon de">
+                                                            <a href="{{route('etudiant.destroy',['id' => $profile->etudiant->id])}}" onclick="return confirm('Vous voulez vraiment supprimer ce enregistrement??!!');" class="faicon de">
                                                                 <i class="fa fa-trash-o "></i>
                                                             </a>
                                                         </td>

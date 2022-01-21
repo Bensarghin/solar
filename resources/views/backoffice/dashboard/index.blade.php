@@ -45,8 +45,8 @@
                 <span class="info-box-icon push-bottom"><i
                         class="material-icons">group</i></span>
                 <div class="info-box-content  pt-4">
-                    <span class="info-box-text">Top pack</span>
-                    <span class="info-box-number">13,921</span><span>$</span>
+                    <span class="info-box-text">Subscribe</span>
+                    <span class="info-box-number">{{$Subscribe->count()}}</span><span></span>
                 </div>
                 <!-- /.info-box-content  pt-4 -->
             </div>
@@ -171,7 +171,7 @@
                                         <a href="{{route('etudiant.edit',['id' => $etudiant->profile->id])}}" data-bs-toggle="tooltip"
                                             title="Modifier">
                                             <i class="fa fa-check"></i></a> |
-                                        <a href="{{route('etudiant.destroy',['id' => $etudiant->id])}}" class="text-inverse" title="Supprimer"
+                                        <a href="{{route('etudiant.destroy',['id' => $etudiant->id])}}" onclick="return confirm('Vous voulez vraiment supprimer ce enregistrement??!!');" class="text-inverse" title="Supprimer"
                                             data-bs-toggle="tooltip">
                                             <i class="fa fa-trash"></i></a>
                                     </td>

@@ -162,9 +162,24 @@
                     <input type="radio" {{old('pack')=='ep'?'checked':''}} name="pack" value="ep" required id="ep">
                     <label for="ep">Pack Economie Plus </label>
                 </div>
-                <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                {{-- <div class="form-group col-lg-6 col-md-12 col-sm-12">
                     <label>Filiér <span class="required"> (* ) </span></label>
                        <input class="mdl-textfield__input" type="text" value="{{old('filier')}}" id="date" name="filier">
+                </div> --}}
+                
+                <div class="form-group col-lg-6 col-md-12 col-sm-12"> 
+                    <label for="">Filiér <span class="required"> (* ) </span></label>
+                    <select class="form-select input-height" name="filier" id="" required>
+                        <option disabled selected>....</option>
+                        <option value="Sciences Economiques" {{old('filier')=='Sciences Economiques'?'selected':''}}>Sciences Economiques</option>
+                        <option value="Sciences de Gestion et de Comptabilité" {{old('filier')=='Sciences de Gestion et de Comptabilité'?'selected':''}}>Sciences de Gestion et de Comptabilité</option>
+                        <option value="Sciences et Technologies Mécaniques" {{old('filier')=='Sciences de Gestion et de Comptabilité'?'selected':''}}>Sciences et Technologies Mécaniques</option>
+                        <option value="Sciences et Technologies Electriques" {{old('filier')=='Sciences de Gestion et de Comptabilité'?'selected':''}}>Sciences et Technologies Electriques</option>
+                        <option value="Lettres" {{old('filier')=='Lettres'?'selected':''}}>Lettres</option>
+                        <option value="Sciences Humaines" {{old('filier')=='Sciences Humaines'?'selected':''}}>Sciences Humaines</option>
+                        <option value="Sciences agronomiques" {{old('filier')=='Sciences agronomiques'?'selected':''}}>Sciences agronomiques</option>
+                        <option value="Arts Appliqués" {{old('filier')=='Arts Appliqués'?'selected':''}}>Arts Appliqués</option>
+                    </select>
                 </div>
                 <div class="form-group col-lg-6 col-md-12 col-sm-12">
                     <label class="text-muted">Code massar</label>
@@ -196,10 +211,10 @@
                         <span> (* obligatoire) </span>
                     </label>
                     <div class="col-md-5">
-                        <select class="form-select input-height" name="region">
+                        <select class="form-select input-height" name="region" required>
                             <option value="">Select...</option>
                             @foreach($regions as $region)
-                            <option value="{{$region['region']}}">{{$region['region']}}</option>
+                            <option value="{{$region['region']}}" {{old('region')==$region['region']?'selected':''}}>{{$region['region']}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -209,10 +224,10 @@
                         <span> (* obligatoire) </span>
                     </label>
                     <div class="col-md-5">
-                        <select class="form-select input-height" name="ville">
+                        <select class="form-select input-height" name="ville" required>
                             <option value="">Select...</option>
                             @foreach($villes as $ville)
-                            <option value="{{$ville['ville']}}">{{$ville['ville']}}</option>
+                            <option value="{{$ville['ville']}}" {{old('ville')==$ville['ville']?'selected':''}}>{{$ville['ville']}}</option>
                             @endforeach
                         </select>
                     </div>

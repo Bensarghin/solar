@@ -1,13 +1,8 @@
 
-
-
-
-
-
-
 @extends('layouts.master')
 
 @section('content')
+
 
 
 <div class="container" style="    margin-bottom: 200px;">

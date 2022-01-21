@@ -41,10 +41,11 @@
                         <li class="list-group-item">
                             <b>Nom&prenom (ar)</b> :{{$profile->etudiant->nom_ar}} {{$profile->etudiant->prenom_ar}}</a>
                         </li>
+                        @if($profile->etudiant->cin)
                         <li class="list-group-item">
                             <b>cin</b> :{{$profile->etudiant->cin}}
-                        <li class="list-group-item"><b>cin</b> :{{$profile->etudiant->cin}}
                         </li>
+                        @endif
                         <li class="list-group-item">
                             <b>Date nais</b> :{{$profile->etudiant->date_nais}}
                         </li>
@@ -127,32 +128,40 @@
                             <div class="tab-pane" id="tab2">
                                 <div id="biography"> 
                                     <div class="row">
-                                        <div class="col-md-4 col-3 b-r"> <strong>Pack</strong>
+                                        <div class="col-md-3 col-3 b-r"> <strong>Pack</strong>
                                             <br>
                                             <p class="text-muted">{{$profile->scolaire->pack}}</p>
                                         </div>
-                                        <div class="col-md-4 col-6 b-r"> <strong>bac obtention</strong>
+                                        <div class="col-md-3 col-6 b-r"> <strong>bac obtention</strong>
                                             <br>
                                             <p class="text-muted">{{$profile->scolaire->bac_niveau}}</p>
                                         </div>
-                                        <div class="col-md-4 col-6 b-r"> <strong>filier</strong>
+                                        <div class="col-md-3 col-6 b-r"> <strong>filier</strong>
                                             <br>
                                             <p class="text-muted">{{$profile->scolaire->filier}}</p>
+                                        </div>
+                                        <div class="col-md-3 col-6"> <strong>code massar</strong>
+                                            <br>
+                                            <p class="text-muted">{{$profile->scolaire->code_massar}}</p>
                                         </div>
                                     </div>
                                     <hr>
                                     <div class="row">
-                                        <div class="col-md-4 col-6"> <strong>code massar</strong>
-                                            <br>
-                                            <p class="text-muted">{{$profile->scolaire->code_massar}}</p>
-                                        </div>
-                                        <div class="col-md-4 col-6 b-r"> <strong>note regional</strong>
+                                        <div class="col-md-3 col-6 b-r"> <strong>note regional</strong>
                                             <br>
                                             <p class="text-muted">{{$profile->scolaire->note_regional}}</p>
                                         </div>
-                                        <div class="col-md-4 col-6 b-r"> <strong>note total / 1er soumetre</strong>
+                                        <div class="col-md-3 col-6 b-r"> <strong> Note National</strong>
                                             <br>
-                                            <p class="text-muted">{{$profile->scolaire->note_total}}</p>
+                                            <p class="text-muted">{{isset($profile->scolaire->Examen_National)?$profile->scolaire->Examen_National:'pas donnée'}}</p>
+                                        </div>
+                                        <div class="col-md-3 col-6 b-r"> <strong> 1er soumetre</strong>
+                                            <br>
+                                            <p class="text-muted">{{isset($profile->scolaire->Note_semestre)?$profile->scolaire->Note_semestre:'pas donnée'}}</p>
+                                        </div>
+                                        <div class="col-md-3 col-6 b-r"> <strong>note total </strong>
+                                            <br>
+                                            <p class="text-muted">{{isset($profile->scolaire->note_total)?$profile->scolaire->note_total:'pas donnée'}}</p>
                                         </div>
                                     </div>
                                     <hr>

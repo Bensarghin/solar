@@ -4,13 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Subscribe;
+
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
 
     /**
      * Show the application dashboard.
@@ -20,5 +17,18 @@ class HomeController extends Controller
     public function index()
     {
         return view('Acc');
+    }
+
+    public function store(Request $request)
+    {
+
+        $request->validate([
+            'email' => 'required|email|unique:subscribes'
+        ]);
+        Subscribe::create([
+            'email' => $request->email
+        ]);
+
+        return redirect()->back()->with('success','Votre Abonneé à été bien enregistrer');
     }
 }

@@ -19,7 +19,7 @@ class EtudiantsController extends Controller
 
     public function index()
     {
-        $profiles = Profile::all();
+        $profiles = Profile::latest()->get();
         return view('backoffice.etudiant.index',[
             'profiles' => $profiles
         ]); 
@@ -93,7 +93,7 @@ class EtudiantsController extends Controller
             'lieu_nais' => $request->lieu_nais,
             'gender' => $request->gender,
         ]);
-        return redirect()->route('etudiant.profile',['id'=>$etudiant->profile->id]);
+        return redirect()->route('etudiants');
     }
 
     // update contact
@@ -121,7 +121,7 @@ class EtudiantsController extends Controller
             'ville_resident' => $request->ville_resident,
             'code_postal' => $request->code_postal
         ]);
-        return redirect()->route('etudiant.profile',['id' => $contact->profile->id]);
+        return redirect()->route('etudiants');
     }
 
     // update scolaire
@@ -159,7 +159,7 @@ class EtudiantsController extends Controller
             'ville_etab_actuel' => $request->ville
         ]);
 
-        return redirect()->route('etudiant.profile',['id' => $scolaire->profile->id]);
+        return redirect()->route('etudiants');    
     }
 
     public function create() {

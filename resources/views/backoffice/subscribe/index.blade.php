@@ -49,7 +49,7 @@
                                                 <td>{{$sub->email}}</td>
                                                 <td>{{$sub->created_at!=''?$sub->created_at->diffForHumans():''}}</td>
                                                 <td>
-                                                    <a href="{{route('sub.delete',['id' => $sub->id])}}"><i class="fa fa-trash"></i></a>
+                                                    <a href="{{route('sub.delete',['id' => $sub->id])}}" onclick="return confirm('Vous voulez vraiment supprimer ce enregistrement??!!');"><i class="fa fa-trash"></i></a>
                                                 </td>
                                             </tr>
                                             @endforeach
